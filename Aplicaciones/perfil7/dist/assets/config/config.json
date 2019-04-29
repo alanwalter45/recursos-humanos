@@ -1,0 +1,7 @@
+
+{
+  "production":false,
+  "ip":"192.168.91.245",
+  "port":5700,
+  "chanel_1":"localhost:3377"
+}

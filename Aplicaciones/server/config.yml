@@ -1,0 +1,17 @@
+---
+  app:
+    gral:
+      production: false
+      secret_api_key: "osiris@@@alanwalter45*"
+      alg: "HS256"
+      credentials_time_minutes: 1200
+    network:
+      ip: "192.168.91.245"
+      port: 3377
+    db:
+      mysql:
+        user: "sistema"
+        password: "alanwalter45db"
+        database: "siget.aw"
+        host: "localhost"
+        port: 3306

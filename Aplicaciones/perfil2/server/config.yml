@@ -1,0 +1,17 @@
+---
+  app:
+    gral:
+      production: false
+      secret_api_key: "recursos@2018//alanwalter45*"
+      alg: "HS256"
+      credentials_time_minutes: 1200
+    network:
+      ip: "192.168.91.245"
+      port: 5200
+    db:
+      mysql:
+        user: "sistema"
+        database: "siget.aw"
+        password: "alanwalter45db"
+        host: "localhost"
+        port: 3306

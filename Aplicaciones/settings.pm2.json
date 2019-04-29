@@ -1,0 +1,35 @@
+{
+    "apps":[{
+	    "cwd":"./",
+        "name":"saith-api",
+        "script":"server/server.js"
+    },{
+	    "cwd":"./perfil1",
+        "name":"saith-perfil1",
+        "script":"server/server.js"
+    },{
+	    "cwd":"./perfil2",
+        "name":"saith-perfil2",
+        "script":"server/server.js"
+    },{
+	    "cwd":"./perfil3",
+        "name":"saith-perfil3",
+        "script":"server/server.js"
+    },{
+	    "cwd":"./perfil4",
+        "name":"saith-perfil4",
+        "script":"server/server.js"
+    },{
+	    "cwd":"./perfil5",
+        "name":"saith-perfil5",
+        "script":"server/server.js"
+    },{
+	    "cwd":"./perfil6",
+        "name":"saith-perfil6",
+        "script":"server/server.js"
+    },{
+	    "cwd":"./perfil7",
+        "name":"saith-perfil7",
+        "script":"server/server.js"
+    }] 
+}
