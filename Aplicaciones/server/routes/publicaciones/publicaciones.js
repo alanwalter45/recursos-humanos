@@ -1,1 +1,145 @@
-var _0x53df=['query','\x0a\x0a\x20\x20\x20\x20SELECT\x20s.nombres,\x0a\x20\x20\x20\x20s.apellido_materno,\x0a\x20\x20\x20\x20s.apellido_paterno,\x0a\x20\x20\x20\x20s.numero_documento,\x0a\x20\x20\x20\x20texto,\x0a\x20\x20\x20\x20tituloEnlace,\x0a\x20\x20\x20\x20textoEnlace,\x0a\x20\x20\x20\x20imagen,\x0a\x20\x20\x20\x20fecha\x0a\x20\x20\x20\x20FROM\x20publicaciones\x20p\x20inner\x20join\x20servidores_publicos\x20s\x20on\x20s.id=p.servidor_publico_id\x0a\x20\x20\x20\x20where\x20numero_documento=?\x0a\x20\x20\x20\x20order\x20by\x20fecha\x20desc\x0a\x20\x20\x20\x20LIMIT\x2015\x0a\x20\x20\x20\x20\x20','status','send','SELECT\x20sp.numero_documento,\x20p.*,\x20\x0a\x20\x20sp.nombres,sp.apellido_paterno,sp.apellido_materno,\x0a\x20\x20\x0a\x20\x20ca.nombre\x20as\x20cargo\x0a\x20\x20FROM\x20publicaciones\x20p\x20INNER\x20JOIN\x20servidores_publicos\x20sp\x20ON\x20p.servidor_publico_id=sp.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INNER\x20JOIN\x20registros\x20reg\x20ON\x20reg.servidor_publico_id=sp.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INNER\x20JOIN\x20estructuras\x20est\x20ON\x20est.id=reg.estructura_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INNER\x20JOIN\x20escalas_salariales\x20esa\x20ON\x20esa.id=est.escala_salarial_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INNER\x20JOIN\x20cargos\x20ca\x20ON\x20ca.id=esa.cargo_id\x0a\x20\x20WHERE\x20reg.mes_id=(select\x20id\x20from\x20meses\x20where\x20selected=1)\x0a\x20\x20ORDER\x20BY\x20fecha\x20DESC\x0a\x20\x20LIMIT\x2015','length','/publicaciones/add','numeroDocumento','imagen','textoEnlace','\x0a\x20\x20\x20\x20insert\x20into\x20publicaciones(servidor_publico_id,texto,tituloEnlace,imagen,textoEnlace,fecha)\x0a\x20\x20\x20\x20select\x20id,?,?,?,?,?\x20from\x20servidores_publicos\x0a\x20\x20\x20\x20where\x20numero_documento=?\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','affectedRows','autorCi','exports','express','Router','./../../databaseMysql','./../../middleware','post','/publicaciones/servant','ensureAuthenticated','parse','body','json'];(function(_0x13281e,_0x171f77){var _0x1ade90=function(_0x1f7785){while(--_0x1f7785){_0x13281e['push'](_0x13281e['shift']());}};_0x1ade90(++_0x171f77);}(_0x53df,0x9e));var _0x3111=function(_0x253fcc,_0x423cb5){_0x253fcc=_0x253fcc-0x0;var _0x163ebf=_0x53df[_0x253fcc];return _0x163ebf;};'use strict';const express=require(_0x3111('0x0'));const router=express[_0x3111('0x1')]();const mysqldb=require(_0x3111('0x2'));const middleware=require(_0x3111('0x3'));router[_0x3111('0x4')](_0x3111('0x5'),middleware[_0x3111('0x6')],(_0x49a084,_0x3d2caa,_0x182e49)=>{let _0x3a7a3b=JSON[_0x3111('0x7')](_0x49a084[_0x3111('0x8')][_0x3111('0x9')]);let _0x4c88f8=_0x3a7a3b['login'];mysqldb[_0x3111('0xa')](_0x3111('0xb'),[_0x4c88f8],function(_0x69869e,_0x3a90ed){if(_0x69869e){throw _0x69869e;}_0x3d2caa[_0x3111('0xc')](0xc8)[_0x3111('0xd')]({'success':_0x3a90ed['length']?!![]:![],'result':_0x3a90ed});});});router['get']('/publicaciones/all',middleware[_0x3111('0x6')],(_0x48ace0,_0x3f2c15,_0x2de1da)=>{mysqldb['query'](_0x3111('0xe'),function(_0x1c2ccd,_0x43ed22){if(_0x1c2ccd){throw _0x1c2ccd;}_0x3f2c15[_0x3111('0xc')](0xc8)[_0x3111('0xd')]({'success':_0x43ed22[_0x3111('0xf')]?!![]:![],'result':_0x43ed22});});});router[_0x3111('0x4')](_0x3111('0x10'),middleware[_0x3111('0x6')],(_0x28b037,_0x19f093,_0x2cedb1)=>{let _0x5b944f=JSON[_0x3111('0x7')](_0x28b037[_0x3111('0x8')][_0x3111('0x9')]);let _0x586907=_0x5b944f[_0x3111('0x11')];let _0x3d1889=_0x5b944f['texto'];let _0x21ba6c=_0x5b944f['tituloEnlace'];let _0x19b41b=_0x5b944f[_0x3111('0x12')];let _0x26f2bf=_0x5b944f[_0x3111('0x13')];let _0x77776e=new Date();mysqldb[_0x3111('0xa')](_0x3111('0x14'),[_0x3d1889,_0x21ba6c,_0x19b41b,_0x26f2bf,_0x77776e,_0x586907],function(_0x549862,_0x326118){if(_0x549862){throw _0x549862;}_0x19f093[_0x3111('0xc')](0xc8)[_0x3111('0xd')]({'success':_0x326118[_0x3111('0x15')]?!![]:![]});});});router[_0x3111('0x4')]('/publicaciones/delete',middleware[_0x3111('0x6')],(_0x57bf57,_0x2aff1c,_0x5cd2b5)=>{let _0x4578f8=JSON[_0x3111('0x7')](_0x57bf57[_0x3111('0x8')][_0x3111('0x9')]);let _0x270760=_0x4578f8[_0x3111('0x16')];mysqldb[_0x3111('0xa')]('\x0a\x20\x20\x20\x20\x20\x20delete\x20from\x20publicaciones\x20where\x20servidor_publico_id=(select\x20id\x20from\x20servidores_publicos\x20where\x20numero_documento=?)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',[_0x270760],function(_0x4949e7,_0x4a7f90){if(_0x4949e7){throw _0x4949e7;}_0x2aff1c['status'](0xc8)[_0x3111('0xd')]({'success':_0x4a7f90[_0x3111('0x15')]?!![]:![]});});});module[_0x3111('0x17')]=router;
+'use strict'
+const express = require('express');
+const router = express.Router();
+const mysqldb = require('./../../databaseMysql');
+const middleware = require('./../../middleware');
+
+
+/**
+ *
+ * @api {post} /publicaciones/servant PUBLICACIONES DE UN SERVIDOR PUBLICO
+ * @apiName OBTENER PROVINCIA
+ * @apiGroup PUBLICACION
+ * @apiDescription obtiene las publicaciones que realizo un servidor publico.
+ * @apiParam  {string} login numero de documento del servidor publico.
+ *
+ */
+
+router.post('/publicaciones/servant', middleware.ensureAuthenticated, (req, res, next) => {
+
+  let json = JSON.parse(req.body.json);
+
+  let login = json.login;
+
+  mysqldb.query(`
+
+    SELECT s.nombres,
+    s.apellido_materno,
+    s.apellido_paterno,
+    s.numero_documento,
+    texto,
+    tituloEnlace,
+    textoEnlace,
+    imagen,
+    fecha
+    FROM publicaciones p inner join servidores_publicos s on s.id=p.servidor_publico_id
+    where numero_documento=?
+    order by fecha desc
+    LIMIT 15
+     `, [login], function (error, results) {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send({ success: results.length ? true : false, result: results });
+    });
+
+});
+
+/**
+ *
+ * @api {get} /publicaciones/all GET 15 PUBLICACIONES
+ * @apiName 15 ULTIMAS PUBLICACIONES
+ * @apiGroup PUBLICACION
+ * @apiDescription obtiene una lista de las 15 ultimas publicaciones realizada.
+ *
+ */
+
+router.get('/publicaciones/all', middleware.ensureAuthenticated, (req, res, next) => {
+  mysqldb.query(`SELECT sp.numero_documento, p.*,
+  sp.nombres,sp.apellido_paterno,sp.apellido_materno,
+
+  ca.nombre as cargo
+  FROM publicaciones p INNER JOIN servidores_publicos sp ON p.servidor_publico_id=sp.id
+                       INNER JOIN registros reg ON reg.servidor_publico_id=sp.id
+                       INNER JOIN estructuras est ON est.id=reg.estructura_id
+                       INNER JOIN escalas_salariales esa ON esa.id=est.escala_salarial_id
+                       INNER JOIN cargos ca ON ca.id=esa.cargo_id
+  WHERE reg.mes_id=(select id from meses where selected=1)
+  ORDER BY fecha DESC
+  LIMIT 15`, function (error, results) {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send({ success: results.length ? true : false, result: results });
+    });
+
+});
+
+/**
+ *
+ * @api {post} /publicaciones/add ADD
+ * @apiName ADICIONA PUBLICACION
+ * @apiGroup PUBLICACION
+ * @apiDescription Adiciona una publicacion al sistema.
+ * @apiParam {string} numeroDocumento numero de carnet de identidad.
+ * @apiParam {string} texto texto descripcion de la publicacion.
+ * @apiParam {string} tituloEnlace titulo del enlace de la publicacion.
+ * @apiParam {string} imagen imagen de la publicacion
+ * @apiParam {string} textoEnlace texto del enlace en la publicacion.
+ *
+ */
+
+router.post('/publicaciones/add', middleware.ensureAuthenticated, (req, res, next) => {
+
+  let json = JSON.parse(req.body.json);
+
+  let numeroDocumento = json.numeroDocumento;
+  let texto = json.texto;
+  let tituloEnlace = json.tituloEnlace;
+  let imagen = json.imagen;
+  let textoEnlace = json.textoEnlace;
+  let fecha = new Date();
+
+  mysqldb.query(`
+    insert into publicaciones(servidor_publico_id,texto,tituloEnlace,imagen,textoEnlace,fecha)
+    select id,?,?,?,?,? from servidores_publicos
+    where numero_documento=?
+                `, [texto, tituloEnlace, imagen, textoEnlace, fecha, numeroDocumento], function (error, results) {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send({ success: results.affectedRows ? true : false });
+
+    });
+
+});
+
+/**
+ *
+ * @api {post} /publicaciones/delete REMOVE
+ * @apiName BORRA PUBLICACION
+ * @apiGroup PUBLICACION
+ * @apiDescription Boora una publicacion al sistema.
+ * @apiParam {string} autorCi numero de carnet de identidad.
+ *
+ */
+
+router.post('/publicaciones/delete', middleware.ensureAuthenticated, (req, res, next) => {
+
+  let json = JSON.parse(req.body.json);
+
+  let numero_documento = json.autorCi;
+
+  mysqldb.query(`
+      delete from publicaciones where servidor_publico_id=(select id from servidores_publicos where numero_documento=?)
+                  `, [numero_documento], function (error, results) {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send({ success: results.affectedRows ? true : false });
+
+    });
+
+});
+
+module.exports = router;

@@ -1,1 +1,56 @@
-var _0x4147=['ensureAuthenticated','query','select\x20*\x20from\x20departamentos','send','/departamentos/get-for-id','parse','body','json','status','length','exports','Router','./../../middleware','./../../databaseMysql','get','/departamentos/get-all'];(function(_0x116643,_0x392d8f){var _0x528e42=function(_0xaf64f6){while(--_0xaf64f6){_0x116643['push'](_0x116643['shift']());}};_0x528e42(++_0x392d8f);}(_0x4147,0x17b));var _0x4086=function(_0x6603b0,_0x29e57c){_0x6603b0=_0x6603b0-0x0;var _0x4a9798=_0x4147[_0x6603b0];return _0x4a9798;};const express=require('express');const router=express[_0x4086('0x0')]();const middleware=require(_0x4086('0x1'));const mysqldb=require(_0x4086('0x2'));router[_0x4086('0x3')](_0x4086('0x4'),middleware[_0x4086('0x5')],(_0x100d9b,_0x5943d1,_0x3b2da0)=>{mysqldb[_0x4086('0x6')](_0x4086('0x7'),(_0x1f1a47,_0x5a0ea1)=>{if(_0x1f1a47){throw _0x1f1a47;}_0x5943d1['status'](0xc8)[_0x4086('0x8')]({'success':_0x5a0ea1['length']?!![]:![],'result':_0x5a0ea1});});});router['post'](_0x4086('0x9'),(_0x5c1b5b,_0x7a11f7,_0x2db88f)=>{const _0x51d83c=JSON[_0x4086('0xa')](_0x5c1b5b[_0x4086('0xb')][_0x4086('0xc')]);const _0x86a590=_0x51d83c['id'];mysqldb[_0x4086('0x6')]('select\x20*\x20FROM\x20departamentos\x20WHERE\x20id\x20=\x20?',[_0x86a590],(_0x3f49e5,_0x4e4926)=>{if(_0x3f49e5){throw _0x3f49e5;}_0x7a11f7[_0x4086('0xd')](0xc8)[_0x4086('0x8')]({'success':_0x4e4926[_0x4086('0xe')]?!![]:![],'result':_0x4e4926});});});module[_0x4086('0xf')]=router;
+const express = require('express');
+const router = express.Router();
+const middleware = require('./../../middleware');
+const mysqldb = require('./../../databaseMysql');
+
+/**
+ *
+ * @api {get} /departamentos/get-all GET ALL
+ * @apiName OBTIENE TODOS LOS DEPARTAMENTOS
+ * @apiGroup DEPARTAMENTO
+ * @apiDescription obtener todos los departamentos registrados en el sistema.
+ *
+ */
+router.get('/departamentos/get-all', middleware.ensureAuthenticated, (req, res, next) => {
+
+  mysqldb.query(`select * from departamentos`, (err, results) => {
+
+    if (err) {
+
+      throw err;
+    }
+
+    res.status(200).send({ success: results.length ? true : false, result: results });
+  });
+});
+
+
+/**
+ *
+ * @api {post} /departamentos/get-for-id GET
+ * @apiName OBTIENE DEPARTAMENTO
+ * @apiGroup DEPARTAMENTO
+ * @apiDescription obtener un departamento por su identificador.
+ * @apiParam {number} id identificador del departamento.
+ *
+ */
+
+router.post('/departamentos/get-for-id', (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+
+  const id = json.id;
+
+  mysqldb.query(`select * FROM departamentos WHERE id = ?`, [id], (err, results) => {
+
+    if (err) {
+
+      throw err;
+    }
+
+    res.status(200).send({ success: results.length ? true : false, result: results });
+  });
+
+});
+
+module.exports = router;

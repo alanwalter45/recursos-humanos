@@ -1,1 +1,167 @@
-var _0x3828=['parse','body','query','\x0a\x20\x20\x20\x20\x20\x20\x20\x20DELETE\x20FROM\x20escalas_salariales\x20WHERE\x20id=?','/escalas-salariales/update','ensureAuthenticated','cargo_id','\x0a\x20\x20\x20\x20\x20\x20\x20\x20UPDATE\x20escalas_salariales\x20set\x20cargo_id=?,\x20nivel_salarial_id=?,\x20fecha_modificacion=?,\x20gestion_id=?\x0a\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20id=?','/escalas-salariales/get-all','get','/escalas-salariales/get-all-gestion-actual','\x0a\x20\x20SELECT\x20es.*,\x20ca.nombre\x20as\x20cargo,ni.nivel,ni.haber_basico\x0a\x20\x20from\x20escalas_salariales\x20es\x20INNER\x20JOIN\x20cargos\x20ca\x20ON\x20es.cargo_id=ca.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INNER\x20JOIN\x20niveles_salariales\x20ni\x20ON\x20es.nivel_salarial_id=ni.id\x0a\x20\x20WHERE\x20es.gestion_id=(SELECT\x20id\x20FROM\x20gestiones\x20WHERE\x20selected=1)\x0a\x20\x20ORDER\x20BY\x20ni.nivel','length','express','Router','moment','./../../middleware','json','nivel_salarial_id','format','YYYY-MM-DD\x20HH:mm:ss','gestion_id','\x0a\x20\x20\x20\x20\x20\x20\x20\x20INSERT\x20INTO\x20escalas_salariales(cargo_id,nivel_salarial_id,fecha_modificacion,gestion_id)\x0a\x20\x20\x20\x20\x20\x20\x20\x20select\x20?,?,?,?\x0a\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20NOT\x20EXISTS(SELECT\x201\x20FROM\x20escalas_salariales\x20WHERE\x20cargo_id=?\x20and\x20nivel_salarial_id=?\x20AND\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gestion_id\x20\x20=\x20?)','status','send','affectedRows','post'];(function(_0x533591,_0x1f9645){var _0x56957a=function(_0x3a78de){while(--_0x3a78de){_0x533591['push'](_0x533591['shift']());}};_0x56957a(++_0x1f9645);}(_0x3828,0xca));var _0x4b2f=function(_0x58fb82,_0xcdfe76){_0x58fb82=_0x58fb82-0x0;var _0x3fb9c2=_0x3828[_0x58fb82];return _0x3fb9c2;};const express=require(_0x4b2f('0x0'));const router=express[_0x4b2f('0x1')]();const moment=require(_0x4b2f('0x2'));const mysqldb=require('./../../databaseMysql');const middleware=require(_0x4b2f('0x3'));router['post']('/escalas-salariales/add',middleware['ensureAuthenticated'],(_0x373746,_0x4202ab,_0x199a80)=>{const _0x3c3d26=JSON['parse'](_0x373746['body'][_0x4b2f('0x4')]);const _0x1efdca=_0x3c3d26['cargo_id'];const _0xff4c26=_0x3c3d26[_0x4b2f('0x5')];const _0x4f7e5e=moment(new Date())[_0x4b2f('0x6')](_0x4b2f('0x7'));const _0x46b6d3=_0x3c3d26[_0x4b2f('0x8')];mysqldb['query'](_0x4b2f('0x9'),[_0x1efdca,_0xff4c26,_0x4f7e5e,_0x46b6d3,_0x1efdca,_0xff4c26,_0x46b6d3],function(_0x24d058,_0x2f8fe2){if(_0x24d058){throw _0x24d058;}_0x4202ab[_0x4b2f('0xa')](0xc8)[_0x4b2f('0xb')]({'success':_0x2f8fe2[_0x4b2f('0xc')]?!![]:![],'result':_0x2f8fe2});});});router[_0x4b2f('0xd')]('/escalas-salariales/remove',middleware['ensureAuthenticated'],(_0x2f2309,_0x32873b,_0x583969)=>{const _0x22e185=JSON[_0x4b2f('0xe')](_0x2f2309[_0x4b2f('0xf')][_0x4b2f('0x4')]);const _0x481634=_0x22e185['id'];mysqldb[_0x4b2f('0x10')](_0x4b2f('0x11'),[_0x481634],function(_0x34d848,_0x289974){if(_0x34d848){throw _0x34d848;}_0x32873b[_0x4b2f('0xa')](0xc8)[_0x4b2f('0xb')]({'success':_0x289974[_0x4b2f('0xc')]?!![]:![],'result':_0x289974});});});router['post'](_0x4b2f('0x12'),middleware[_0x4b2f('0x13')],(_0x547c69,_0x36d386,_0x2bf18d)=>{const _0x2a7616=JSON[_0x4b2f('0xe')](_0x547c69[_0x4b2f('0xf')]['json']);const _0x22c245=_0x2a7616['id'];const _0x30e06b=_0x2a7616[_0x4b2f('0x14')];const _0x5b79d6=_0x2a7616[_0x4b2f('0x5')];const _0x1c9c6e=moment(new Date())['format'](_0x4b2f('0x7'));const _0x5e51bb=_0x2a7616['gestion_id'];mysqldb['query'](_0x4b2f('0x15'),[_0x30e06b,_0x5b79d6,_0x1c9c6e,_0x5e51bb,_0x22c245],function(_0x410e37,_0x576e6c){if(_0x410e37){throw _0x410e37;}_0x36d386['status'](0xc8)[_0x4b2f('0xb')]({'success':_0x576e6c[_0x4b2f('0xc')]?!![]:![],'result':_0x576e6c});});});router[_0x4b2f('0xd')](_0x4b2f('0x16'),middleware[_0x4b2f('0x13')],(_0xe6a641,_0x30e6bb,_0x4f0bed)=>{const _0x5565a6=JSON['parse'](_0xe6a641['body'][_0x4b2f('0x4')]);const _0x57aaf1=_0x5565a6[_0x4b2f('0x8')];mysqldb['query']('\x0a\x20\x20SELECT\x20es.*,\x20ca.nombre\x20as\x20cargo,ni.nivel,ni.haber_basico\x0a\x20\x20from\x20escalas_salariales\x20es\x20INNER\x20JOIN\x20cargos\x20ca\x20ON\x20es.cargo_id=ca.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INNER\x20JOIN\x20niveles_salariales\x20ni\x20ON\x20es.nivel_salarial_id=ni.id\x0a\x20\x20WHERE\x20es.gestion_id=?\x0a\x20\x20ORDER\x20BY\x20ni.nivel\x20asc',[_0x57aaf1],function(_0x4e6c77,_0x49387c){if(_0x4e6c77)throw _0x4e6c77;_0x30e6bb[_0x4b2f('0xa')](0xc8)[_0x4b2f('0xb')]({'success':_0x49387c['length']?!![]:![],'result':_0x49387c});});});router[_0x4b2f('0x17')](_0x4b2f('0x18'),middleware[_0x4b2f('0x13')],(_0x5ea8dd,_0x28104b,_0x412867)=>{mysqldb[_0x4b2f('0x10')](_0x4b2f('0x19'),function(_0x3dd824,_0x41cee1){if(_0x3dd824){throw _0x3dd824;}_0x28104b[_0x4b2f('0xa')](0xc8)[_0x4b2f('0xb')]({'success':_0x41cee1[_0x4b2f('0x1a')]?!![]:![],'result':_0x41cee1});});});module['exports']=router;
+const express = require('express');
+const router = express.Router();
+const moment = require('moment');
+const mysqldb = require('./../../databaseMysql');
+const middleware = require('./../../middleware');
+
+
+/**
+ *
+ * @api {post} /escalas-salariales/add ADD
+ * @apiName ADICIONAR UNA ESCALA SALARIAL
+ * @apiGroup ESCALA SALARIAL
+ * @apiDescription Adiciona una escala salarial.
+ * @apiParam {number} cargo_id identificador del cargo.
+ * @apiParam {number} nivel_salarial_id identificador del nivel salarial.
+ * @apiParam {number} gestion_id identificador de la gestion.
+ *
+ */
+
+router.post('/escalas-salariales/add', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+
+  const cargo_id = json.cargo_id;
+  const nivel_salarial_id = json.nivel_salarial_id;
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+  const gestion_id = json.gestion_id;
+
+
+  mysqldb.query(`
+        INSERT INTO escalas_salariales(cargo_id,nivel_salarial_id,fecha_modificacion,gestion_id)
+        select ?,?,?,?
+        WHERE NOT EXISTS(SELECT 1 FROM escalas_salariales WHERE cargo_id=? and nivel_salarial_id=? AND
+          gestion_id  = ?)`, [cargo_id, nivel_salarial_id, fecha_modificacion, gestion_id, cargo_id, nivel_salarial_id, gestion_id], function (error, results) {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send({ success: results.affectedRows ? true : false, result: results });
+    });
+
+});
+
+
+/**
+ *
+ * @api {post} /escalas-salariales/remove REMOVE
+ * @apiName BOORA ESCALA SALARIAL
+ * @apiGroup ESCALA SALARIAL
+ * @apiDescription Borra una escala salarial.
+ * @apiParam {number} id identificador de la escala salarial.
+ *
+ */
+
+router.post('/escalas-salariales/remove', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+
+  const id = json.id;
+
+
+  mysqldb.query(`
+        DELETE FROM escalas_salariales WHERE id=?`, [id], function (error, results) {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send({ success: results.affectedRows ? true : false, result: results });
+    });
+
+});
+
+/**
+ *
+ * @api {post} /escalas-salariales/update UPDATE
+ * @apiName MODIFICA UNA ESCALA SALARIAL
+ * @apiGroup ESCALA SALARIAL
+ * @apiDescription Modifica una escala salarial.
+ * @apiParam {number} id identificador de la escala salarial.
+ * @apiParam {number} cargo_id identificador del cargo.
+ * @apiParam {number} nivel_salarial_id identificador del nivel salarial.
+ * @apiParam {number} gestion_id identificador de la gestion.
+ *
+ */
+
+
+router.post('/escalas-salariales/update', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+
+  const id = json.id;
+  const cargo_id = json.cargo_id;
+  const nivel_salarial_id = json.nivel_salarial_id;
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+  const gestion_id = json.gestion_id;
+
+
+  mysqldb.query(`
+        UPDATE escalas_salariales set cargo_id=?, nivel_salarial_id=?, fecha_modificacion=?, gestion_id=?
+        WHERE id=?`, [cargo_id, nivel_salarial_id, fecha_modificacion, gestion_id, id], function (error, results) {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send({ success: results.affectedRows ? true : false, result: results });
+    });
+
+})
+
+/**
+ *
+ * @api {post} /escalas-salariales/get-all GET ALL
+ * @apiName OBTIENE TODAS LAS ESCALAS SALARIALES
+ * @apiGroup ESCALA SALARIAL
+ * @apiDescription Obtiene todas las escalas salariales.
+ * @apiParam {number} gestion_id identificador de la gestion.
+ *
+ */
+
+router.post('/escalas-salariales/get-all', middleware.ensureAuthenticated, (req, res, next) => {
+
+
+  const json = JSON.parse(req.body.json);
+
+  const gestion_id = json.gestion_id;
+
+  mysqldb.query(`
+  SELECT es.*, ca.nombre as cargo,ni.nivel,ni.haber_basico
+  from escalas_salariales es INNER JOIN cargos ca ON es.cargo_id=ca.id
+                             INNER JOIN niveles_salariales ni ON es.nivel_salarial_id=ni.id
+  WHERE es.gestion_id=?
+  ORDER BY ni.nivel asc`, [gestion_id], function (error, results) {
+      if (error) throw error;
+
+      res.status(200).send({ success: results.length ? true : false, result: results });
+    });
+
+
+
+});
+
+
+/**
+ *
+ * @api {get} /escalas-salariales/get-all-gestion-actual GET ALL ACTUAL
+ * @apiName OBTIENE TODAS LAS ESCALAS SALARIALES
+ * @apiGroup ESCALA SALARIAL
+ * @apiDescription Obtiene todas las escalas salariales de la gestion actual.
+ *
+ */
+
+router.get('/escalas-salariales/get-all-gestion-actual', middleware.ensureAuthenticated, (req, res, next) => {
+
+
+  mysqldb.query(`
+  SELECT es.*, ca.nombre as cargo,ni.nivel,ni.haber_basico
+  from escalas_salariales es INNER JOIN cargos ca ON es.cargo_id=ca.id
+                                      INNER JOIN niveles_salariales ni ON es.nivel_salarial_id=ni.id
+  WHERE es.gestion_id=(SELECT id FROM gestiones WHERE selected=1)
+  ORDER BY ni.nivel`, function (error, results) {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send({ success: results.length ? true : false, result: results });
+    });
+
+});
+
+
+module.exports = router;

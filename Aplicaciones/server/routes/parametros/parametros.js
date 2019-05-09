@@ -1,1 +1,71 @@
-var _0x3b9c=['status','send','length','/parametros/update','poai_fecha_inicio','format','YYYY-MM-DD','poai_numero_dias','pomi_fecha_inicio','pomi_numero_dias','\x0a\x20\x20UPDATE\x20parametros\x20SET\x20poai_fecha_inicio=?,\x20poai_numero_dias=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pomi_fecha_inicio=?,\x20pomi_numero_dias=?\x0a\x20\x20WHERE\x20gestion_id=?','affectedRows','exports','moment','../../middleware','post','/parametros/get','ensureAuthenticated','parse','body','json','gestion_id','query','\x0a\x20SELECT\x20*\x20from\x20parametros\x0a\x20\x20WHERE\x20gestion_id=?'];(function(_0x4fddbd,_0x57ea63){var _0x12ff8f=function(_0x2777bc){while(--_0x2777bc){_0x4fddbd['push'](_0x4fddbd['shift']());}};_0x12ff8f(++_0x57ea63);}(_0x3b9c,0x6d));var _0x306a=function(_0x2cfe12,_0x29c51d){_0x2cfe12=_0x2cfe12-0x0;var _0x2c7e2e=_0x3b9c[_0x2cfe12];return _0x2c7e2e;};const express=require('express');const router=express['Router']();const moment=require(_0x306a('0x0'));const mysqldb=require('../../databaseMysql');const middleware=require(_0x306a('0x1'));router[_0x306a('0x2')](_0x306a('0x3'),middleware[_0x306a('0x4')],(_0x15e582,_0x462e7f,_0x184b8c)=>{const _0x2018a2=JSON[_0x306a('0x5')](_0x15e582[_0x306a('0x6')][_0x306a('0x7')]);const _0x20a477=_0x2018a2[_0x306a('0x8')];mysqldb[_0x306a('0x9')](_0x306a('0xa'),[_0x20a477],function(_0x525d2f,_0x93f96a){if(_0x525d2f)throw _0x525d2f;_0x462e7f[_0x306a('0xb')](0xc8)[_0x306a('0xc')]({'success':_0x93f96a[_0x306a('0xd')]?!![]:![],'result':_0x93f96a[0x0]});});});router[_0x306a('0x2')](_0x306a('0xe'),middleware[_0x306a('0x4')],(_0x192015,_0x55ea96,_0x32a349)=>{const _0x4aa284=JSON[_0x306a('0x5')](_0x192015[_0x306a('0x6')][_0x306a('0x7')]);const _0x68cbcb=_0x4aa284[_0x306a('0xf')]?moment(_0x4aa284['poai_fecha_inicio'])[_0x306a('0x10')](_0x306a('0x11')):null;const _0x207f84=_0x4aa284[_0x306a('0x12')];const _0x362723=_0x4aa284[_0x306a('0x13')]?moment(_0x4aa284[_0x306a('0x13')])[_0x306a('0x10')](_0x306a('0x11')):null;const _0x5e20f1=_0x4aa284[_0x306a('0x14')];const _0x2dd3dd=_0x4aa284[_0x306a('0x8')];mysqldb['query'](_0x306a('0x15'),[_0x68cbcb,_0x207f84,_0x362723,_0x5e20f1,_0x2dd3dd],function(_0x487d85,_0x3e87a3){if(_0x487d85)throw _0x487d85;_0x55ea96['status'](0xc8)[_0x306a('0xc')]({'success':_0x3e87a3[_0x306a('0x16')]?!![]:![],'result':_0x3e87a3[_0x306a('0x16')]});});});module[_0x306a('0x17')]=router;
+const express = require('express');
+const router = express.Router();
+const moment = require('moment');
+const mysqldb = require('../../databaseMysql');
+const middleware = require('../../middleware');
+
+
+/**
+ *
+ * @api {post} /parametros/get GET
+ * @apiName OBTENER PARAMETROS
+ * @apiGroup PARAMETRO
+ * @apiDescription obtener todos los parametros del sistema durante el anho.
+ * @apiParam {number} gestion_id identificador de la gestion.
+ *
+ */
+
+router.post('/parametros/get', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+  const gestion_id = json.gestion_id;
+
+  mysqldb.query(`
+ SELECT * from parametros
+  WHERE gestion_id=?`, [gestion_id], function (error, results) {
+      if (error) throw error;
+
+      res.status(200).send({ success: results.length ? true : false, result: results[0] });
+    });
+
+});
+
+
+/**
+ * @api {post} /parametros/update UPDATE
+ * @apiName MODIFICA PARAMETROS
+ * @apiGroup PARAMETRO
+ * @apiDescription modifica los parametros del sistema.
+ * @apiParam {date} poai_fecha_inicio fecha de inicio del POAI.
+ * @apiParam {number} poai_numero_dias numero de dias que estara habilitado el POAI.
+ * @apiParam {date} pomi_fecha_inicio fecha de inicio del POMI.
+ * @apiParam {number} pomi_numero_dias numero de dias que estara habilitado el POMI.
+ * @apiParam {number} gestion_id identificador de la gestion.
+ *
+ */
+
+router.post('/parametros/update', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+
+  const poai_fecha_inicio = json.poai_fecha_inicio ? moment(json.poai_fecha_inicio).format('YYYY-MM-DD') : null;
+  const poai_numero_dias = json.poai_numero_dias;
+
+  const pomi_fecha_inicio = json.pomi_fecha_inicio ? moment(json.pomi_fecha_inicio).format('YYYY-MM-DD') : null;
+  const pomi_numero_dias = json.pomi_numero_dias;
+
+  const gestion_id = json.gestion_id;
+
+  mysqldb.query(`
+  UPDATE parametros SET poai_fecha_inicio=?, poai_numero_dias=?,
+                        pomi_fecha_inicio=?, pomi_numero_dias=?
+  WHERE gestion_id=?`, [poai_fecha_inicio, poai_numero_dias, pomi_fecha_inicio, pomi_numero_dias, gestion_id], function (error, results) {
+      if (error) throw error;
+
+      res.status(200).send({ success: results.affectedRows ? true : false, result: results.affectedRows });
+    });
+
+});
+
+
+module.exports = router;

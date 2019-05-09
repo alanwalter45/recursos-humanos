@@ -1,1 +1,152 @@
-var _0xe9f9=['json','codigo','toString','toUpperCase','tipo','unidad_ejecutora','fuente','organismo','\x0a\x20\x20insert\x20into\x20categorias_programaticas(codigo,nombre,tipo,categoria_programatica_padre,gestion_id,unidad_ejecutora,fuente,organismo)\x0a\x20\x20select\x20?,?,?,?,(SELECT\x20id\x20FROM\x20gestiones\x20WHERE\x20selected=1),?,?,?\x0a\x20\x20where\x20not\x20exists(\x20select\x201\x20from\x20categorias_programaticas\x20where\x20codigo\x20=\x20?)','affectedRows','categoria_padre','express','Router','../../databaseMysql','get','query','\x0a\x20\x20select\x20*\x20from\x20categorias_programaticas\x0a\x20\x20where\x20gestion_id=(SELECT\x20id\x20FROM\x20gestiones\x20WHERE\x20selected)\x0a\x20\x20order\x20by\x20codigo\x20asc','status','send','length','/categorias-programaticas/get-all-programas-actual','ensureAuthenticated','\x0a\x20\x20select\x20*\x20from\x20categorias_programaticas\x0a\x20\x20where\x20gestion_id=(SELECT\x20id\x20FROM\x20gestiones\x20WHERE\x20selected)\x20and\x20tipo=\x27PROGRAMA\x27\x0a\x20\x20order\x20by\x20codigo\x20asc','post','/categorias-programaticas/add','parse','body'];(function(_0xf8a5c9,_0x43a0de){var _0x11918f=function(_0x486f8f){while(--_0x486f8f){_0xf8a5c9['push'](_0xf8a5c9['shift']());}};_0x11918f(++_0x43a0de);}(_0xe9f9,0x1bb));var _0x1254=function(_0x13fa9c,_0x4176ce){_0x13fa9c=_0x13fa9c-0x0;var _0xefb27=_0xe9f9[_0x13fa9c];return _0xefb27;};const express=require(_0x1254('0x0'));const router=express[_0x1254('0x1')]();const middleware=require('../../middleware');const mysqldb=require(_0x1254('0x2'));const moment=require('moment');router[_0x1254('0x3')]('/categorias-programaticas/get-all-actual',middleware['ensureAuthenticated'],(_0x28ea88,_0x44fa1e,_0x2d5e7e)=>{mysqldb[_0x1254('0x4')](_0x1254('0x5'),(_0x25b064,_0x3e593b)=>{if(_0x25b064)throw _0x25b064;_0x44fa1e[_0x1254('0x6')](0xc8)[_0x1254('0x7')]({'success':_0x3e593b[_0x1254('0x8')]?!![]:![],'result':_0x3e593b});});});router[_0x1254('0x3')](_0x1254('0x9'),middleware[_0x1254('0xa')],(_0x470075,_0x557692,_0x46150e)=>{mysqldb[_0x1254('0x4')](_0x1254('0xb'),(_0x3f5d28,_0x25d241)=>{if(_0x3f5d28)throw _0x3f5d28;_0x557692['status'](0xc8)[_0x1254('0x7')]({'success':_0x25d241[_0x1254('0x8')]?!![]:![],'result':_0x25d241});});});router[_0x1254('0xc')](_0x1254('0xd'),middleware[_0x1254('0xa')],(_0x4e891f,_0x219c1,_0x31d5d6)=>{const _0x35b50f=JSON[_0x1254('0xe')](_0x4e891f[_0x1254('0xf')][_0x1254('0x10')]);const _0x1fa06d=_0x35b50f[_0x1254('0x11')];const _0x4d2e2b=_0x35b50f['nombre'][_0x1254('0x12')]()[_0x1254('0x13')]();const _0xeb2165=_0x35b50f[_0x1254('0x14')][_0x1254('0x12')]()[_0x1254('0x13')]();const _0x50b0fd=_0x35b50f['categoria_padre'];const _0x12fba0=_0x35b50f[_0x1254('0x15')];const _0x271a35=_0x35b50f[_0x1254('0x16')];const _0x2d57b0=_0x35b50f[_0x1254('0x17')];mysqldb[_0x1254('0x4')](_0x1254('0x18'),[_0x1fa06d,_0x4d2e2b,_0xeb2165,_0x50b0fd,_0x12fba0,_0x271a35,_0x2d57b0,_0x1fa06d],function(_0x39c705,_0x1d84bb){if(_0x39c705)throw _0x39c705;_0x219c1[_0x1254('0x6')](0xc8)[_0x1254('0x7')]({'success':_0x1d84bb['affectedRows']?!![]:![],'result':_0x1d84bb[_0x1254('0x19')]});});});router['post']('/categorias-programaticas/update',middleware[_0x1254('0xa')],(_0x2604f1,_0x547364,_0x4af932)=>{const _0x54ff0c=JSON[_0x1254('0xe')](_0x2604f1['body'][_0x1254('0x10')]);const _0x820cc0=_0x54ff0c['id'];const _0x116bb1=_0x54ff0c['codigo'];const _0x22c83f=_0x54ff0c['nombre'][_0x1254('0x12')]()[_0x1254('0x13')]();const _0x1ae635=_0x54ff0c['tipo']['toString']()[_0x1254('0x13')]();const _0x14cf86=_0x54ff0c[_0x1254('0x1a')];const _0x160fcc=_0x54ff0c[_0x1254('0x15')];const _0x16aea4=_0x54ff0c['fuente'];const _0x6d4b8f=_0x54ff0c[_0x1254('0x17')];mysqldb[_0x1254('0x4')]('\x0a\x20\x20UPDATE\x20categorias_programaticas\x20set\x20codigo=?,\x20nombre=?,tipo=?,categoria_programatica_padre=?\x0a\x20\x20,\x20unidad_ejecutora=?,fuente=?,organismo=?\x0a\x20\x20WHERE\x20id\x20=\x20?',[_0x116bb1,_0x22c83f,_0x1ae635,_0x14cf86,_0x160fcc,_0x16aea4,_0x6d4b8f,_0x820cc0],function(_0xfcb19,_0x3cdfce){if(_0xfcb19)throw _0xfcb19;_0x547364['status'](0xc8)[_0x1254('0x7')]({'success':_0x3cdfce['affectedRows']?!![]:![],'result':_0x3cdfce[_0x1254('0x19')]});});});module['exports']=router;
+const express = require('express');
+const router = express.Router();
+const middleware = require('../../middleware');
+const mysqldb = require('../../databaseMysql');
+const moment = require('moment');
+
+/**
+ *
+ * @api {get} /categorias-programaticas/get-all-actual GET ALL ACTUAL
+ * @apiName OBTENER TODAS LAS CATEGORIAS PROGRAMATICAS
+ * @apiGroup CATEGORIAS PROGRAMATICAS
+ * @apiDescription obteniendo todas la categorias programática del mes en curso.
+ *
+ */
+
+router.get('/categorias-programaticas/get-all-actual', middleware.ensureAuthenticated, (req, res, next) => {
+
+
+  mysqldb.query(`
+  select * from categorias_programaticas
+  where gestion_id=(SELECT id FROM gestiones WHERE selected)
+  order by codigo asc`, (err, results) => {
+
+      if (err)
+        throw err;
+
+
+      res.status(200).send({ success: results.length?true:false, result:results });
+
+    });
+
+});
+
+/**
+ *
+ * @api {get} /categorias-programaticas/get-all-programas-actual GET ALL PROGRAMAS ACTUAL
+ * @apiName OBTENER TODOS LOS PROGRAMAS DE LAS CATEGORIAS PROGRAMATICAS
+ * @apiGroup CATEGORIAS PROGRAMATICAS
+ * @apiDescription obteniendo todos los programas de las categorias programática del mes en curso.
+ *
+ */
+
+router.get('/categorias-programaticas/get-all-programas-actual', middleware.ensureAuthenticated, (req, res, next) => {
+
+  mysqldb.query(`
+  select * from categorias_programaticas
+  where gestion_id=(SELECT id FROM gestiones WHERE selected) and tipo='PROGRAMA'
+  order by codigo asc`, (err, results) => {
+
+      if (err)
+        throw err;
+
+      res.status(200).send({ success: results.length?true:false, result: results });
+
+    });
+
+});
+
+/**
+ *
+ * @api {post} /categorias-programaticas/add ADD
+ * @apiName ADICIONA UNA CATEGORIA PROGRAMATICA
+ * @apiGroup CATEGORIAS PROGRAMATICAS
+ * @apiDescription Adiciona una categoria programática del mes en curso.
+ * @apiParam {string} codigo codigo de la categoria programatica.
+ * @apiParam {string} nombre nombre de la categoria programatica.
+ * @apiParam {string} tipo tipo de la categoria programatica.
+ * @apiParam {string} categoria_padre categoria a la que pertenece la categoria programatica.
+ * @apiParam {string} unidad_ejecutora unidad ejecutora de la categoria programatica.
+ * @apiParam {string} fuente fuente de la categoria programatica.
+ * @apiParam {string} organismo organismo de la categoria programatica.
+ *
+ */
+
+router.post('/categorias-programaticas/add', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+  const codigo = json.codigo;
+  const nombre = json.nombre.toString().toUpperCase();
+  const tipo = json.tipo.toString().toUpperCase();
+  const categoria_padre = json.categoria_padre;
+  const unidad_ejecutora = json.unidad_ejecutora;
+  const fuente = json.fuente;
+  const organismo = json.organismo;
+
+  mysqldb.query(`
+  insert into categorias_programaticas(codigo,nombre,tipo,categoria_programatica_padre,gestion_id,unidad_ejecutora,fuente,organismo)
+  select ?,?,?,?,(SELECT id FROM gestiones WHERE selected=1),?,?,?
+  where not exists( select 1 from categorias_programaticas where codigo = ?)`,[codigo,nombre,tipo,categoria_padre,
+    unidad_ejecutora,
+    fuente,
+    organismo,
+    codigo],function (err,results) {
+
+      if (err)
+        throw err;
+
+
+      res.status(200).send({ success: results.affectedRows?true:false, result: results.affectedRows });
+
+    });
+
+});
+
+
+/**
+ *
+ * @api {post} /categorias-programaticas/update UPDATE
+ * @apiName MODIFICA UNA CATEGORIA PROGRAMATICA
+ * @apiGroup CATEGORIAS PROGRAMATICAS
+ * @apiDescription Modifica una categoria programática del sistema.
+ * @apiParam {number} id identificador de la categoria programatica.
+ * @apiParam {string} codigo codigo de la categoria programatica.
+ * @apiParam {string} nombre nombre de la categoria programatica.
+ * @apiParam {string} tipo tipo de la categoria programatica.
+ * @apiParam {string} categoria_padre categoria a la que pertenece la categoria programatica.
+ * @apiParam {string} unidad_ejecutora unidad ejecutora de la categoria programatica.
+ * @apiParam {string} fuente fuente de la categoria programatica.
+ * @apiParam {string} organismo organismo de la categoria programatica.
+ *
+ */
+
+
+router.post('/categorias-programaticas/update', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+  const id = json.id;
+  const codigo = json.codigo;
+  const nombre = json.nombre.toString().toUpperCase();
+  const tipo = json.tipo.toString().toUpperCase();
+  const categoria_padre = json.categoria_padre;
+  const unidad_ejecutora = json.unidad_ejecutora;
+  const fuente = json.fuente;
+  const organismo = json.organismo;
+
+  mysqldb.query(`
+  UPDATE categorias_programaticas set codigo=?, nombre=?,tipo=?,categoria_programatica_padre=?
+  , unidad_ejecutora=?,fuente=?,organismo=?
+  WHERE id = ?`,[codigo,nombre,tipo,categoria_padre,unidad_ejecutora,fuente,organismo,id],
+  function (err,results) {
+
+      if (err)
+        throw err;
+
+      res.status(200).send({ success:results.affectedRows?true:false, result:results.affectedRows });
+
+    });
+
+});
+
+
+module.exports = router;

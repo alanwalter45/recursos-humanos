@@ -1,1 +1,193 @@
-var _0x58b9=['/cargos/add','json','nombre','toUpperCase','format','\x0a\x20INSERT\x20INTO\x20cargos(nombre,fecha_modificacion,gestion_id)\x0a\x20values\x20(?,?,?)','affectedRows','/cargos/update','YYYY-MM-DD\x20HH:mm:ss','\x0a\x20UPDATE\x20cargos\x20SET\x20nombre=?,fecha_modificacion=?,gestion_id=?\x0a\x20WHERE\x20id=?','/cargos/remove','exports','express','Router','./../../databaseMysql','get','ensureAuthenticated','query','\x0a\x20\x20select\x20car.*,\x20gest.anho\x20as\x20gestion\x20from\x20cargos\x20as\x20car\x20\x20INNER\x20JOIN\x20gestiones\x20as\x20gest\x20ON\x20car.gestion_id=gest.id\x0a\x20\x20order\x20by\x20nombre\x20asc;','send','length','/cargos/get-all-gestion-actual','\x0a\x20\x20select\x20car.*,\x20gest.anho\x20as\x20gestion\x20from\x20cargos\x20as\x20car\x20\x20INNER\x20JOIN\x20gestiones\x20as\x20gest\x20ON\x20car.gestion_id=gest.id\x0a\x20\x20where\x20gestion_id\x20=\x20\x20(select\x20id\x20from\x20gestiones\x20where\x20selected=1)\x0a\x20\x20order\x20by\x20gestion\x20desc;','status','post','/cargos/get-all-gestion','parse','body','gestion_id','\x0a\x20\x20select\x20car.*,\x20gest.anho\x20as\x20gestion\x20from\x20cargos\x20as\x20car\x20\x20INNER\x20JOIN\x20gestiones\x20as\x20gest\x20ON\x20car.gestion_id=gest.id\x0a\x20\x20where\x20gestion_id\x20=\x20\x20?\x0a\x20\x20order\x20by\x20gestion\x20desc;'];(function(_0x5cb3b8,_0x90cfb5){var _0x5c6998=function(_0xfd5ee6){while(--_0xfd5ee6){_0x5cb3b8['push'](_0x5cb3b8['shift']());}};_0x5c6998(++_0x90cfb5);}(_0x58b9,0x11a));var _0x2a3a=function(_0x4203d8,_0x1aa2e9){_0x4203d8=_0x4203d8-0x0;var _0x37735a=_0x58b9[_0x4203d8];return _0x37735a;};const express=require(_0x2a3a('0x0'));const router=express[_0x2a3a('0x1')]();const middleware=require('./../../middleware');const mysqldb=require(_0x2a3a('0x2'));const moment=require('moment');router[_0x2a3a('0x3')]('/cargos/get-all',middleware[_0x2a3a('0x4')],(_0xfc8a92,_0x5b5f99,_0x3daa75)=>{mysqldb[_0x2a3a('0x5')](_0x2a3a('0x6'),(_0x2cb5ca,_0xc2b03)=>{if(_0x2cb5ca){throw _0x2cb5ca;}_0x5b5f99['status'](0xc8)[_0x2a3a('0x7')]({'success':_0xc2b03[_0x2a3a('0x8')]?!![]:![],'result':_0xc2b03});});});router[_0x2a3a('0x3')](_0x2a3a('0x9'),middleware[_0x2a3a('0x4')],(_0x54b0fa,_0x2dd0ae,_0x40379b)=>{mysqldb[_0x2a3a('0x5')](_0x2a3a('0xa'),(_0x1c7ea9,_0x24b723)=>{if(_0x1c7ea9){throw _0x1c7ea9;}_0x2dd0ae[_0x2a3a('0xb')](0xc8)[_0x2a3a('0x7')]({'success':_0x24b723[_0x2a3a('0x8')]?!![]:![],'result':_0x24b723});});});router[_0x2a3a('0xc')](_0x2a3a('0xd'),middleware[_0x2a3a('0x4')],(_0x29ede6,_0x4695c7,_0x1338b4)=>{const _0x5671c3=JSON[_0x2a3a('0xe')](_0x29ede6[_0x2a3a('0xf')]['json']);const _0x1df4a0=_0x5671c3[_0x2a3a('0x10')];mysqldb[_0x2a3a('0x5')](_0x2a3a('0x11'),[_0x1df4a0],(_0x58e617,_0xd0bc06)=>{if(_0x58e617){throw _0x58e617;}_0x4695c7['status'](0xc8)[_0x2a3a('0x7')]({'success':_0xd0bc06[_0x2a3a('0x8')]?!![]:![],'result':_0xd0bc06});});});router[_0x2a3a('0xc')](_0x2a3a('0x12'),middleware['ensureAuthenticated'],(_0x27f2bf,_0x5f13c1,_0x5d05f1)=>{const _0x201fa4=JSON['parse'](_0x27f2bf['body'][_0x2a3a('0x13')]);const _0xa277b=_0x201fa4[_0x2a3a('0x14')]?_0x201fa4[_0x2a3a('0x14')][_0x2a3a('0x15')]():'';const _0x69580b=_0x201fa4[_0x2a3a('0x10')];const _0x152eb4=moment(new Date())[_0x2a3a('0x16')]('YYYY-MM-DD\x20HH:mm:ss');mysqldb['query'](_0x2a3a('0x17'),[_0xa277b,_0x152eb4,_0x69580b],(_0x50f88e,_0xef6e95)=>{if(_0x50f88e){throw _0x50f88e;}_0x5f13c1[_0x2a3a('0xb')](0xc8)[_0x2a3a('0x7')]({'success':_0xef6e95[_0x2a3a('0x18')]?!![]:![],'result':_0xef6e95});});});router['post'](_0x2a3a('0x19'),middleware[_0x2a3a('0x4')],(_0x5d7530,_0x3b4dff,_0x2b0dc3)=>{const _0x2daf5f=JSON[_0x2a3a('0xe')](_0x5d7530['body'][_0x2a3a('0x13')]);const _0x3bba8f=_0x2daf5f['id'];const _0x431a50=_0x2daf5f['nombre']?_0x2daf5f[_0x2a3a('0x14')][_0x2a3a('0x15')]():'';const _0x5b0cb3=_0x2daf5f[_0x2a3a('0x10')];const _0x1e5c72=moment(new Date())[_0x2a3a('0x16')](_0x2a3a('0x1a'));mysqldb['query'](_0x2a3a('0x1b'),[_0x431a50,_0x1e5c72,_0x5b0cb3,_0x3bba8f],(_0x2d83bf,_0x2c69a3)=>{if(_0x2d83bf){throw _0x2d83bf;}_0x3b4dff[_0x2a3a('0xb')](0xc8)[_0x2a3a('0x7')]({'success':_0x2c69a3[_0x2a3a('0x18')]?!![]:![],'result':_0x2c69a3});});});router[_0x2a3a('0xc')](_0x2a3a('0x1c'),middleware[_0x2a3a('0x4')],(_0x5a52b6,_0x2e9fd2,_0x13f74a)=>{const _0xf441eb=JSON[_0x2a3a('0xe')](_0x5a52b6[_0x2a3a('0xf')][_0x2a3a('0x13')]);const _0x4d9194=_0xf441eb['id'];mysqldb[_0x2a3a('0x5')]('\x0a\x20DELETE\x20FROM\x20cargos\x20where\x20id=?',[_0x4d9194],(_0x20868e,_0x3c50f9)=>{if(_0x20868e){throw _0x20868e;}_0x2e9fd2['status'](0xc8)[_0x2a3a('0x7')]({'success':_0x3c50f9[_0x2a3a('0x18')]?!![]:![],'result':_0x3c50f9});});});module[_0x2a3a('0x1d')]=router;
+const express = require('express');
+const router = express.Router();
+const middleware = require('./../../middleware');
+const mysqldb = require('./../../databaseMysql');
+const moment = require('moment');
+
+
+/**
+ *
+ * @api {get} /cargos/get-all GET ALL
+ * @apiName OBTENER CARGOS
+ * @apiGroup CARGO
+ * @apiDescription obtener todos los cargos registrados.
+ *
+ */
+
+router.get('/cargos/get-all',middleware.ensureAuthenticated, (req, res, next) => {
+
+  mysqldb.query(`
+  select car.*, gest.anho as gestion from cargos as car  INNER JOIN gestiones as gest ON car.gestion_id=gest.id
+  order by nombre asc;`,(err,result)=>{
+
+    if(err){
+      throw err;
+    }
+
+    res.status(200).send({ success: result.length?true:false,result });
+  });
+
+
+});
+
+/**
+ *
+ * @api {get} /cargos/get-all-gestion-actual GET ALL GESTION ACTUAL
+ * @apiName OBTENER CARGOS DE LA GESTION ACTUAL
+ * @apiGroup CARGO
+ * @apiDescription obtener todos los cargos registrados en la gestion actual.
+ *
+ */
+
+router.get('/cargos/get-all-gestion-actual',middleware.ensureAuthenticated, (req, res, next) => {
+
+
+  mysqldb.query(`
+  select car.*, gest.anho as gestion from cargos as car  INNER JOIN gestiones as gest ON car.gestion_id=gest.id
+  where gestion_id =  (select id from gestiones where selected=1)
+  order by gestion desc;`,(err,result)=>{
+
+    if(err){
+      throw err;
+    }
+
+    res.status(200).send({ success: result.length?true:false,result });
+  });
+
+
+});
+
+/**
+ *
+ * @api {post} /cargos/get-all-gestion GET ALL GESTION
+ * @apiName OBTENER CARGOS DE UNA GESTION
+ * @apiGroup CARGO
+ * @apiDescription obtener todos los cargos registrados en una gestion.
+ * @apiParam {number} gestion_id identificador de la gestion.
+ *
+ */
+
+router.post('/cargos/get-all-gestion',middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json= JSON.parse(req.body.json);
+  const gestion_id = json.gestion_id;
+
+  mysqldb.query(`
+  select car.*, gest.anho as gestion from cargos as car  INNER JOIN gestiones as gest ON car.gestion_id=gest.id
+  where gestion_id =  ?
+  order by gestion desc;`,[gestion_id],(err,result)=>{
+
+    if(err){
+      throw err;
+    }
+
+    res.status(200).send({ success: result.length?true:false,result });
+  });
+
+
+});
+
+
+/**
+ *
+ * @api {post} /cargos/add ADD
+ * @apiName ADICIONA UN CARGO
+ * @apiGroup CARGO
+ * @apiDescription adiciona un cargo en una gestion.
+ * @apiParam {string} nombre nombre del cargo.
+ * @apiParam {number} gestion_id identificador de la gestion donde se guardara el cargo.
+ *
+ */
+
+
+router.post('/cargos/add',middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json= JSON.parse(req.body.json);
+  const nombre = json.nombre?json.nombre.toUpperCase():'';
+  const gestion_id = json.gestion_id;
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+
+  mysqldb.query(`
+ INSERT INTO cargos(nombre,fecha_modificacion,gestion_id)
+ values (?,?,?)`,[nombre,fecha_modificacion,gestion_id],(err,result)=>{
+
+    if(err){
+      throw err;
+    }
+
+    res.status(200).send({ success: result.affectedRows?true:false,result });
+  });
+
+
+});
+
+
+/**
+ *
+ * @api {post} /cargos/update UPDATE
+ * @apiName MODIFICA UN CARGO
+ * @apiGroup CARGO
+ * @apiDescription Modifica un cargo en una gestion.
+ * @apiParam {number} id identificador del cargo.
+ * @apiParam {string} nombre nombre del cargo.
+ * @apiParam {number} gestion_id identificador de la gestion donde se guardara el cargo.
+ *
+ */
+
+
+router.post('/cargos/update',middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json= JSON.parse(req.body.json);
+  const id = json.id;
+  const nombre = json.nombre?json.nombre.toUpperCase():'';
+  const gestion_id = json.gestion_id;
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+
+  mysqldb.query(`
+ UPDATE cargos SET nombre=?,fecha_modificacion=?,gestion_id=?
+ WHERE id=?`,[nombre,fecha_modificacion,gestion_id,id],(err,result)=>{
+
+    if(err){
+      throw err;
+    }
+
+    res.status(200).send({ success: result.affectedRows?true:false,result });
+  });
+
+
+});
+
+
+
+/**
+ *
+ * @api {post} /cargos/remove REMOVE
+ * @apiName BORRA UN CARGO
+ * @apiGroup CARGO
+ * @apiDescription Borra un cargo en una gestion.
+ * @apiParam {number} id identificador del cargo.
+ *
+ */
+
+
+
+router.post('/cargos/remove',middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json= JSON.parse(req.body.json);
+  const id = json.id;
+
+  mysqldb.query(`
+ DELETE FROM cargos where id=?`,[id],(err,result)=>{
+
+    if(err){
+      throw err;
+    }
+
+    res.status(200).send({ success: result.affectedRows?true:false,result });
+  });
+
+
+});
+
+
+module.exports = router;

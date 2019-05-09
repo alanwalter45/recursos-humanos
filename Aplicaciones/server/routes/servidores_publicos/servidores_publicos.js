@@ -1,1 +1,672 @@
-var _0x2cdf=['codigo_biometrico','update\x20servidores_publicos\x20set\x20codigo_biometrico=?\x0a\x09where\x20numero_documento\x20=\x20?','exports','express','Router','./../../middleware','./../../databaseMysql','moment','get','ensureAuthenticated','query','\x0a\x20\x20SELECT\x20\x0a\x20\x20sp.id,\x0a\x20\x20sp.numero_documento,\x0a\x20\x20sp.nombres,sp.apellido_paterno,sp.apellido_materno,\x0a\x20\x20sp.genero,\x0a\x20\x20sp.fecha_nacimiento,\x0a\x20\x20sp.correo_electronico,\x0a\x20\x20sp.telefono_fijo,\x0a\x20\x20sp.telefono_movil,\x0a\x20\x20sp.estado_civil,\x0a\x20\x20sp.direccion,\x0a\x20\x20sp.departamento_id,\x0a\x20\x20sp.pais_id,\x0a\x20\x20sp.provincia_id,\x0a\x20\x20sp.autorizacion_formulario_informacion_personal,\x0a\x20\x20de.nombre\x20as\x20departamento,\x0a\x20\x20de2.nombre\x20as\x20numero_documento_expedido,\x0a\x20\x20sp.numero_documento_expedido\x20as\x20numero_documento_expedido_id,\x0a\x20\x20sp.codigo_biometrico\x0a\x20\x20FROM\x20servidores_publicos\x20sp\x20LEFT\x20JOIN\x20departamentos\x20de\x20ON\x20sp.departamento_id=de.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20departamentos\x20de2\x20ON\x20sp.numero_documento_expedido=de2.id\x0a\x20\x20ORDER\x20BY\x20sp.apellido_paterno\x20asc\x0a\x20\x20','status','stringify','length','post','/servidores_publicos/update-informacion-general','parse','json','numero_documento','toUpperCase','profesion','nivel_instruccion','matricula_colegio_profesionales','casa_estudios','numero_resolucion_titulo','fecha_emision_titulo','numero_resolucion_provision_nacional','fecha_emision_provision_nacional','titulo_postgrado','casa_estudios_postgrado','numero_resolucion_postgrado','fecha_emision_postgrado','otros_conocimientos','\x0a\x20\x20update\x20inf_academica\x20set\x20profesion=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20nivel_instruccion=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20matricula_colegio_profesionales=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20casa_estudios=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20numero_resolucion_titulo=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_emision_titulo=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20numero_resolucion_provision_nacional=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_emision_provision_nacional\x20=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20titulo_postgrado=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20casa_estudios_postgrado=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20numero_resolucion_postgrado=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_emision_postgrado=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20otros_conocimientos=?\x0a\x20\x20where\x20registro_id=(select\x20id\x20from\x20registros\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20numero_documento=?)','send','affectedRows','/servidores-publicos/update-autorizacion-formulario','autorizacion_formulario_informacion_personal','/servidores-publicos/update','body','nombres','apellido_paterno','apellido_materno','estado_civil','/servidores-publicos/update-autorizacion-formulario-informacion-personal','\x0a\x20\x20update\x20servidores_publicos\x20set\x20autorizacion_formulario_informacion_personal=?\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20where\x20numero_documento=?','/servidores_publicos/update-informacion-contratacion','relacion_laboral','numero_contrato','cargo','lugar_trabajo','fecha_ingreso','fecha_conclusion','motivo_conclusion','estado','forma_ingreso','unidad_trabajo','secretaria','programa_proyecto','es_tecnico_campo','/servidores_publicos/update-informacion-politica','numero_documento_registro','distrito_municipio','region','organizacion_respaldo','representante','\x0a\x20\x20update\x20inf_politica\x20set\x20distrito_municipio=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20region=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20organizacion_respaldo=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20representante=?\x0a\x20\x20where\x20registro_id=(select\x20id\x20from\x20registros\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20numero_documento=?)','/servidores_publicos/update-image','single','imagen','\x0a\x20\x20UPDATE\x20inf_politica\x20SET\x20imagen=?\x0a\x20\x20WHERE\x20registro_id=(SELECT\x20id\x20FROM\x20registros\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20numero_documento=?)','readFileSync','file','propietario','/servidores_publicos/get-image','\x0a\x20\x20SELECT\x20\x20imagen\x20FROM\x20inf_politica\x0a\x20\x20WHERE\x20registro_id=(SELECT\x20id\x20FROM\x20registros\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20numero_documento=?)','/servidores_publicos/update-informacion-inamovilidad','discapacidad','asignacion_familiar','persona_con_discapacidad','tipo_discapacidad','porcentaje_discapacidad','numero_carnet_discapacidad','fecha_emision','fecha_vencimiento','prenatal_inicio','prenatal_conclusion','natalidad','lactancia_inicio','lactancia_conclusion','nombre_del_ninho','\x0a\x20\x20update\x20inf_inamovilidad\x20set\x20discapacidad=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20persona_con_discapacidad=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tipo_discapacidad=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20porcentaje_discapacidad=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20numero_carnet_discapacidad=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_emision=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_vencimiento=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20prenatal_inicio=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20prenatal_conclusion=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20natalidad=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20lactancia_inicio=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20lactancia_conclusion=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20nombre_del_ninho=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20asignacion_familiar=?\x0a\x0a\x20\x20where\x20registro_id=(select\x20id\x20from\x20registros\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20numero_documento=?)','/servidores_publicos/update-informacion-afiliacion','entidad_caja','fecha_conclusion_caja','entidad_afp','fecha_ingreso_afp','\x0a\x20\x20update\x20inf_afiliacion\x20set\x20entidad_caja=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_ingreso_caja=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_conclusion_caja=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20motivo_conclusion_caja=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20entidad_afp=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_ingreso_afp=?\x0a\x20\x20where\x20registro_id=(select\x20id\x20from\x20registros\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20numero_documento=?)','format','YYYY-MM-DD\x20HH:mm:ss','\x0a\x20\x20\x20\x20INSERT\x20INTO\x20servidores_publicos(numero_documento,numero_documento_expedido,nombres,apellido_paterno,\x0a\x20\x20\x20\x20\x20\x20apellido_materno,estado_civil,fecha_modificacion,pais_id,departamento_id)\x0a\x20\x20\x20\x20SELECT\x20?,?,?,?,?,?,?,?,?\x0a\x20\x20\x20\x20WHERE\x20NOT\x20EXISTS(SELECT\x201\x20FROM\x20servidores_publicos\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20numero_documento=?\x20)','insertId','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20insert\x20into\x20inf_afiliacion_caja_salud(servidor_publico_id)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20select\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20not\x20exists(select\x201\x20from\x20inf_afiliacion_caja_salud\x20where\x20servidor_publico_id=?)','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20insert\x20into\x20inf_discapacidad(servidor_publico_id)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20select\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20not\x20exists(select\x201\x20from\x20inf_discapacidad\x20where\x20servidor_publico_id=?)','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20insert\x20into\x20inf_militar(servidor_publico_id)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20select\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20not\x20exists(select\x201\x20from\x20inf_militar\x20where\x20servidor_publico_id=?)','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20insert\x20into\x20inf_redes_sociales(servidor_publico_id)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20select\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20not\x20exists(select\x201\x20from\x20inf_redes_sociales\x20where\x20servidor_publico_id=?)','/servidores_publicos/edit-codigo-biometrico'];(function(_0x376624,_0x145da2){var _0x3e3b44=function(_0x29994f){while(--_0x29994f){_0x376624['push'](_0x376624['shift']());}};_0x3e3b44(++_0x145da2);}(_0x2cdf,0x6f));var _0xad82=function(_0x1e7e2c,_0x1a426f){_0x1e7e2c=_0x1e7e2c-0x0;var _0x2b6ed9=_0x2cdf[_0x1e7e2c];return _0x2b6ed9;};const express=require(_0xad82('0x0'));const router=express[_0xad82('0x1')]();const middleware=require(_0xad82('0x2'));const mysqldb=require(_0xad82('0x3'));const multer=require('multer');const upload=multer({'dest':__dirname+'/public/assets/photos'});const fs=require('fs');const moment=require(_0xad82('0x4'));router[_0xad82('0x5')]('/servidores_publicos/get-all',middleware[_0xad82('0x6')],(_0x310dac,_0x23f18f,_0x4b3205)=>{mysqldb[_0xad82('0x7')](_0xad82('0x8'),function(_0x32b3f8,_0x4b2a0a){if(_0x32b3f8)throw _0x32b3f8;_0x23f18f[_0xad82('0x9')](0xc8)['send'](JSON[_0xad82('0xa')]({'success':_0x4b2a0a[_0xad82('0xb')]?!![]:![],'result':_0x4b2a0a}));});});router[_0xad82('0xc')](_0xad82('0xd'),middleware['ensureAuthenticated'],(_0xdbaa33,_0x28c719,_0x2b58df)=>{json=JSON[_0xad82('0xe')](_0xdbaa33['body'][_0xad82('0xf')]);const _0x3fb9b4=json[_0xad82('0x10')][_0xad82('0x11')]();const _0x4e60d0=json['profesion']?json[_0xad82('0x12')][_0xad82('0x11')]():null;const _0x40fb59=json['nivel_instruccion']?json[_0xad82('0x13')]['toUpperCase']():null;const _0x55d913=json[_0xad82('0x14')]?json['matricula_colegio_profesionales'][_0xad82('0x11')]():null;const _0x19fd7c=json[_0xad82('0x15')]?json[_0xad82('0x15')][_0xad82('0x11')]():null;const _0x9fb610=json['numero_resolucion_titulo']?json[_0xad82('0x16')][_0xad82('0x11')]():null;const _0x1f9ae2=json[_0xad82('0x17')];const _0x2c87ed=json[_0xad82('0x18')]?json[_0xad82('0x18')][_0xad82('0x11')]():null;const _0x1624b6=json[_0xad82('0x19')];const _0x4d6986=json[_0xad82('0x1a')]?json[_0xad82('0x1a')][_0xad82('0x11')]():null;const _0x2d24ca=json[_0xad82('0x1b')]?json['casa_estudios_postgrado'][_0xad82('0x11')]():null;const _0x10d674=json['numero_resolucion_postgrado']?json[_0xad82('0x1c')][_0xad82('0x11')]():null;const _0x413e67=json[_0xad82('0x1d')];const _0x47e837=json[_0xad82('0x1e')]?json[_0xad82('0x1e')]['toUpperCase']():null;mysqldb[_0xad82('0x7')](_0xad82('0x1f'),[_0x4e60d0,_0x40fb59,_0x55d913,_0x19fd7c,_0x9fb610,_0x1f9ae2,_0x2c87ed,_0x1624b6,_0x4d6986,_0x2d24ca,_0x10d674,_0x413e67,_0x47e837,_0x3fb9b4],function(_0xf50df7,_0x5940e0){if(_0xf50df7)throw _0xf50df7;_0x28c719[_0xad82('0x9')](0xc8)[_0xad82('0x20')]({'success':_0x5940e0[_0xad82('0x21')]?!![]:![]});});});router[_0xad82('0xc')](_0xad82('0x22'),middleware[_0xad82('0x6')],(_0x394ec3,_0x5a542d,_0xb11ebb)=>{json=JSON[_0xad82('0xe')](_0x394ec3['body'][_0xad82('0xf')]);const _0x21cd33=json[_0xad82('0x10')]?json[_0xad82('0x10')][_0xad82('0x11')]():0x0;const _0x3373a2=!json[_0xad82('0x23')];mysqldb[_0xad82('0x7')]('\x0a\x20\x20update\x20servidores_publicos\x20set\x20autorizacion_formulario_informacion_personal=?\x0a\x20\x20where\x20numero_documento=?',[_0x3373a2,_0x21cd33],function(_0xc653b7,_0x370d36){if(_0xc653b7)throw _0xc653b7;_0x5a542d[_0xad82('0x9')](0xc8)[_0xad82('0x20')]({'success':_0x370d36[_0xad82('0x21')]?!![]:![]});});});router['post'](_0xad82('0x24'),middleware['ensureAuthenticated'],(_0x4f76e6,_0x20897a,_0x53d26d)=>{json=JSON[_0xad82('0xe')](_0x4f76e6[_0xad82('0x25')][_0xad82('0xf')]);const _0x454a25=json['numero_documento'];const _0x557244=json['numero_documento_expedido'];const _0x20432f=json[_0xad82('0x26')][_0xad82('0x11')]();const _0x5eaf7f=json[_0xad82('0x27')][_0xad82('0x11')]();const _0x5d5e81=json[_0xad82('0x28')]['toUpperCase']();const _0x443bec=json[_0xad82('0x29')][_0xad82('0x11')]();mysqldb['query']('\x0a\x20\x20update\x20servidores_publicos\x20set\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20numero_documento_expedido=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20nombres=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20apellido_paterno=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20apellido_materno=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20estado_civil=?\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20where\x20numero_documento=?',[_0x557244,_0x20432f,_0x5eaf7f,_0x5d5e81,_0x443bec,_0x454a25],function(_0x624627,_0x1b7ad7){if(_0x624627)throw _0x624627;_0x20897a[_0xad82('0x9')](0xc8)[_0xad82('0x20')]({'success':_0x1b7ad7[_0xad82('0x21')]?!![]:![]});});});router[_0xad82('0xc')](_0xad82('0x2a'),middleware[_0xad82('0x6')],(_0x3ebbc5,_0xd0cf3e,_0x1caef8)=>{json=JSON[_0xad82('0xe')](_0x3ebbc5['body'][_0xad82('0xf')]);const _0x4bff75=json['numero_documento'];mysqldb[_0xad82('0x7')](_0xad82('0x2b'),[0x1,_0x4bff75],function(_0x3c8bae,_0x489d12){if(_0x3c8bae)throw _0x3c8bae;_0xd0cf3e[_0xad82('0x9')](0xc8)[_0xad82('0x20')]({'success':_0x489d12[_0xad82('0x21')]?!![]:![]});});});router['post'](_0xad82('0x2c'),middleware[_0xad82('0x6')],(_0x53656e,_0x130141,_0x2befb1)=>{json=JSON[_0xad82('0xe')](_0x53656e[_0xad82('0x25')][_0xad82('0xf')]);const _0x46e440=json['numero_documento_registro'][_0xad82('0x11')]();const _0x55d300=json[_0xad82('0x2d')]?json[_0xad82('0x2d')][_0xad82('0x11')]():null;const _0x3d37b8=json[_0xad82('0x10')]?json[_0xad82('0x10')][_0xad82('0x11')]():null;const _0x1bcf80=json[_0xad82('0x2e')]?json[_0xad82('0x2e')][_0xad82('0x11')]():null;const _0x48aa9=json[_0xad82('0x2f')]?json[_0xad82('0x2f')][_0xad82('0x11')]():null;const _0x5dcbba=json['nivel_salarial']?json['nivel_salarial']:null;const _0x160540=json['haber_basico']?json['haber_basico']:null;const _0x436a87=json[_0xad82('0x30')]?json[_0xad82('0x30')][_0xad82('0x11')]():null;const _0x2b7306=json[_0xad82('0x31')]?json[_0xad82('0x31')][_0xad82('0x11')]():null;const _0x3b8874=json['fecha_conclusion']?json[_0xad82('0x32')]['toUpperCase']():null;const _0x38f386=json[_0xad82('0x33')]?json[_0xad82('0x33')][_0xad82('0x11')]():null;const _0x8eb044=json[_0xad82('0x34')]?json['estado'][_0xad82('0x11')]():null;const _0x109d7d=json[_0xad82('0x35')]?json[_0xad82('0x35')][_0xad82('0x11')]():null;const _0x2cb4a6=json[_0xad82('0x36')]?json[_0xad82('0x36')][_0xad82('0x11')]():null;const _0x2811fd=json[_0xad82('0x37')]?json['secretaria'][_0xad82('0x11')]():null;const _0x50d014=json[_0xad82('0x38')]?json[_0xad82('0x38')][_0xad82('0x11')]():null;const _0x50d183=json[_0xad82('0x39')]?json[_0xad82('0x39')][_0xad82('0x11')]():null;mysqldb[_0xad82('0x7')]('\x0a\x20\x20update\x20inf_contratacion\x20set\x20relacion_laboral=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20numero_documento=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20numero_contrato=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cargo=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20nivel_salarial=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20haber_basico=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20lugar_trabajo=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_ingreso=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fecha_conclusion\x20=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20motivo_conclusion=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20estado=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20forma_ingreso=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20unidad_trabajo=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20secretaria=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20programa_proyecto=?,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20es_tecnico_campo=?\x0a\x20\x20where\x20registro_id=(select\x20id\x20from\x20registros\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20numero_documento=?)',[_0x55d300,_0x3d37b8,_0x1bcf80,_0x48aa9,_0x5dcbba,_0x160540,_0x436a87,_0x2b7306,_0x3b8874,_0x38f386,_0x8eb044,_0x109d7d,_0x2cb4a6,_0x2811fd,_0x50d014,_0x50d183,_0x46e440],function(_0x4b4e09,_0x45e762){if(_0x4b4e09)throw _0x4b4e09;_0x130141[_0xad82('0x9')](0xc8)[_0xad82('0x20')]({'success':_0x45e762[_0xad82('0x21')]?!![]:![]});});});router[_0xad82('0xc')](_0xad82('0x3a'),middleware[_0xad82('0x6')],(_0x2bfa7e,_0x4b541f,_0x40f809)=>{json=JSON['parse'](_0x2bfa7e[_0xad82('0x25')][_0xad82('0xf')]);const _0x29e316=json[_0xad82('0x3b')][_0xad82('0x11')]();const _0x2b278b=json['distrito_municipio']?json[_0xad82('0x3c')][_0xad82('0x11')]():null;const _0x1556da=json['region']?json[_0xad82('0x3d')][_0xad82('0x11')]():null;const _0x643c7c=json[_0xad82('0x3e')]?json[_0xad82('0x3e')][_0xad82('0x11')]():null;const _0x264542=json[_0xad82('0x3f')]?json['representante'][_0xad82('0x11')]():null;mysqldb['query'](_0xad82('0x40'),[_0x2b278b,_0x1556da,_0x643c7c,_0x264542,_0x29e316],function(_0x5d9273,_0x4248bc){if(_0x5d9273)throw _0x5d9273;_0x4b541f[_0xad82('0x9')](0xc8)[_0xad82('0x20')]({'success':_0x4248bc[_0xad82('0x21')]?!![]:![]});});});router[_0xad82('0xc')](_0xad82('0x41'),upload[_0xad82('0x42')](_0xad82('0x43')),(_0x311c82,_0x469a90,_0x46f8fa)=>{mysqldb[_0xad82('0x7')](_0xad82('0x44'),[fs[_0xad82('0x45')](_0x311c82[_0xad82('0x46')]['path']),_0x311c82['body'][_0xad82('0x47')]['toUpperCase']()],function(_0x455b89,_0x323a7e){if(_0x455b89)throw _0x455b89;_0x469a90[_0xad82('0x9')](0xc8)[_0xad82('0x20')]({'success':_0x323a7e[_0xad82('0x21')]?!![]:![],'result':_0x311c82[_0xad82('0x46')]});});});router['post'](_0xad82('0x48'),upload[_0xad82('0x42')]('imagen'),(_0xad9099,_0x5abd68,_0xcbb1d6)=>{const _0x5090bf=JSON[_0xad82('0xe')](_0xad9099[_0xad82('0x25')][_0xad82('0xf')]);const _0x240a56=_0x5090bf['numero_documento'];mysqldb['query'](_0xad82('0x49'),[_0x240a56],function(_0xe1deee,_0x4e7ec5){if(_0xe1deee)throw _0xe1deee;_0x5abd68[_0xad82('0x9')](0xc8)[_0xad82('0x20')]({'success':_0x4e7ec5[_0xad82('0xb')]?!![]:![],'result':_0x4e7ec5[0x0]});});});router['post'](_0xad82('0x4a'),middleware[_0xad82('0x6')],(_0x33af5a,_0x46a982,_0x657268)=>{json=JSON[_0xad82('0xe')](_0x33af5a[_0xad82('0x25')]['json']);const _0x1e9a97=json[_0xad82('0x3b')][_0xad82('0x11')]();const _0x269532=json[_0xad82('0x4b')]?json[_0xad82('0x4b')]:null;const _0x1508c0=json[_0xad82('0x4c')]?json['asignacion_familiar']:null;const _0x3931f1=json[_0xad82('0x4d')]?json[_0xad82('0x4d')][_0xad82('0x11')]():null;const _0x58b979=json[_0xad82('0x4e')]?json[_0xad82('0x4e')][_0xad82('0x11')]():null;const _0x2b10fc=json['porcentaje_discapacidad']?json[_0xad82('0x4f')]:null;const _0x40e2d3=json[_0xad82('0x50')]?json['numero_carnet_discapacidad'][_0xad82('0x11')]():null;const _0x53f6b5=json[_0xad82('0x51')]?json[_0xad82('0x51')]:null;const _0x2a4161=json[_0xad82('0x52')]?json[_0xad82('0x52')]:null;const _0x4793ae=json[_0xad82('0x53')]?json[_0xad82('0x53')]:null;const _0x1ef932=json['prenatal_conclusion']?json[_0xad82('0x54')]:null;const _0x1fc84d=json[_0xad82('0x55')]?json[_0xad82('0x55')]:null;const _0x51b020=json[_0xad82('0x56')]?json[_0xad82('0x56')]:null;const _0x4e64e1=json[_0xad82('0x57')]?json[_0xad82('0x57')]:null;const _0x1c0829=json[_0xad82('0x58')]?json[_0xad82('0x58')][_0xad82('0x11')]():null;mysqldb['query'](_0xad82('0x59'),[_0x269532,_0x3931f1,_0x58b979,_0x2b10fc,_0x40e2d3,_0x53f6b5,_0x2a4161,_0x4793ae,_0x1ef932,_0x1fc84d,_0x51b020,_0x4e64e1,_0x1c0829,_0x1508c0,_0x1e9a97],function(_0x3c12aa,_0x2e5647){if(_0x3c12aa)throw _0x3c12aa;_0x46a982['status'](0xc8)[_0xad82('0x20')]({'success':_0x2e5647['affectedRows']?!![]:![]});});});router[_0xad82('0xc')](_0xad82('0x5a'),middleware[_0xad82('0x6')],(_0xc1ab70,_0x126b23,_0x55b163)=>{json=JSON['parse'](_0xc1ab70[_0xad82('0x25')][_0xad82('0xf')]);const _0x1a3ea2=json['numero_documento_registro'][_0xad82('0x11')]();const _0x4dfae9=json[_0xad82('0x5b')]?json['entidad_caja'][_0xad82('0x11')]():null;const _0x3ed80d=json[_0xad82('0x5c')]?json['fecha_ingreso_caja']:null;const _0x431daa=json['fecha_conclusion_caja']?json[_0xad82('0x5c')]:null;const _0x1c1088=json['motivo_conclusion_caja']?json['motivo_conclusion_caja']['toUpperCase']():null;const _0x3b7380=json['entidad_afp']?json[_0xad82('0x5d')][_0xad82('0x11')]():null;const _0x42bd3e=json[_0xad82('0x5e')]?json[_0xad82('0x5e')]:null;mysqldb[_0xad82('0x7')](_0xad82('0x5f'),[_0x4dfae9,_0x3ed80d,_0x431daa,_0x1c1088,_0x3b7380,_0x42bd3e,_0x1a3ea2],function(_0x54e7e6,_0x29f64a){if(_0x54e7e6)throw _0x54e7e6;_0x126b23['status'](0xc8)[_0xad82('0x20')]({'success':_0x29f64a[_0xad82('0x21')]?!![]:![]});});});router[_0xad82('0xc')]('/servidores-publicos/add',middleware['ensureAuthenticated'],(_0x54cf2e,_0x245c28,_0xe971f1)=>{json=JSON[_0xad82('0xe')](_0x54cf2e[_0xad82('0x25')][_0xad82('0xf')]);const _0x148fd6=json[_0xad82('0x10')][_0xad82('0x11')]();const _0x2c1ff7=json['numero_documento_expedido'];const _0x2362d3=json['nombres'][_0xad82('0x11')]();const _0x28b4dd=json[_0xad82('0x27')]['toUpperCase']();const _0x8a8996=json[_0xad82('0x28')][_0xad82('0x11')]();const _0x110112=json[_0xad82('0x29')][_0xad82('0x11')]();const _0x68f9ac=moment(new Date())[_0xad82('0x60')](_0xad82('0x61'));mysqldb[_0xad82('0x7')](_0xad82('0x62'),[_0x148fd6,_0x2c1ff7,_0x2362d3,_0x28b4dd,_0x8a8996,_0x110112,_0x68f9ac,0x1,0x9,_0x148fd6],function(_0x51b0a0,_0x591f3b){if(_0x51b0a0)throw _0x51b0a0;mysqldb[_0xad82('0x7')]('\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20insert\x20into\x20inf_afiliacion_afp(servidor_publico_id)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20select\x20?\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20not\x20exists(select\x201\x20from\x20inf_afiliacion_afp\x20where\x20servidor_publico_id=?)',[_0x591f3b[_0xad82('0x63')],_0x591f3b['insertId']],function(_0x364e5a){if(_0x364e5a)throw _0x364e5a;});mysqldb['query'](_0xad82('0x64'),[_0x591f3b[_0xad82('0x63')],_0x591f3b['insertId']],function(_0x2fef69){if(_0x2fef69)throw _0x2fef69;});mysqldb[_0xad82('0x7')](_0xad82('0x65'),[_0x591f3b[_0xad82('0x63')],_0x591f3b['insertId']],function(_0x2f4c62){if(_0x2f4c62)throw _0x2f4c62;});mysqldb[_0xad82('0x7')](_0xad82('0x66'),[_0x591f3b[_0xad82('0x63')],_0x591f3b['insertId']],function(_0x480dd5){if(_0x480dd5)throw _0x480dd5;});mysqldb[_0xad82('0x7')](_0xad82('0x67'),[_0x591f3b[_0xad82('0x63')],_0x591f3b[_0xad82('0x63')]],function(_0x18057b){if(_0x18057b)throw _0x18057b;});_0x245c28[_0xad82('0x9')](0xc8)['send']({'success':_0x591f3b[_0xad82('0x63')]?!![]:![],'result':_0x591f3b[_0xad82('0x63')]});});});router['post'](_0xad82('0x68'),middleware['ensureAuthenticated'],(_0x3515d7,_0x58ac1b,_0x3901ea)=>{let _0x3310df=JSON[_0xad82('0xe')](_0x3515d7['body']['json']);let _0x5121af=_0x3310df['numero_documento'];let _0x54ac44=_0x3310df[_0xad82('0x69')];mysqldb['query'](_0xad82('0x6a'),[_0x54ac44,_0x5121af],function(_0x483dca,_0x552e4c){if(_0x483dca)throw _0x483dca;_0x58ac1b[_0xad82('0x9')](0xc8)[_0xad82('0x20')]({'success':_0x552e4c[_0xad82('0x21')]?!![]:![]});});});module[_0xad82('0x6b')]=router;
+const express = require('express');
+const router = express.Router();
+const middleware = require('./../../middleware');
+const mysqldb = require('./../../databaseMysql');
+const multer = require('multer');
+const upload = multer({ dest: __dirname + '/public/assets/photos' });
+const fs = require('fs');
+const moment = require('moment');
+
+
+/**
+ * @api {get} /servidores_publicos/get-all GET ALL
+ * @apiName OBTIENE TODOS LOS SERVIDORES PÚBLICOS DEl SISTEMA
+ * @apiGroup SERVIDORES PUBLICOS DEL SISTEMA
+ *
+ * @apiDescription Obtiene los documentos presentados de un registro
+ *
+ */
+
+router.get('/servidores_publicos/get-all', middleware.ensureAuthenticated, (req, res, next) => {
+
+  mysqldb.query(`
+  SELECT
+  sp.id,
+  sp.numero_documento,
+  sp.nombres,sp.apellido_paterno,sp.apellido_materno,
+  sp.genero,
+  sp.fecha_nacimiento,
+  sp.correo_electronico,
+  sp.telefono_fijo,
+  sp.telefono_movil,
+  sp.estado_civil,
+  sp.direccion,
+  sp.departamento_id,
+  sp.pais_id,
+  sp.provincia_id,
+  sp.autorizacion_formulario_informacion_personal,
+  de.nombre as departamento,
+  de2.nombre as numero_documento_expedido,
+  sp.numero_documento_expedido as numero_documento_expedido_id,
+  sp.codigo_biometrico
+  FROM servidores_publicos sp LEFT JOIN departamentos de ON sp.departamento_id=de.id
+                              LEFT JOIN departamentos de2 ON sp.numero_documento_expedido=de2.id
+  ORDER BY sp.apellido_paterno asc
+  `, function (err, result) {
+
+      if (err) throw err;
+      res.status(200).send(JSON.stringify({ success: result.length ? true : false, result }));
+
+    });
+});
+
+/**
+ *
+ * @api {post} /servidores_publicos/update-informacion-general UPDATE INFORMACION GENERAL.
+ * @apiName MODIFICA INFORMACION GENERAL
+ * @apiGroup SERVIDORES PUBLICOS DEL SISTEMA
+ * @apiDescription actualiza la informacion general de registro.
+ * @apiParam {string} numero_documento numero del carnet de identidad.
+ * @apiParam {string} profesion profesion.
+ * @apiParam  {string} nivel_instruccion nivel de instruccion.
+ * @apiParam  {strgin} matricula_colegio_profesionales matricula del colegio de profesionales.
+ * @apiParam  {string} casa_estudios casa de estudios.
+ * @apiParam  {string} numero_resolucion_titulo numero de resolucion del titulo.
+ * @apiParam  {date} fecha_emision_titulo fecha de emision del titulo.
+ * @apiParam  {string} numero_resolucion_provision_nacional numero de resolucion de provision nacional.
+ * @apiParam  {date} fecha_emision_provision_nacional fecha de emision provision nacional.
+ * @apiParam  {string} titulo_postgrado titulo del postgrado.
+ * @apiParam  {string} casa_estudios_postgrado casa de estudios postgrado.
+ * @apiParam  {string} numero_resolucion_postgrado numero de resolucion de postagrado.
+ * @apiParam  {date} fecha_emision_postgrado fecha de emision postgrado.
+ * @apiParam  {string} otros_conocimientos otros conocimientos.
+ *
+ */
+
+router.post('/servidores_publicos/update-informacion-general', middleware.ensureAuthenticated, (req, res, next) => {
+
+  json = JSON.parse(req.body.json);
+  const numero_documento = json.numero_documento.toUpperCase();
+  const profesion = json.profesion ? json.profesion.toUpperCase() : null;
+  const nivel_instruccion = json.nivel_instruccion ? json.nivel_instruccion.toUpperCase() : null;
+  const matricula_colegio_profesionales = json.matricula_colegio_profesionales ? json.matricula_colegio_profesionales.toUpperCase() : null;
+  const casa_estudios = json.casa_estudios ? json.casa_estudios.toUpperCase() : null;
+  const numero_resolucion_titulo = json.numero_resolucion_titulo ? json.numero_resolucion_titulo.toUpperCase() : null;
+  const fecha_emision_titulo = json.fecha_emision_titulo;
+  const numero_resolucion_provision_nacional = json.numero_resolucion_provision_nacional ? json.numero_resolucion_provision_nacional.toUpperCase() : null;
+  const fecha_emision_provision_nacional = json.fecha_emision_provision_nacional;
+  const titulo_postgrado = json.titulo_postgrado ? json.titulo_postgrado.toUpperCase() : null;
+  const casa_estudios_postgrado = json.casa_estudios_postgrado ? json.casa_estudios_postgrado.toUpperCase() : null;
+  const numero_resolucion_postgrado = json.numero_resolucion_postgrado ? json.numero_resolucion_postgrado.toUpperCase() : null;
+  const fecha_emision_postgrado = json.fecha_emision_postgrado;
+  const otros_conocimientos = json.otros_conocimientos ? json.otros_conocimientos.toUpperCase() : null;
+
+  mysqldb.query(`
+  update inf_academica set profesion=?,
+                       nivel_instruccion=?,
+                       matricula_colegio_profesionales=?,
+                       casa_estudios=?,
+                       numero_resolucion_titulo=?,
+                       fecha_emision_titulo=?,
+                       numero_resolucion_provision_nacional=?,
+                       fecha_emision_provision_nacional =?,
+                       titulo_postgrado=?,
+                       casa_estudios_postgrado=?,
+                       numero_resolucion_postgrado=?,
+                       fecha_emision_postgrado=?,
+                       otros_conocimientos=?
+  where registro_id=(select id from registros
+                      where numero_documento=?)`, [profesion,
+      nivel_instruccion,
+      matricula_colegio_profesionales,
+      casa_estudios,
+      numero_resolucion_titulo,
+      fecha_emision_titulo,
+      numero_resolucion_provision_nacional,
+      fecha_emision_provision_nacional,
+      titulo_postgrado,
+      casa_estudios_postgrado,
+      numero_resolucion_postgrado,
+      fecha_emision_postgrado,
+      otros_conocimientos,
+      numero_documento], function (err, results) {
+
+        if (err)
+          throw err;
+
+        res.status(200).send({ success: results.affectedRows ? true : false });
+      });
+});
+
+
+
+/**
+ *
+ * @api {post} /servidores_publicos/update-autorizacion-formulario UPDATE AUTORIZACION FORMULARIO.
+ * @apiName MODIFICA AUTORIZACION FORMULARIO
+ * @apiGroup SERVIDORES PUBLICOS DEL SISTEMA
+ * @apiDescription actualiza la autorizacion del formulario.
+ * @apiParam {string} numero_documento numero del carnet de identidad.
+ * @apiParam {string} autorizacion_formulario_informacion_personal autorizacion del formulario personal.
+ *
+ */
+
+
+
+router.post('/servidores-publicos/update-autorizacion-formulario', middleware.ensureAuthenticated, (req, res, next) => {
+
+  json = JSON.parse(req.body.json);
+  const numero_documento = json.numero_documento ? json.numero_documento.toUpperCase() : 0;
+  const autorizacion_formulario_informacion_personal = !json.autorizacion_formulario_informacion_personal;
+
+
+  mysqldb.query(`
+  update servidores_publicos set autorizacion_formulario_informacion_personal=?
+  where numero_documento=?`, [autorizacion_formulario_informacion_personal, numero_documento], function (err, results) {
+
+      if (err)
+        throw err;
+
+      res.status(200).send({ success: results.affectedRows ? true : false });
+    });
+});
+
+/**
+ *
+ * @api {post} /servidores_publicos/update UPDATE SERVIDOR PUBLICO.
+ * @apiName MODIFICA SERVIDOR PUBLICO
+ * @apiGroup SERVIDORES PUBLICOS DEL SISTEMA
+ * @apiDescription modifica la informacion de los servidores publicos.
+ * @apiParam {string} numero_documento numero del carnet de identidad.
+ * @apiParam {string} numero_documento_expedido numero de documento expedido.
+ * @apiParam  {string} nombres nombres.
+ * @apiParam  {string} apellido_paterno apellido paterno.
+ * @apiParam  {string} apellido_materno apellido materno.
+ * @apiParam  {string} estado_civil estado civil.
+ *
+ */
+
+
+router.post('/servidores-publicos/update', middleware.ensureAuthenticated, (req, res, next) => {
+
+
+  json = JSON.parse(req.body.json);
+
+  const numero_documento = json.numero_documento;
+  const numero_documento_expedido = json.numero_documento_expedido;
+  const nombres = json.nombres.toUpperCase();
+  const apellido_paterno = json.apellido_paterno.toUpperCase();
+  const apellido_materno = json.apellido_materno.toUpperCase();
+  const estado_civil = json.estado_civil.toUpperCase();
+
+
+  mysqldb.query(`
+  update servidores_publicos set
+                              numero_documento_expedido=?,
+                              nombres=?,
+                              apellido_paterno=?,
+                              apellido_materno=?,
+                              estado_civil=?
+  where numero_documento=?`, [numero_documento_expedido,
+      nombres, apellido_paterno, apellido_materno,
+      estado_civil,
+      numero_documento], function (err, results) {
+
+        if (err)
+          throw err;
+        res.status(200).send({ success: results.affectedRows ? true : false });
+      });
+});
+
+
+/**
+ *
+ * @api {post} /servidores_publicos/update-autorizacion-formulario-informacion-personal UPDATE AUTORIZACION FORMULARIO INFORMACION PERSONAL.
+ * @apiName MODIFICA LA AUTORIZACION FORMULARIO INFORMACION PERSONAL
+ * @apiGroup SERVIDORES PUBLICOS DEL SISTEMA
+ * @apiDescription modifica la autorizacion del formulario.
+ * @apiParam {string} numero_documento numero del carnet de identidad.
+ *
+ */
+
+
+router.post('/servidores-publicos/update-autorizacion-formulario-informacion-personal', middleware.ensureAuthenticated, (req, res, next) => {
+
+
+  json = JSON.parse(req.body.json);
+
+  const numero_documento = json.numero_documento;
+
+  mysqldb.query(`
+  update servidores_publicos set autorizacion_formulario_informacion_personal=?
+  where numero_documento=?`, [1,
+      numero_documento], function (err, results) {
+
+        if (err)
+          throw err;
+
+
+        res.status(200).send({ success: results.affectedRows ? true : false });
+      });
+});
+
+
+/**
+ *
+ * @api {post} /servidores_publicos/update-informacion-contratacion UPDATE AUTORIZACION INFORMACION CONTRATACION.
+ * @apiName MODIFICA LA AUTORIZACION INFORMACION CONTRATACION
+ * @apiGroup SERVIDORES PUBLICOS DEL SISTEMA
+ * @apiDescription modifica la informacion de la contracion.
+ * @apiParam {string} numero_documento numero del carnet de identidad.
+ * @apiParam  {string} numero_documento_registro numero de documento del registro.
+ * @apiParam  {string} relacion_laboral relacion laboral.
+ * @apiParam  {string} numero_contrato numero de contratacion.
+ * @apiParam  {string} cargo cargo.
+ * @apiParam  {number} nivel_salarial nivel salarial.
+ * @apiParam  {number} haber_basico haber basico.
+ * @apiParam  {string} lugar_trabajo  lugar de trabajo.
+ * @apiParam {date} fecha_ingreso fecha de ingreso.
+ * @apiParam {date} fecha_conclusion fecha de conclusion.
+ * @apiParam {string} motivo_conclusion motivo de la conclusion.
+ * @apiParam {string} estado estado.
+ * @apiParam  {string} forma_ingreso forma de ingreso.
+ * @apiParam {string} unidad_trabajo unidad de trabajo.
+ * @apiParam  {string} secretaria secretaria.
+ * @apiParam  {string} programa_proyecto programa/proyecto.
+ * @apiParam {string} es_tecnico_campo es tecnico de campo.
+ *
+ */
+
+router.post('/servidores_publicos/update-informacion-contratacion', middleware.ensureAuthenticated, (req, res, next) => {
+
+  json = JSON.parse(req.body.json);
+  const numero_documento_registro = json.numero_documento_registro.toUpperCase();
+  const relacion_laboral = json.relacion_laboral ? json.relacion_laboral.toUpperCase() : null;
+  const numero_documento = json.numero_documento ? json.numero_documento.toUpperCase() : null;
+  const numero_contrato = json.numero_contrato ? json.numero_contrato.toUpperCase() : null;
+  const cargo = json.cargo ? json.cargo.toUpperCase() : null;
+  const nivel_salarial = json.nivel_salarial ? json.nivel_salarial : null;
+  const haber_basico = json.haber_basico ? json.haber_basico : null;
+  const lugar_trabajo = json.lugar_trabajo ? json.lugar_trabajo.toUpperCase() : null;
+  const fecha_ingreso = json.fecha_ingreso ? json.fecha_ingreso.toUpperCase() : null;
+  const fecha_conclusion = json.fecha_conclusion ? json.fecha_conclusion.toUpperCase() : null;
+  const motivo_conclusion = json.motivo_conclusion ? json.motivo_conclusion.toUpperCase() : null;
+  const estado = json.estado ? json.estado.toUpperCase() : null;
+  const forma_ingreso = json.forma_ingreso ? json.forma_ingreso.toUpperCase() : null;
+  const unidad_trabajo = json.unidad_trabajo ? json.unidad_trabajo.toUpperCase() : null;
+  const secretaria = json.secretaria ? json.secretaria.toUpperCase() : null;
+  const programa_proyecto = json.programa_proyecto ? json.programa_proyecto.toUpperCase() : null;
+  const es_tecnico_campo = json.es_tecnico_campo ? json.es_tecnico_campo.toUpperCase() : null;
+
+  mysqldb.query(`
+  update inf_contratacion set relacion_laboral=?,
+                       numero_documento=?,
+                       numero_contrato=?,
+                       cargo=?,
+                       nivel_salarial=?,
+                       haber_basico=?,
+                       lugar_trabajo=?,
+                       fecha_ingreso=?,
+                       fecha_conclusion =?,
+                       motivo_conclusion=?,
+                       estado=?,
+                       forma_ingreso=?,
+                       unidad_trabajo=?,
+                       secretaria=?,
+                       programa_proyecto=?,
+                       es_tecnico_campo=?
+  where registro_id=(select id from registros
+                      where numero_documento=?)`, [relacion_laboral,
+      numero_documento,
+      numero_contrato,
+      cargo,
+      nivel_salarial,
+      haber_basico,
+      lugar_trabajo,
+      fecha_ingreso,
+      fecha_conclusion,
+      motivo_conclusion,
+      estado,
+      forma_ingreso,
+      unidad_trabajo,
+      secretaria,
+      programa_proyecto,
+      es_tecnico_campo,
+      numero_documento_registro], function (err, results) {
+
+        if (err)
+          throw err;
+
+
+        res.status(200).send({ success: results.affectedRows ? true : false });
+      });
+});
+
+/**
+ *
+ * @api {post} /servidores_publicos/update-informacion-contratacion UPDATE AUTORIZACION INFORMACION CONTRATACION.
+ * @apiName MODIFICA LA AUTORIZACION INFORMACION CONTRATACION
+ * @apiGroup SERVIDORES PUBLICOS DEL SISTEMA
+ * @apiDescription modifica la informacion de la contracion.
+ * @apiParam {string} numero_documento numero del carnet de identidad.
+ * @apiParam  {string} numero_documento_registro numero de documento del registro.
+ * @apiParam  {string} relacion_laboral relacion laboral.
+ * @apiParam  {string} numero_contrato numero de contratacion.
+ * @apiParam  {string} cargo cargo.
+ * @apiParam  {number} nivel_salarial nivel salarial.
+ * @apiParam  {number} haber_basico haber basico.
+ * @apiParam  {string} lugar_trabajo  lugar de trabajo.
+ * @apiParam {date} fecha_ingreso fecha de ingreso.
+ * @apiParam {date} fecha_conclusion fecha de conclusion.
+ * @apiParam {string} motivo_conclusion motivo de la conclusion.
+ * @apiParam {string} estado estado.
+ * @apiParam  {string} forma_ingreso forma de ingreso.
+ * @apiParam {string} unidad_trabajo unidad de trabajo.
+ * @apiParam  {string} secretaria secretaria.
+ * @apiParam  {string} programa_proyecto programa/proyecto.
+ * @apiParam {string} es_tecnico_campo es tecnico de campo.
+ *
+ */
+
+router.post('/servidores_publicos/update-informacion-politica', middleware.ensureAuthenticated, (req, res, next) => {
+
+  json = JSON.parse(req.body.json);
+  const numero_documento_registro = json.numero_documento_registro.toUpperCase();
+  const distrito_municipio = json.distrito_municipio ? json.distrito_municipio.toUpperCase() : null;
+  const region = json.region ? json.region.toUpperCase() : null;
+  const organizacion_respaldo = json.organizacion_respaldo ? json.organizacion_respaldo.toUpperCase() : null;
+  const representante = json.representante ? json.representante.toUpperCase() : null;
+
+  mysqldb.query(`
+  update inf_politica set distrito_municipio=?,
+                       region=?,
+                       organizacion_respaldo=?,
+                       representante=?
+  where registro_id=(select id from registros
+                      where numero_documento=?)`, [distrito_municipio,
+      region,
+      organizacion_respaldo,
+      representante,
+      numero_documento_registro], function (err, results) {
+
+        if (err)
+          throw err;
+
+
+        res.status(200).send({ success: results.affectedRows ? true : false });
+      });
+});
+
+/**
+ *
+ * @api {post} /servidores_publicos/update-image UPDATE IMAGE
+ * @apiName MODIFICA LA IMAGEN
+ * @apiGroup SERVIDORES PUBLICOS DEL SISTEMA
+ * @apiDescription modifica la imagen de un servidor publico.
+ * @apiParam {file} file archivo de imagen.
+ * @apiParam  {string} body.propietario propietario.
+ *
+ */
+
+router.post('/servidores_publicos/update-image', upload.single('imagen'), (req, res, next) => {
+
+
+  mysqldb.query(`
+  UPDATE inf_politica SET imagen=?
+  WHERE registro_id=(SELECT id FROM registros
+                      WHERE numero_documento=?)`, [
+      fs.readFileSync(req.file.path), req.body.propietario.toUpperCase()], function (err, results) {
+
+        if (err)
+          throw err;
+
+
+        res.status(200).send({ success: results.affectedRows ? true : false, result: req.file });
+      })
+});
+
+
+/**
+ *
+ * @api {post} /servidores_publicos/get-image GET IMAGE
+ * @apiName OBTENER IMAGEN
+ * @apiGroup SERVIDORES PUBLICOS DEL SISTEMA
+ * @apiDescription obtiene la imagen de un servidor publico.
+ * @apiParam  {string} numero_documento numero del carnet de identidad.
+ *
+ */
+
+router.post('/servidores_publicos/get-image', upload.single('imagen'), (req, res, next) => {
+
+
+  const json = JSON.parse(req.body.json);
+  const numero_documento = json.numero_documento;
+
+
+  mysqldb.query(`
+  SELECT  imagen FROM inf_politica
+  WHERE registro_id=(SELECT id FROM registros
+                      WHERE numero_documento=?)`, [numero_documento], function (err, results) {
+
+      if (err)
+        throw err;
+
+
+      res.status(200).send({ success: results.length ? true : false, result: results[0] });
+    })
+});
+
+
+/* router.post('/servidores_publicos/update-informacion-inamovilidad', middleware.ensureAuthenticated, (req, res, next) => {
+
+  json = JSON.parse(req.body.json);
+  const numero_documento_registro = json.numero_documento_registro.toUpperCase();
+  const discapacidad = json.discapacidad ? json.discapacidad : null;
+  const asignacion_familiar = json.asignacion_familiar ? json.asignacion_familiar : null;
+  const persona_con_discapacidad = json.persona_con_discapacidad ? json.persona_con_discapacidad.toUpperCase() : null;
+  const tipo_discapacidad = json.tipo_discapacidad ? json.tipo_discapacidad.toUpperCase() : null;
+  const porcentaje_discapacidad = json.porcentaje_discapacidad ? json.porcentaje_discapacidad : null;
+  const numero_carnet_discapacidad = json.numero_carnet_discapacidad ? json.numero_carnet_discapacidad.toUpperCase() : null;
+  const fecha_emision = json.fecha_emision ? json.fecha_emision : null;
+  const fecha_vencimiento = json.fecha_vencimiento ? json.fecha_vencimiento : null;
+  const prenatal_inicio = json.prenatal_inicio ? json.prenatal_inicio : null;
+  const prenatal_conclusion = json.prenatal_conclusion ? json.prenatal_conclusion : null;
+  const natalidad = json.natalidad ? json.natalidad : null;
+  const lactancia_inicio = json.lactancia_inicio ? json.lactancia_inicio : null;
+  const lactancia_conclusion = json.lactancia_conclusion ? json.lactancia_conclusion : null;
+  const nombre_del_ninho = json.nombre_del_ninho ? json.nombre_del_ninho.toUpperCase() : null;
+
+  mysqldb.query(`
+  update inf_inamovilidad set discapacidad=?,
+                       persona_con_discapacidad=?,
+                       tipo_discapacidad=?,
+                       porcentaje_discapacidad=?,
+                       numero_carnet_discapacidad=?,
+                       fecha_emision=?,
+                       fecha_vencimiento=?,
+                       prenatal_inicio=?,
+                       prenatal_conclusion=?,
+                       natalidad=?,
+                       lactancia_inicio=?,
+                       lactancia_conclusion=?,
+                       nombre_del_ninho=?,
+                       asignacion_familiar=?
+
+  where registro_id=(select id from registros
+                      where numero_documento=?)`, [discapacidad,
+      persona_con_discapacidad,
+      tipo_discapacidad,
+      porcentaje_discapacidad,
+      numero_carnet_discapacidad,
+      fecha_emision,
+      fecha_vencimiento,
+      prenatal_inicio,
+      prenatal_conclusion,
+      natalidad,
+      lactancia_inicio,
+      lactancia_conclusion,
+      nombre_del_ninho,
+      asignacion_familiar,
+      numero_documento_registro], function (err,results) {
+
+        if (err)
+          throw err;
+
+
+        res.status(200).send({ success: results.affectedRows?true:false });
+      });
+}); */
+
+/*
+
+router.post('/servidores_publicos/update-informacion-afiliacion', middleware.ensureAuthenticated, (req, res, next) => {
+
+  json = JSON.parse(req.body.json);
+  const numero_documento_registro = json.numero_documento_registro.toUpperCase();
+  const entidad_caja = json.entidad_caja ? json.entidad_caja.toUpperCase() : null;
+  const fecha_ingreso_caja = json.fecha_conclusion_caja ? json.fecha_ingreso_caja : null;
+  const fecha_conclusion_caja = json.fecha_conclusion_caja ? json.fecha_conclusion_caja : null;
+  const motivo_conclusion_caja = json.motivo_conclusion_caja ? json.motivo_conclusion_caja.toUpperCase() : null;
+  const entidad_afp = json.entidad_afp ? json.entidad_afp.toUpperCase() : null;
+  const fecha_ingreso_afp = json.fecha_ingreso_afp ? json.fecha_ingreso_afp : null;
+
+  mysqldb.query(`
+  update inf_afiliacion set entidad_caja=?,
+                       fecha_ingreso_caja=?,
+                       fecha_conclusion_caja=?,
+                       motivo_conclusion_caja=?,
+                       entidad_afp=?,
+                       fecha_ingreso_afp=?
+  where registro_id=(select id from registros
+                      where numero_documento=?)`, [entidad_caja,
+      fecha_ingreso_caja,
+      fecha_conclusion_caja,
+      motivo_conclusion_caja,
+      entidad_afp,
+      fecha_ingreso_afp,
+      numero_documento_registro], function (err,results) {
+
+        if (err)
+          throw err;
+
+
+        res.status(200).send({ success: results.affectedRows?true:false });
+      });
+}); */
+
+
+/**
+ *
+ * @api {post} /servidores-publicos/add ADD SERVIDOR PUBLICO
+ * @apiName ADICIONA SERVIDOR PÚBLICO
+ * @apiGroup SERVIDOR PÚBLICO
+ * @apiDescription Adiciona servidor publico
+ * @apiParam  {string} numero_documento numero de carnet de identidad.
+ * @apiParam  {string} numero_documento_expedido numero de documento expedido.
+ * @apiParam  {string} nombre nombres.
+ * @apiParam  {string} apellido_paterno apellido paterno.
+ * @apiParam  {string} apellido_materno apellido materno.
+ * @apiParam  {string} estado_civil estado civil.
+ *
+ */
+
+router.post('/servidores-publicos/add', middleware.ensureAuthenticated, (req, res, next) => {
+
+  json = JSON.parse(req.body.json);
+  const numero_documento = json.numero_documento.toUpperCase();
+  const numero_documento_expedido = json.numero_documento_expedido;
+  const nombres = json.nombres.toUpperCase();
+  const apellido_paterno = json.apellido_paterno.toUpperCase();
+  const apellido_materno = json.apellido_materno.toUpperCase();
+  const estado_civil = json.estado_civil.toUpperCase();
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+
+
+  //se asume que es de bolivia - chuquisaca
+
+  mysqldb.query(`
+    INSERT INTO servidores_publicos(numero_documento,numero_documento_expedido,nombres,apellido_paterno,
+      apellido_materno,estado_civil,fecha_modificacion,pais_id,departamento_id)
+    SELECT ?,?,?,?,?,?,?,?,?
+    WHERE NOT EXISTS(SELECT 1 FROM servidores_publicos
+                    WHERE numero_documento=? )`,
+    [numero_documento, numero_documento_expedido, nombres, apellido_paterno, apellido_materno, estado_civil, fecha_modificacion, 1, 9, numero_documento], function (err, results) {
+
+      if (err) throw err;
+
+      mysqldb.query(`
+            insert into inf_afiliacion_afp(servidor_publico_id)
+            select ?
+            where not exists(select 1 from inf_afiliacion_afp where servidor_publico_id=?)`, [results.insertId, results.insertId], function (err) {
+          if (err) throw err;
+
+        });
+
+      mysqldb.query(`
+          insert into inf_afiliacion_caja_salud(servidor_publico_id)
+          select ?
+          where not exists(select 1 from inf_afiliacion_caja_salud where servidor_publico_id=?)`, [results.insertId, results.insertId], function (err) {
+          if (err) throw err;
+
+        });
+
+
+
+      mysqldb.query(`
+              insert into inf_discapacidad(servidor_publico_id)
+              select ?
+              where not exists(select 1 from inf_discapacidad where servidor_publico_id=?)`, [results.insertId, results.insertId], function (err) {
+          if (err) throw err;
+
+        });
+
+
+
+      mysqldb.query(`
+          insert into inf_militar(servidor_publico_id)
+          select ?
+          where not exists(select 1 from inf_militar where servidor_publico_id=?)`, [results.insertId, results.insertId], function (err) {
+          if (err) throw err;
+
+        });
+
+
+
+      mysqldb.query(`
+          insert into inf_redes_sociales(servidor_publico_id)
+          select ?
+          where not exists(select 1 from inf_redes_sociales where servidor_publico_id=?)`, [results.insertId, results.insertId], function (err) {
+          if (err) throw err;
+
+        });
+
+      res.status(200).send({ success: results.insertId ? true : false, result: results.insertId });
+
+
+
+
+    });
+
+});
+
+/**
+ *
+ * @api {post} /servidores-publicos/edit-codigo-biometrico EDIT CODIGO BIOMETRICO
+ * @apiName MODIFICA El CODIGO BIOMETRICO
+ * @apiGroup SERVIDOR PÚBLICO
+ * @apiDescription Modifica el codigo biometrico
+ * @apiParam  {string} numero_documento numero de carnet de identidad.
+ * @apiParam  {string} codigo_biometrico codigo biometrico.
+ *
+ */
+
+router.post('/servidores_publicos/edit-codigo-biometrico', middleware.ensureAuthenticated, (req, res, next) => {
+
+
+  let json = JSON.parse(req.body.json);
+
+  let _numero_documento = json.numero_documento;
+  let _codigo_biometrico = json.codigo_biometrico;
+
+  mysqldb.query(`update servidores_publicos set codigo_biometrico=?
+	where numero_documento = ?`, [_codigo_biometrico, _numero_documento], function (error, results) {
+
+      if (error) throw error;
+
+      res.status(200).send({ success: results.affectedRows ? true : false });
+    });
+
+});
+
+
+module.exports = router;

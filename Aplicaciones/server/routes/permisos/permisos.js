@@ -1,1 +1,287 @@
-var _0x1a02=['status','send','parse','body','servidor_publico_id','\x0a\x20\x20\x0a\x20\x20SELECT\x20\x0a\x20\x20\x20\x20per.id,\x0a\x20\x20\x20\x20per.observacion,\x0a\x20\x20\x20\x20per.estado\x20as\x20estado_permiso,\x0a\x20\x20\x20\x20per.tipo,\x0a\x20\x20\x20\x20per.fecha_salida,\x0a\x20\x20\x20\x20per.fecha_retorno,\x0a\x20\x20\x20\x20per.fecha_modificacion,\x0a\x20\x20\x20\x20per.observacion\x20as\x20observacion_permiso,\x0a\x20\x20\x20\x20per.estado,\x0a\x20\x20\x20\x20sp.nombres,\x0a\x20\x20\x20\x20sp.apellido_paterno,\x0a\x20\x20\x20\x20sp.apellido_materno,\x0a\x20\x20\x20\x20ca.nombre\x20as\x20cargo,\x0a\x20\x20\x20\x20un.nombre\x20as\x20unidad,\x0a\x20\x20\x20\x20ar.nombre\x20as\x20area\x0a\x20\x20\x20\x20FROM\x20registros\x20re\x20INNER\x20JOIN\x20servidores_publicos\x20sp\x20ON\x20re.servidor_publico_id=sp.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20departamentos\x20de\x20ON\x20sp.departamento_id=de.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20departamentos\x20de2\x20ON\x20sp.numero_documento_expedido=de2.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20estructuras\x20es\x20ON\x20es.id=re.estructura_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20escalas_salariales\x20esa\x20ON\x20esa.id=es.escala_salarial_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20cargos\x20ca\x20ON\x20ca.id=esa.cargo_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20unidades\x20un\x20ON\x20un.id=es.unidad_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20inf_contratacion\x20ifc\x20ON\x20re.id=ifc.registro_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20areas\x20ar\x20ON\x20ar.id=un.area_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INNER\x20JOIN\x20permisos\x20per\x20ON\x20per.registro_id=re.id\x0a\x20\x20\x20\x20WHERE\x20per.registro_id\x20IN\x20(SELECT\x20id\x20from\x20registros\x20where\x20servidor_publico_id=?)\x0a\x20\x20\x20\x20ORDER\x20BY\x20fecha_salida\x20DESC\x0a\x20\x20\x20\x20LIMIT\x20700;\x0a\x20\x20','post','ensureAuthenticated','json','\x0a\x20\x0a\x20\x20SELECT\x20\x0a\x20\x20per.id,\x0a\x20\x20sp.id\x20as\x20servidor_publico_id,\x0a\x20\x20sp.numero_documento,\x0a\x20\x20sp.nombres,sp.apellido_paterno,sp.apellido_materno,\x0a\x20\x20sp.genero,\x0a\x20\x20sp.fecha_nacimiento,\x0a\x20\x20sp.correo_electronico,\x0a\x20\x20sp.telefono_fijo,\x0a\x20\x20sp.telefono_movil,\x0a\x20\x20sp.estado_civil,\x0a\x20\x20sp.direccion,\x0a\x20\x20sp.departamento_id,\x0a\x20\x20sp.pais_id,\x0a\x20\x20sp.provincia_id,\x0a\x20\x20sp.distrito,\x0a\x20\x20sp.localidad,\x0a\x20\x20sp.licencia_conducir,\x0a\x20\x20de.nombre\x20as\x20departamento,\x0a\x20\x20de2.nombre\x20as\x20departamento_expedido,\x0a\x20\x20un.nombre\x20as\x20unidad,\x0a\x20\x20ar.nombre\x20as\x20area,\x0a\x20\x20ca.nombre\x20as\x20cargo,\x0a\x20\x20re.estado,\x0a\x20\x20es.tipo_contratacion,\x0a\x20\x20ifc.forma_ingreso,\x0a\x20\x20ifc.fecha_inicio,\x0a\x20\x20ifc.fecha_conclusion,\x0a\x20\x20ifc.motivo_conclusion,\x0a\x20\x20re.id\x20as\x20registro_id,\x0a\x20\x20re.observado,\x0a\x20\x20es.numero,\x0a\x20\x20es.id\x20as\x20estructura_id,\x0a\x20\x20cat.codigo\x20as\x20categoria_programatica_id,\x0a\x20\x20sp.codigo_biometrico,\x0a\x20\x20per.fecha_salida\x20as\x20fecha_salida_permiso,\x0a\x20\x20per.fecha_retorno\x20as\x20fecha_retorno_permiso,\x0a\x20\x20per.observacion\x20as\x20observacion_permiso,\x0a\x20\x20per.tipo\x20as\x20tipo_permiso,\x0a\x20\x20per.estado\x20as\x20estado_permiso\x0a\x20\x20FROM\x20registros\x20re\x20INNER\x20JOIN\x20servidores_publicos\x20sp\x20ON\x20re.servidor_publico_id=sp.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20departamentos\x20de\x20ON\x20sp.departamento_id=de.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20departamentos\x20de2\x20ON\x20sp.numero_documento_expedido=de2.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20estructuras\x20es\x20ON\x20es.id=re.estructura_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20escalas_salariales\x20esa\x20ON\x20esa.id=es.escala_salarial_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20cargos\x20ca\x20ON\x20ca.id=esa.cargo_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20unidades\x20un\x20ON\x20un.id=es.unidad_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20inf_contratacion\x20ifc\x20ON\x20re.id=ifc.registro_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20areas\x20ar\x20ON\x20ar.id=un.area_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20categorias_programaticas\x20cat\x20ON\x20cat.id=es.categoria_programatica_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INNER\x20JOIN\x20permisos\x20per\x20ON\x20per.registro_id=re.id\x0a\x20\x20WHERE\x20re.mes_id\x20=(select\x20id\x20from\x20meses\x20where\x20selected=1)\x0a\x20\x20AND\x20un.id=(select\x20unidad_id\x20from\x20registros\x20re\x20inner\x20join\x20estructuras\x20es\x20on\x20\x20re.estructura_id=es.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20where\x20re.mes_id\x20=(select\x20id\x20from\x20meses\x20where\x20selected=1)\x20and\x20re.servidor_publico_id=?\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20)\x0a\x20\x20ORDER\x20BY\x20es.numero\x20asc\x0a\x20\x0a\x20\x20','length','/permisos/agregar','fechaHoraRetorno','format','YYYY-MM-DD\x20HH:mm:ss','estado','observacion','CALL\x20add_formulario_permiso(?,?,?,?,?,?,?)','VIAJE','SELECT\x20*\x20from\x20permisos\x20WHERE\x20fecha_salida=?\x20AND\x20fecha_retorno=?\x20AND\x20registro_id=?','INSERT\x20INTO\x20programaciones_mensuales_viajes(fecha_modificacion,permiso_id)\x20values(?,?)','INSERT\x20INTO\x20liquidacion_viajes(fecha_modificacion,permiso_id)\x20values(?,?)','affectedRows','/permisos/actualizar-estado','permiso_id','motivo_cambio_estado','UPDATE\x20permisos\x20SET\x20estado=?\x20,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20motivo_cambio_estado=?\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20id=?','exports','express','Router','./../../databaseMysql','./../../middleware','get','query','\x0a\x20\x20SELECT\x0a\x20\x20per.id,\x0a\x20\x20\x20\x20per.observacion,\x0a\x20\x20\x20\x20per.estado\x20as\x20estado_permiso,\x0a\x20\x20\x20\x20per.tipo,\x0a\x20\x20\x20\x20per.fecha_salida,\x0a\x20\x20\x20\x20per.fecha_retorno,\x0a\x20\x20\x20\x20per.fecha_modificacion,\x0a\x20\x20\x20\x20per.observacion\x20as\x20observacion_permiso,\x0a\x20\x20\x20\x20per.estado,\x0a\x20\x20\x20\x20sp.nombres,\x0a\x20\x20\x20\x20sp.apellido_paterno,\x0a\x20\x20\x20\x20sp.apellido_materno,\x0a\x20\x20\x20\x20ca.nombre\x20as\x20cargo,\x0a\x20\x20\x20\x20un.nombre\x20as\x20unidad,\x0a\x20\x20\x20\x20ar.nombre\x20as\x20area\x0a\x20\x20\x20\x20FROM\x20registros\x20re\x20INNER\x20JOIN\x20servidores_publicos\x20sp\x20ON\x20re.servidor_publico_id=sp.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20departamentos\x20de\x20ON\x20sp.departamento_id=de.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20departamentos\x20de2\x20ON\x20sp.numero_documento_expedido=de2.id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20estructuras\x20es\x20ON\x20es.id=re.estructura_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20escalas_salariales\x20esa\x20ON\x20esa.id=es.escala_salarial_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20cargos\x20ca\x20ON\x20ca.id=esa.cargo_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20unidades\x20un\x20ON\x20un.id=es.unidad_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20inf_contratacion\x20ifc\x20ON\x20re.id=ifc.registro_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20areas\x20ar\x20ON\x20ar.id=un.area_id\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20INNER\x20JOIN\x20permisos\x20per\x20ON\x20per.registro_id=re.id\x0a\x20\x20\x20\x20ORDER\x20BY\x20fecha_salida\x20DESC\x0a\x20\x20\x20\x20LIMIT\x20700;'];(function(_0x3673e6,_0x48d0ce){var _0x3d0f77=function(_0x3e58cb){while(--_0x3e58cb){_0x3673e6['push'](_0x3673e6['shift']());}};_0x3d0f77(++_0x48d0ce);}(_0x1a02,0x1c0));var _0x2492=function(_0x15af67,_0x26db21){_0x15af67=_0x15af67-0x0;var _0x44a20c=_0x1a02[_0x15af67];return _0x44a20c;};'use strict';const express=require(_0x2492('0x0'));const router=express[_0x2492('0x1')]();const moment=require('moment');const mysqldb=require(_0x2492('0x2'));const middleware=require(_0x2492('0x3'));router[_0x2492('0x4')]('/permisos/all',middleware['ensureAuthenticated'],(_0xe42b77,_0x56465b,_0x52cace)=>{mysqldb[_0x2492('0x5')](_0x2492('0x6'),(_0x307b3e,_0x3ab53f)=>{if(_0x307b3e){throw _0x307b3e;}_0x56465b[_0x2492('0x7')](0xc8)[_0x2492('0x8')]({'success':_0x3ab53f['length']?!![]:![],'result':_0x3ab53f});});});router['post']('/permisos/servant',middleware['ensureAuthenticated'],(_0x273d4d,_0x36471c,_0xd5b662)=>{let _0x26d672=JSON[_0x2492('0x9')](_0x273d4d[_0x2492('0xa')]['json']);let _0x4283ce=_0x26d672[_0x2492('0xb')];mysqldb[_0x2492('0x5')](_0x2492('0xc'),[_0x4283ce],function(_0x44dcfd,_0x4d5611){if(_0x44dcfd)throw _0x44dcfd;_0x36471c['status'](0xc8)[_0x2492('0x8')]({'success':_0x4d5611['length']?!![]:![],'result':_0x4d5611});});});router[_0x2492('0xd')]('/permisos/servants-dependientes',middleware[_0x2492('0xe')],(_0x12066b,_0x48f32d,_0x225616)=>{let _0x5a0a06=JSON[_0x2492('0x9')](_0x12066b[_0x2492('0xa')][_0x2492('0xf')]);let _0x205fd6=_0x5a0a06[_0x2492('0xb')];mysqldb[_0x2492('0x5')](_0x2492('0x10'),[_0x205fd6],function(_0x20559e,_0x1314ae){if(_0x20559e)throw _0x20559e;_0x48f32d[_0x2492('0x7')](0xc8)[_0x2492('0x8')]({'success':_0x1314ae[_0x2492('0x11')]?!![]:![],'result':_0x1314ae});});});router['post'](_0x2492('0x12'),middleware[_0x2492('0xe')],(_0x53682f,_0x20f109,_0x5a09ef)=>{let _0x588269=JSON[_0x2492('0x9')](_0x53682f[_0x2492('0xa')][_0x2492('0xf')]);const _0x30bae6=_0x588269['fechaHoraSalida'];const _0xfb6e48=_0x588269[_0x2492('0x13')];let _0x3b45bc=moment(_0x30bae6)[_0x2492('0x14')](_0x2492('0x15'));let _0x42ac8f=moment(_0xfb6e48)[_0x2492('0x14')]('YYYY-MM-DD\x20HH:mm:ss');let _0x59181e=_0x588269[_0x2492('0x16')];let _0x3a8e58=_0x588269[_0x2492('0x17')];let _0x33161b=_0x588269['tipo'];let _0x384319=_0x588269['registro_id'];let _0x45a1e7=new Date();mysqldb['query'](_0x2492('0x18'),[_0x384319,_0x3b45bc,_0x42ac8f,_0x33161b,_0x59181e,_0x3a8e58,_0x45a1e7],function(_0x34dc65,_0x25fba9){if(_0x34dc65)throw _0x34dc65;if(_0x33161b==_0x2492('0x19')){mysqldb[_0x2492('0x5')](_0x2492('0x1a'),[_0x3b45bc,_0x42ac8f,_0x384319],(_0x11c3b6,_0x14de77)=>{if(_0x11c3b6)throw _0x11c3b6;mysqldb['query'](_0x2492('0x1b'),[_0x45a1e7,_0x14de77[0x0]['id']],_0x468813=>{if(_0x468813)throw _0x468813;mysqldb[_0x2492('0x5')](_0x2492('0x1c'),[_0x45a1e7,_0x14de77[0x0]['id']],(_0x5c877d,_0x15b200)=>{if(_0x5c877d)throw _0x5c877d;_0x20f109[_0x2492('0x7')](0xc8)[_0x2492('0x8')]({'success':_0x15b200[_0x2492('0x1d')]?!![]:![]});});});});}else{_0x20f109[_0x2492('0x7')](0xc8)[_0x2492('0x8')]({'success':_0x25fba9[_0x2492('0x1d')]?!![]:![]});}});});router[_0x2492('0xd')](_0x2492('0x1e'),middleware['ensureAuthenticated'],(_0x426950,_0x5d1e0e,_0x2407f9)=>{let _0x3ae878=JSON[_0x2492('0x9')](_0x426950[_0x2492('0xa')][_0x2492('0xf')]);let _0x5180f1=_0x3ae878[_0x2492('0x16')];let _0x46f0a5=_0x3ae878[_0x2492('0x1f')];let _0x2da5c0=_0x3ae878[_0x2492('0x20')];mysqldb[_0x2492('0x5')](_0x2492('0x21'),[_0x5180f1,_0x2da5c0,_0x46f0a5],function(_0x39e565,_0x5583a4){if(_0x39e565)throw _0x39e565;_0x5d1e0e[_0x2492('0x7')](0xc8)['send']({'success':_0x5583a4[_0x2492('0x1d')]?!![]:![]});});});module[_0x2492('0x22')]=router;
+'use strict'
+
+const express = require('express');
+const router = express.Router();
+const moment = require('moment');
+const mysqldb = require('./../../databaseMysql');
+const middleware = require('./../../middleware');
+
+/**
+ *
+ * @api {post} /permisos/all GET ALL
+ * @apiName OBTENER PERMISOS DE UN SERVIDOR PÚBLICO
+ * @apiGroup PERMISO
+ * @apiDescription Obtiene odos los permisos registrados en el sistema.
+ *
+ */
+router.get('/permisos/all', middleware.ensureAuthenticated, (req, res, next) => {
+
+  mysqldb.query(`
+  SELECT
+  per.id,
+    per.observacion,
+    per.estado as estado_permiso,
+    per.tipo,
+    per.fecha_salida,
+    per.fecha_retorno,
+    per.fecha_modificacion,
+    per.observacion as observacion_permiso,
+    per.estado,
+    sp.nombres,
+    sp.apellido_paterno,
+    sp.apellido_materno,
+    ca.nombre as cargo,
+    un.nombre as unidad,
+    ar.nombre as area
+    FROM registros re INNER JOIN servidores_publicos sp ON re.servidor_publico_id=sp.id
+                    LEFT JOIN departamentos de ON sp.departamento_id=de.id
+                    LEFT JOIN departamentos de2 ON sp.numero_documento_expedido=de2.id
+                    LEFT JOIN estructuras es ON es.id=re.estructura_id
+                    LEFT JOIN escalas_salariales esa ON esa.id=es.escala_salarial_id
+                    LEFT JOIN cargos ca ON ca.id=esa.cargo_id
+                    LEFT JOIN unidades un ON un.id=es.unidad_id
+                    LEFT JOIN inf_contratacion ifc ON re.id=ifc.registro_id
+                    LEFT JOIN areas ar ON ar.id=un.area_id
+                    INNER JOIN permisos per ON per.registro_id=re.id
+    ORDER BY fecha_salida DESC
+    LIMIT 700;`, (error, results) => {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send({ success: results.length ? true : false, result: results })
+    });
+
+});
+
+/**
+ * @api {post} /permisos/servant GET PERMISO SERVANT
+ * @apiName OBTENER PERMISOS DE UN SERVIDOR PÚBLICO
+ * @apiGroup PERMISO
+ * @apiDescription Obtiene los permisos de un servidor publico.
+ * @apiParam {number} servidor_publico_id identificador del servidor público.
+ *
+ */
+
+router.post('/permisos/servant', middleware.ensureAuthenticated, (req, res, next) => {
+
+  let json = JSON.parse(req.body.json);
+
+  let servidor_publico_id = json.servidor_publico_id;
+  mysqldb.query(`
+
+  SELECT
+    per.id,
+    per.observacion,
+    per.estado as estado_permiso,
+    per.tipo,
+    per.fecha_salida,
+    per.fecha_retorno,
+    per.fecha_modificacion,
+    per.observacion as observacion_permiso,
+    per.estado,
+    sp.nombres,
+    sp.apellido_paterno,
+    sp.apellido_materno,
+    ca.nombre as cargo,
+    un.nombre as unidad,
+    ar.nombre as area
+    FROM registros re INNER JOIN servidores_publicos sp ON re.servidor_publico_id=sp.id
+                    LEFT JOIN departamentos de ON sp.departamento_id=de.id
+                    LEFT JOIN departamentos de2 ON sp.numero_documento_expedido=de2.id
+                    LEFT JOIN estructuras es ON es.id=re.estructura_id
+                    LEFT JOIN escalas_salariales esa ON esa.id=es.escala_salarial_id
+                    LEFT JOIN cargos ca ON ca.id=esa.cargo_id
+                    LEFT JOIN unidades un ON un.id=es.unidad_id
+                    LEFT JOIN inf_contratacion ifc ON re.id=ifc.registro_id
+                    LEFT JOIN areas ar ON ar.id=un.area_id
+                    INNER JOIN permisos per ON per.registro_id=re.id
+    WHERE per.registro_id IN (SELECT id from registros where servidor_publico_id=?)
+    ORDER BY fecha_salida DESC
+    LIMIT 700;
+  `, [servidor_publico_id], function (error, results) {
+
+      if (error) throw error;
+
+      res.status(200).send({ success: results.length ? true : false, result: results });
+    });
+
+});
+
+
+
+/**
+ *
+ * @api {post} /permisos/servants-dependientes SERVANT DEPENDIENTES
+ * @apiName OBTENER PERMISOS DE SERVIDOREs PÚBLICOS DEPENDIENTES
+ * @apiGroup PERMISO
+ * @apiDescription Obtiene todos los permisos de los servidores públicos dependientes.
+ *
+ * @apiParam {number} servidor_publico_id identificador del servidor publico inmediato superior.
+ *
+ */
+
+router.post('/permisos/servants-dependientes', middleware.ensureAuthenticated, (req, res, next) => {
+
+  let json = JSON.parse(req.body.json);
+
+  let servidor_publico_id = json.servidor_publico_id;
+
+  mysqldb.query(`
+
+  SELECT
+  per.id,
+  sp.id as servidor_publico_id,
+  sp.numero_documento,
+  sp.nombres,sp.apellido_paterno,sp.apellido_materno,
+  sp.genero,
+  sp.fecha_nacimiento,
+  sp.correo_electronico,
+  sp.telefono_fijo,
+  sp.telefono_movil,
+  sp.estado_civil,
+  sp.direccion,
+  sp.departamento_id,
+  sp.pais_id,
+  sp.provincia_id,
+  sp.distrito,
+  sp.localidad,
+  sp.licencia_conducir,
+  de.nombre as departamento,
+  de2.nombre as departamento_expedido,
+  un.nombre as unidad,
+  ar.nombre as area,
+  ca.nombre as cargo,
+  re.estado,
+  es.tipo_contratacion,
+  ifc.forma_ingreso,
+  ifc.fecha_inicio,
+  ifc.fecha_conclusion,
+  ifc.motivo_conclusion,
+  re.id as registro_id,
+  re.observado,
+  es.numero,
+  es.id as estructura_id,
+  cat.codigo as categoria_programatica_id,
+  sp.codigo_biometrico,
+  per.fecha_salida as fecha_salida_permiso,
+  per.fecha_retorno as fecha_retorno_permiso,
+  per.observacion as observacion_permiso,
+  per.tipo as tipo_permiso,
+  per.estado as estado_permiso
+  FROM registros re INNER JOIN servidores_publicos sp ON re.servidor_publico_id=sp.id
+                    LEFT JOIN departamentos de ON sp.departamento_id=de.id
+                    LEFT JOIN departamentos de2 ON sp.numero_documento_expedido=de2.id
+                    LEFT JOIN estructuras es ON es.id=re.estructura_id
+                    LEFT JOIN escalas_salariales esa ON esa.id=es.escala_salarial_id
+                    LEFT JOIN cargos ca ON ca.id=esa.cargo_id
+                    LEFT JOIN unidades un ON un.id=es.unidad_id
+                    LEFT JOIN inf_contratacion ifc ON re.id=ifc.registro_id
+                    LEFT JOIN areas ar ON ar.id=un.area_id
+                    LEFT JOIN categorias_programaticas cat ON cat.id=es.categoria_programatica_id
+                    INNER JOIN permisos per ON per.registro_id=re.id
+  WHERE re.mes_id =(select id from meses where selected=1)
+  AND un.id=(select unidad_id from registros re inner join estructuras es on  re.estructura_id=es.id
+              where re.mes_id =(select id from meses where selected=1) and re.servidor_publico_id=?
+              )
+  ORDER BY es.numero asc
+
+  `, [servidor_publico_id], function (error, results) {
+
+      if (error) throw error;
+
+      res.status(200).send({ success: results.length ? true : false, result: results });
+    });
+
+});
+
+/**
+ * @api {post} /permisos/agregar ADD
+ * @apiName ADICIONA FORMULARIO DE SÁLIDA
+ * @apiGroup PERMISO
+ * @apiDescription Adiciona un formulario de salida a su registro personal.
+ * @apiParam {Date} fechaHoraSalida fecha y hora de salida
+ * @apiParam {Date} fechaHoraRetorno fecha y hora de retorno
+ * @apiParam {Number} estado estado
+ * @apiParam {String} observacion observación
+ * @apiParam {String} tipo tipo
+ * @apiParam {Number} registro_id identificador del registro
+ *
+ */
+
+
+router.post('/permisos/agregar', middleware.ensureAuthenticated, (req, res, next) => {
+
+  let json = JSON.parse(req.body.json);
+
+  const fsalida = json.fechaHoraSalida;
+
+  const fretorno = json.fechaHoraRetorno;
+
+  let fechaSalida = moment(fsalida).format('YYYY-MM-DD HH:mm:ss');
+  let fechaRetorno = moment(fretorno).format('YYYY-MM-DD HH:mm:ss');
+  let estado = json.estado;
+  let observacion = json.observacion;
+  let tipo = json.tipo;
+  let registro_id = json.registro_id;
+  let fecha_modificacion = new Date();
+
+  mysqldb.query(`CALL add_formulario_permiso(?,?,?,?,?,?,?)`, [
+    registro_id,
+    fechaSalida, fechaRetorno,
+    tipo, estado, observacion, fecha_modificacion
+  ], function (error, results) {
+    if (error) throw error;
+
+    if (tipo == 'VIAJE') {
+
+      mysqldb.query(`SELECT * from permisos WHERE fecha_salida=? AND fecha_retorno=? AND registro_id=?`,
+        [fechaSalida, fechaRetorno, registro_id], (error, results) => {
+          if (error) throw error;
+          mysqldb.query(`INSERT INTO programaciones_mensuales_viajes(fecha_modificacion,permiso_id) values(?,?)`, [fecha_modificacion,results[0].id], (error) => {
+            if (error) throw error;
+            mysqldb.query(`INSERT INTO liquidacion_viajes(fecha_modificacion,permiso_id) values(?,?)`, [fecha_modificacion,results[0].id], (error,results) => {
+              if (error) throw error;
+              res.status(200).send({ success: results.affectedRows ? true : false });
+            });
+          });
+        })
+
+
+
+    } else {
+      res.status(200).send({ success: results.affectedRows ? true : false });
+    }
+
+  });
+
+});
+
+/**
+ * @api {post} /permisos/actualizar-estado UPDATE
+ * @apiName MODIFICA FORMULARIO DE SÁLIDA
+ * @apiGroup PERMISO
+ * @apiDescription Modificar estado del permiso de salida.
+ * @apiParam {boolean} estado estado del permiso.
+ * @apiParam {number} permiso_id identificador del permiso.
+ * @apiParam {string} mmotivo_cambio_estado motivo del cambio de estado del permiso.
+ *
+ */
+
+router.post('/permisos/actualizar-estado', middleware.ensureAuthenticated, (req, res, next) => {
+
+  let json = JSON.parse(req.body.json);
+
+  let estado = json.estado;
+  let permiso_id = json.permiso_id;
+  let motivo_cambio_estado = json.motivo_cambio_estado;
+
+  mysqldb.query(`UPDATE permisos SET estado=? ,
+                            motivo_cambio_estado=?
+                WHERE id=?`, [estado, motivo_cambio_estado, permiso_id], function (error, results) {
+      if (error) throw error;
+      res.status(200).send({ success: results.affectedRows ? true : false });
+    });
+
+});
+
+module.exports = router;

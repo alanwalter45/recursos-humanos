@@ -1,1 +1,184 @@
-var _0x206f=['descripcion','\x0a\x20\x20UPDATE\x20procesos_llamadas\x20set\x0a\x20\x20descripcion=?,\x0a\x20\x20fecha_modificacion=?,\x0a\x20\x20tipo=?,\x0a\x20\x20fecha_llamada_proceso=?\x0a\x20\x20WHERE\x20registro_id=?\x20and\x20numero_proceso=?','/procesos-llamadas/get-incumplimiento-reglamento','\x0a\x20\x20SELECT\x20pl.*,\x0a\x20\x20sp.nombres,sp.apellido_paterno,sp.apellido_materno,\x0a\x20\x20sp.numero_documento,\x0a\x20\x20count(re.id)\x20as\x20cantidad\x0a\x20\x20FROM\x20registros\x20re\x20INNER\x20JOIN\x20servidores_publicos\x20sp\x20ON\x20re.servidor_publico_id=sp.id\x0a\x20\x20INNER\x20JOIN\x20procesos_llamadas\x20pl\x20ON\x20re.id=pl.registro_id\x0a\x20\x20GROUP\x20BY\x20re.id,pl.tipo\x0a\x20\x20ORDER\x20BY\x20sp.nombres','exports','express','./../../databaseMysql','./../../middleware','post','/procesos-llamadas/add','ensureAuthenticated','parse','json','registro_id','numero_proceso','toString','fecha_llamada_proceso','format','YYYY-MM-DD\x20HH:mm:ss','tipo','toUpperCase','query','\x0a\x20\x20INSERT\x20INTO\x20procesos_llamadas(numero_proceso,descripcion,fecha_modificacion,tipo,registro_id,fecha_llamada_proceso)\x0a\x20\x20select\x20?,?,?,?,?,?\x0a\x20\x20WHERE\x20NOT\x20EXISTS(SELECT\x201\x20FROM\x20procesos_llamadas\x20WHERE\x20numero_proceso=?)','status','affectedRows','/procesos-llamadas/delete','body','\x0a\x20\x20DELETE\x20FROM\x20procesos_llamadas\x20WHERE\x20registro_id=?\x20and\x20numero_proceso=?','send','/procesos-llamadas/get-all','/procesos-llamadas/update'];(function(_0x307e03,_0x1d8011){var _0x3fac16=function(_0x29d864){while(--_0x29d864){_0x307e03['push'](_0x307e03['shift']());}};_0x3fac16(++_0x1d8011);}(_0x206f,0xfd));var _0x1d9e=function(_0x4b127f,_0x3ef593){_0x4b127f=_0x4b127f-0x0;var _0x5d476b=_0x206f[_0x4b127f];return _0x5d476b;};const express=require(_0x1d9e('0x0'));const router=express['Router']();const moment=require('moment');const mysqldb=require(_0x1d9e('0x1'));const middleware=require(_0x1d9e('0x2'));router[_0x1d9e('0x3')](_0x1d9e('0x4'),middleware[_0x1d9e('0x5')],(_0x1f87ba,_0x36c620,_0x80b17d)=>{const _0x823074=JSON[_0x1d9e('0x6')](_0x1f87ba['body'][_0x1d9e('0x7')]);const _0x4c6c30=_0x823074[_0x1d9e('0x8')];const _0x1d486b=_0x823074[_0x1d9e('0x9')][_0x1d9e('0xa')]()['toUpperCase']();const _0x21adb6=_0x823074['descripcion'][_0x1d9e('0xa')]()['toUpperCase']();const _0x2252ec=moment(_0x823074[_0x1d9e('0xb')])[_0x1d9e('0xc')](_0x1d9e('0xd'));const _0x3f2641=moment(new Date())[_0x1d9e('0xc')]('YYYY-MM-DD\x20HH:mm:ss');const _0x499ce3=_0x823074[_0x1d9e('0xe')][_0x1d9e('0xa')]()[_0x1d9e('0xf')]();mysqldb[_0x1d9e('0x10')](_0x1d9e('0x11'),[_0x1d486b,_0x21adb6,_0x3f2641,_0x499ce3,_0x4c6c30,_0x2252ec,_0x1d486b],function(_0x1dedf0,_0x509907){if(_0x1dedf0)throw _0x1dedf0;_0x36c620[_0x1d9e('0x12')](0xc8)['send']({'success':_0x509907[_0x1d9e('0x13')],'result':_0x509907});});});router[_0x1d9e('0x3')](_0x1d9e('0x14'),middleware[_0x1d9e('0x5')],(_0x3c45b2,_0x319e84,_0x13d615)=>{const _0x5a8f8b=JSON[_0x1d9e('0x6')](_0x3c45b2[_0x1d9e('0x15')][_0x1d9e('0x7')]);const _0x42e042=_0x5a8f8b[_0x1d9e('0x8')];const _0xe2e0df=_0x5a8f8b[_0x1d9e('0x9')];mysqldb[_0x1d9e('0x10')](_0x1d9e('0x16'),[_0x42e042,_0xe2e0df],function(_0x5039c0,_0x47d650){if(_0x5039c0)throw _0x5039c0;_0x319e84[_0x1d9e('0x12')](0xc8)[_0x1d9e('0x17')]({'success':_0x47d650[_0x1d9e('0x13')]?!![]:![],'result':_0x47d650});});});router[_0x1d9e('0x3')](_0x1d9e('0x18'),middleware['ensureAuthenticated'],(_0x50fbd3,_0x51588a,_0x5c4ad7)=>{const _0x4a27d9=JSON[_0x1d9e('0x6')](_0x50fbd3['body']['json']);const _0x4c03bd=_0x4a27d9[_0x1d9e('0x8')];mysqldb['query']('\x0a\x20\x20SELECT\x20pl.*,\x0a\x20\x20sp.nombres,sp.apellido_paterno,sp.apellido_materno,\x0a\x20\x20sp.numero_documento\x0a\x20\x20FROM\x20registros\x20re\x20INNER\x20JOIN\x20servidores_publicos\x20sp\x20ON\x20re.servidor_publico_id=sp.id\x0a\x20\x20INNER\x20JOIN\x20procesos_llamadas\x20pl\x20ON\x20re.id=pl.registro_id\x0a\x20\x20WHERE\x20registro_id=?',[_0x4c03bd],function(_0xe6ca60,_0x1be589){if(_0xe6ca60)throw _0xe6ca60;_0x51588a[_0x1d9e('0x12')](0xc8)[_0x1d9e('0x17')]({'success':_0x1be589['length']?!![]:![],'result':_0x1be589});});});router[_0x1d9e('0x3')](_0x1d9e('0x19'),middleware[_0x1d9e('0x5')],(_0x2d8599,_0x3eae6b,_0x43829d)=>{const _0x367f1d=JSON['parse'](_0x2d8599['body'][_0x1d9e('0x7')]);const _0x36ef59=_0x367f1d[_0x1d9e('0x8')];const _0x2f4b8c=_0x367f1d[_0x1d9e('0x9')][_0x1d9e('0xa')]()[_0x1d9e('0xf')]();const _0x18d89b=_0x367f1d[_0x1d9e('0x1a')][_0x1d9e('0xa')]()[_0x1d9e('0xf')]();const _0xbe32ca=moment(_0x367f1d[_0x1d9e('0xb')])[_0x1d9e('0xc')](_0x1d9e('0xd'));const _0x3475ee=moment(new Date())[_0x1d9e('0xc')]('YYYY-MM-DD\x20HH:mm:ss');const _0x3e0931=_0x367f1d[_0x1d9e('0xe')]['toString']()[_0x1d9e('0xf')]();mysqldb[_0x1d9e('0x10')](_0x1d9e('0x1b'),[_0x18d89b,_0x3475ee,_0x3e0931,_0xbe32ca,_0x36ef59,_0x2f4b8c],function(_0x4709f2,_0x202a93){if(_0x4709f2)throw _0x4709f2;_0x3eae6b[_0x1d9e('0x12')](0xc8)[_0x1d9e('0x17')]({'success':_0x202a93[_0x1d9e('0x13')]?!![]:![],'result':_0x202a93});});});router['get'](_0x1d9e('0x1c'),middleware[_0x1d9e('0x5')],(_0x4e6e90,_0x1d6a90,_0x22fa52)=>{mysqldb[_0x1d9e('0x10')](_0x1d9e('0x1d'),function(_0x20b728,_0x3fb6c3){if(_0x20b728)throw _0x20b728;_0x1d6a90[_0x1d9e('0x12')](0xc8)[_0x1d9e('0x17')]({'success':_0x3fb6c3['length']?!![]:![],'result':_0x3fb6c3});});});module[_0x1d9e('0x1e')]=router;
+const express = require('express');
+const router = express.Router();
+const moment = require('moment');
+const mysqldb = require('./../../databaseMysql');
+const middleware = require('./../../middleware');
+
+
+/**
+ *
+ * @api {post} /procesos-llamadas/add ADD
+ * @apiName ADICIONAR PROCESOS O LLAMADA
+ * @apiGroup PROCESOS Y LLAMADAS
+ * @apiDescription adiciona un proceso o llamada
+ *
+ * @apiParam {number} registro_id identificador del registro.
+ * @apiParam {string} numero del proceso.
+ * @apiParam {string} descripcion del proceso o llamada.
+ * @apiParam {date} fecha_llamada_proceso fecha de la llamada o proceso.
+ * @apiParam {date} fecha_modificacion fecha de modificacion.
+ * @apiParam {string} tipo tipo (proceso/llamada).
+ *
+ */
+
+router.post('/procesos-llamadas/add', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+
+  const registro_id = json.registro_id;
+  const numero_proceso = json.numero_proceso.toString().toUpperCase();
+  const descripcion = json.descripcion.toString().toUpperCase();
+  const fecha_llamada_proceso = moment(json.fecha_llamada_proceso).format('YYYY-MM-DD HH:mm:ss');
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+  const tipo = json.tipo.toString().toUpperCase();
+
+
+    mysqldb.query(`
+  INSERT INTO procesos_llamadas(numero_proceso,descripcion,fecha_modificacion,tipo,registro_id,fecha_llamada_proceso)
+  select ?,?,?,?,?,?
+  WHERE NOT EXISTS(SELECT 1 FROM procesos_llamadas WHERE numero_proceso=?)`, [numero_proceso, descripcion, fecha_modificacion, tipo, registro_id,fecha_llamada_proceso,numero_proceso], function (error,results) {
+        if (error) throw error;
+
+        res.status(200).send({ success: results.affectedRows, result:results });
+      });
+
+});
+
+
+/**
+ *
+ * @api {post} /procesos-llamadas/delete REMOVE
+ * @apiName BORRA PROCESO O LLAMADA
+ * @apiGroup PROCESOS Y LLAMADAS
+ * @apiDescription Borra un proceso o llamada
+ * @apiParam {number} registro_id identificador del registro.
+ * @apiParam {number} numero_proceso numero del proceso
+ *
+ */
+
+router.post('/procesos-llamadas/delete', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+
+  const registro_id = json.registro_id;
+  const numero_proceso = json.numero_proceso;
+
+    mysqldb.query(`
+  DELETE FROM procesos_llamadas WHERE registro_id=? and numero_proceso=?`, [registro_id,numero_proceso], function (error,results) {
+        if (error) throw error;
+
+        res.status(200).send({ success: results.affectedRows?true:false, result:results });
+      });
+
+});
+
+
+/**
+ *
+ * @api {post} /procesos-llamadas/get-all GET ALL
+ * @apiName OBTIENE TODOS LOS PROCESOS/LLAMADAS DE UN REGISTRO
+ * @apiGroup PROCESOS Y LLAMADAS
+ * @apiDescription Obtiene los procesos/llamadas de un registro
+ * @apiParam {number} registro_id identificador del registro.
+ *
+ */
+
+router.post('/procesos-llamadas/get-all', middleware.ensureAuthenticated, (req, res, next) =>
+{
+
+  const json = JSON.parse(req.body.json);
+  const registro_id = json.registro_id;
+
+
+  mysqldb.query(`
+  SELECT pl.*,
+  sp.nombres,sp.apellido_paterno,sp.apellido_materno,
+  sp.numero_documento
+  FROM registros re INNER JOIN servidores_publicos sp ON re.servidor_publico_id=sp.id
+  INNER JOIN procesos_llamadas pl ON re.id=pl.registro_id
+  WHERE registro_id=?`,[registro_id], function (error, results) {
+      if (error) throw error;
+
+      res.status(200).send({ success: results.length?true:false, result: results });
+    });
+
+
+
+});
+
+
+/**
+ *
+ * @api {post} /procesos-llamadas/update UPDATE
+ * @apiName MODIFICA PROCESOS O LLAMADA
+ * @apiGroup PROCESOS Y LLAMADAS
+ * @apiDescription modifica un proceso o llamada.
+ * @apiParam {number} registro_id identificador del registro.
+ * @apiParam {string} numero_proceso numero del proceso.
+ * @apiParam {string} descripcion descripcion.
+ * @apiParam {date} fecha_llamada_proceso fecha de la llamada o proceso.
+ * @apiParam {string} tipo tipo de proceso/llamada.
+ *
+ */
+
+router.post('/procesos-llamadas/update', middleware.ensureAuthenticated, (req, res, next) =>
+{
+
+  const json = JSON.parse(req.body.json);
+
+  const registro_id = json.registro_id;
+  const numero_proceso = json.numero_proceso.toString().toUpperCase();
+  const descripcion = json.descripcion.toString().toUpperCase();
+  const fecha_llamada_proceso = moment(json.fecha_llamada_proceso).format('YYYY-MM-DD HH:mm:ss');
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+  const tipo = json.tipo.toString().toUpperCase();
+
+  mysqldb.query(`
+  UPDATE procesos_llamadas set
+  descripcion=?,
+  fecha_modificacion=?,
+  tipo=?,
+  fecha_llamada_proceso=?
+  WHERE registro_id=? and numero_proceso=?`,[descripcion,
+    fecha_modificacion,tipo,
+    fecha_llamada_proceso,registro_id,numero_proceso], function (error,results) {
+      if (error) throw error;
+
+      res.status(200).send({ success: results.affectedRows?true:false, result: results });
+    });
+
+
+
+});
+
+
+/**
+ *
+ * @api {get} /procesos-llamadas/get-incumplimiento-reglamento GET INCUMPLIMIENTO
+ * @apiName OBTIENE TODOS LOS PROCESOS QUE INCUMPLEN REGLAMENTO
+ * @apiGroup PROCESOS Y LLAMADAS
+ * @apiDescription Obtiene los procesos que incumplen reglamento de un registro.
+ *
+ */
+
+
+router.get('/procesos-llamadas/get-incumplimiento-reglamento', middleware.ensureAuthenticated, (req, res, next) => {
+
+
+  mysqldb.query(`
+  SELECT pl.*,
+  sp.nombres,sp.apellido_paterno,sp.apellido_materno,
+  sp.numero_documento,
+  count(re.id) as cantidad
+  FROM registros re INNER JOIN servidores_publicos sp ON re.servidor_publico_id=sp.id
+  INNER JOIN procesos_llamadas pl ON re.id=pl.registro_id
+  GROUP BY re.id,pl.tipo
+  ORDER BY sp.nombres`, function (error, results) {
+      if (error) throw error;
+
+      res.status(200).send({ success: results.length?true:false, result: results });
+    });
+
+});
+
+module.exports = router;

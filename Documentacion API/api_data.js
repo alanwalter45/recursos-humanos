@@ -4099,25 +4099,1860 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/registros/add-cursos-capacitaciones",
-    "title": "adiciona un nuevo curso o capacitación",
-    "name": "ADICIONAR_CURSO_O_CAPACITACI_N",
-    "group": "REGISTROS",
-    "description": "<p>adiciona un nuevo curso o capacitación</p>",
+    "url": "/registros/update-fecha-conclusion",
+    "title": "UPDATE FECHA DE CONCLUSION",
+    "name": "ACTUALIZAR_FECHA_DE_CONCLUSION",
+    "group": "REGISTRO",
+    "description": "<p>Actualiza fecha de conclusion.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_conclusion",
+            "description": "<p>fecha de conclusion.</p>"
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/update-fecha-inicio",
+    "title": "UPDATE FECHA INICIO",
+    "name": "ACTUALIZAR_FECHA_DE_INICIO",
+    "group": "REGISTRO",
+    "description": "<p>Actualiza la fecha de inicio.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "registro_id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_inicio",
+            "description": "<p>fecha de inicio.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/update-numero-contratacion",
+    "title": "UPDATE NUMERO CONTRATACION",
+    "name": "ACTUALIZAR_NUMERO_DE_CONTRATACION",
+    "group": "REGISTRO",
+    "description": "<p>Actualiza el numero de contratacion.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "registro_id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "estructura_id",
+            "description": "<p>identificador de la estructura.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/update-observado",
+    "title": "UPDATE OBSERVADO",
+    "name": "ACTUALIZAR_OBSERVADO",
+    "group": "REGISTRO",
+    "description": "<p>Actualiza observado.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "observado",
+            "description": "<p>observado.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/add-cursos-capacitaciones",
+    "title": "ADD CURSO Y CAPACITACION",
+    "name": "ADICIONAR_CURSO_O_CAPACITACI_N",
+    "group": "REGISTRO",
+    "description": "<p>adiciona un nuevo curso o capacitación</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "tipo",
+            "description": "<p>tipo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "titulo_certificado",
+            "description": "<p>titulo del certificado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lugar",
+            "description": "<p>lugar.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "institucion",
+            "description": "<p>institucion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "horas_academicas",
+            "description": "<p>cantidad de horas academicas.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_emision",
+            "description": "<p>fecha de emision.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
   },
   {
     "type": "post",
     "url": "/registros/add-informacion-academica",
-    "title": "adidiona información acdemica a un registro",
+    "title": "ADD INFORMACION ACADEMICA",
     "name": "ADICIONAR_INFORMACI_N_AC_DEMICA",
-    "group": "REGISTROS",
+    "group": "REGISTRO",
     "description": "<p>adiciona un registro la información acádemica.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "tipo",
+            "description": "<p>tipo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lugar",
+            "description": "<p>lugar.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "institucion",
+            "description": "<p>institucion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "anho",
+            "description": "<p>anho.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "titulo_obtenido",
+            "description": "<p>titulo obtenido.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_titulo",
+            "description": "<p>numero de titulo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha",
+            "description": "<p>de emision.</p>"
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/add-autorizacion-profesion",
+    "title": "ADD AUTORIZACION DE PROFESION",
+    "name": "ADICIONA_AUTORIZACI_N_DE_PROFESI_N",
+    "group": "REGISTRO",
+    "description": "<p>adiciona autorización de profesión</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "entidad",
+            "description": "<p>entidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "matricula",
+            "description": "<p>matricula.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha",
+            "description": "<p>fecha.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/add-experiencias-laborales",
+    "title": "ADD EXPERIENCIA LABORAL",
+    "name": "ADICIONA_EXPERIENCIA_LABORAL",
+    "group": "REGISTRO",
+    "description": "<p>adiciona experiencia laboral</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "cargo",
+            "description": "<p>cargo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "area",
+            "description": "<p>area.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "institucion",
+            "description": "<p>institucion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_incio",
+            "description": "<p>fecha de incio.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_conclusion",
+            "description": "<p>fecha de conclusion.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/add-idiomas",
+    "title": "ADD IDIOMA",
+    "name": "ADICIONA_IDIOMA",
+    "group": "REGISTRO",
+    "description": "<p>adiciona un idioma</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "idioma",
+            "description": "<p>idioma.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lee",
+            "description": "<p>lee.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "comprende",
+            "description": "<p>comprende.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "escribe",
+            "description": "<p>escribe.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "observaciones.",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/add-otros-conocimientos",
+    "title": "ADD OTROS CONOCIMIENTOS",
+    "name": "ADICIONA_OTRO_CONOCIMIENTO",
+    "group": "REGISTRO",
+    "description": "<p>adiciona otro conocimiento.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "paquete_informatico",
+            "description": "<p>paquete informatico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nivel",
+            "description": "<p>nivel.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/add-referencias-personales",
+    "title": "ADD REFERENCIA PERSONAL",
+    "name": "ADICIONA_REFERENCIA_PERSONAL",
+    "group": "REGISTRO",
+    "description": "<p>adiciona referencia personal</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "tipo",
+            "description": "<p>tipo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nombre",
+            "description": "<p>nombre.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "direccion",
+            "description": "<p>direccion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "telefono",
+            "description": "<p>telefono.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "observaciones",
+            "description": "<p>observaciones.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/remove",
+    "title": "REMOVE",
+    "name": "BORRA_UN_REGISTRO",
+    "group": "REGISTRO",
+    "description": "<p>Borra un registro.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "registro_id",
+            "description": "<p>identificador del registro.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/contratar",
+    "title": "CONTRATAR",
+    "name": "CONTRATAR_UN_SERVIDOR_PUBLICO",
+    "group": "REGISTRO",
+    "description": "<p>contratar un servidor publico.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "estrauctura_id",
+            "description": "<p>identificaor de la estructura.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_inicio",
+            "description": "<p>fecha de inicio.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_conlusion",
+            "description": "<p>fecha de conclusion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "gestion_id",
+            "description": "<p>identificador de la gestion.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/dar-baja",
+    "title": "DOWN REGISTRO",
+    "name": "DAR_DE_BAJA_UN_REGISTRO",
+    "group": "REGISTRO",
+    "description": "<p>Dar de baja a un registro</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "registro_id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_conclusion",
+            "description": "<p>fecha de conclusion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "motivo_conclusion",
+            "description": "<p>motivo de la conlusion.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-contratacion",
+    "title": "GET INFORMACION CONTRATACION",
+    "name": "INFORMACI_N_DE_CONTRATACI_N",
+    "group": "REGISTRO",
+    "description": "<p>Obtiene la información de contratación del servidor publico.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "registro_id",
+            "description": "<p>identificador del registro</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/edit-cursos-capacitaciones",
+    "title": "UPDATE CURSO Y CAPACITACION",
+    "name": "MODIFICAR_CURSO_O_CAPACITACI_N",
+    "group": "REGISTRO",
+    "description": "<p>modificar un nuevo curso o capacitación</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "tipo",
+            "description": "<p>tipo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "titulo_certificado",
+            "description": "<p>titulo del certificado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lugar",
+            "description": "<p>lugar.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "institucion",
+            "description": "<p>institucion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "horas_academicas",
+            "description": "<p>cantidad de horas academicas.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_emision",
+            "description": "<p>fecha de emision.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/update-estado",
+    "title": "UPDATE ESTADO REGISTRO",
+    "name": "MODIFICAR_ESTADO_DE_UN_REGISTRO",
+    "group": "REGISTRO",
+    "description": "<p>actualizar el estado de un registro</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "estado",
+            "description": "<p>estado.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/update-estado",
+    "title": "dar de alta un registro",
+    "name": "MODIFICAR_ESTADO_DE_UN_REGISTRO_COMO_ALTA",
+    "group": "REGISTRO",
+    "description": "<p>modifica el estado del registro como alta.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "registro_id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_inicio",
+            "description": "<p>fecha de inicio.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "forma_ingreso",
+            "description": "<p>forma de ingreso.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/update-informacion-academica",
+    "title": "UPDATE INFO ACADEMICA",
+    "name": "MODIFICAR_INFORMACI_N_ACADEMICA",
+    "group": "REGISTRO",
+    "description": "<p>actualiza la informacion acdemica de registro.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "profesion",
+            "description": "<p>profesion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nivel_instruccion",
+            "description": "<p>nivel de instruccion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "matricula_colegio_profesionales",
+            "description": "<p>matricula colegio de profesionales.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "casa_estudios",
+            "description": "<p>casa de estudios.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_resolucion_titulo",
+            "description": "<p>numero de resolucion del titulo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_emision_titulo",
+            "description": "<p>fecha de emision del titulo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_resolucion_provision_nacional",
+            "description": "<p>numero de resolucion de provision nacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_emision_provision_nacional",
+            "description": "<p>fecha de emision en provision nacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "titulo_postgrado",
+            "description": "<p>titulo_postgrado titulo postgrado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "casa_estudios_postgrado",
+            "description": "<p>casa de estudios postgrado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_resolucion_postgrado",
+            "description": "<p>numero de resolucion de postgrado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_emision_postgrado",
+            "description": "<p>fecha de emision de postgraddo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "otros_conocimientos",
+            "description": "<p>otros conocimientos.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "escuela_colegio",
+            "description": "<p>escuela/colegio</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/update-servant",
+    "title": "UPDATE SERVANT",
+    "name": "MODIFICAR_INFORMACI_N_GENERAL",
+    "group": "REGISTRO",
+    "description": "<p>actualiza la información general de un servidor público.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento_anterior",
+            "description": "<p>numero de carnet de identidad anterior.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero de carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento_expedido",
+            "description": "<p>numero de carnet de identidad fue expedido en ....</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nombres",
+            "description": "<p>nombres.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "apellido_paterno",
+            "description": "<p>apellido paterno.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "apellido_materno",
+            "description": "<p>apellido materno.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "estado_civil",
+            "description": "<p>estado civil.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "genero",
+            "description": "<p>genero.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "direccion",
+            "description": "<p>direccion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "telefono_movil",
+            "description": "<p>telefono movil.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_nacimiento",
+            "description": "<p>fecha de nacimiento.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "pais_id",
+            "description": "<p>identificador del pais.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "departamento_id",
+            "description": "<p>identificador del departamento.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "provincia_id",
+            "description": "<p>identificador de la provincia.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "municipio_id",
+            "description": "<p>identificador del municipio.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "correo_electronico",
+            "description": "<p>correo electronico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "distrito",
+            "description": "<p>distrito.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "localidad",
+            "description": "<p>localidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "licencia_conducir",
+            "description": "<p>licencia de conducir.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/edit-otros-conocimientos",
+    "title": "UPDATE OTRO CONOCIMIENTO",
+    "name": "MODIFICAR_OTRO_CONOCIMIENTO",
+    "group": "REGISTRO",
+    "description": "<p>modificar otro conocimiento.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "paquete_informatico",
+            "description": "<p>paquete informatico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nivel",
+            "description": "<p>nivel.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/edit-autorizacion-profesion",
+    "title": "UPDATE AUTORIZACION DE PROFESION",
+    "name": "MODIFICA_AUTORIZACI_N_DE_PROFESI_N",
+    "group": "REGISTRO",
+    "description": "<p>modifica autorización de profesión</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "entidad",
+            "description": "<p>entidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha",
+            "description": "<p>fecha.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/edit-experiencias-laborales",
+    "title": "UPDATE EXPERIENCIA LABORAL",
+    "name": "MODIFICA_EXPERIENCIA_LABORAL",
+    "group": "REGISTRO",
+    "description": "<p>modifica experiencia laboral</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "strring",
+            "optional": false,
+            "field": "cargo",
+            "description": "<p>cargo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "area",
+            "description": "<p>area.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "institucion",
+            "description": "<p>institucion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_inicio",
+            "description": "<p>fecha de inicio.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_conclusion",
+            "description": "<p>fecha de conclusion.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/edit-idiomas",
+    "title": "UPDATE IDIOMA",
+    "name": "MODIFICA_IDIOMA",
+    "group": "REGISTRO",
+    "description": "<p>modifica un idioma.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "idioma",
+            "description": "<p>idioma.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lee",
+            "description": "<p>lee.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "comprende",
+            "description": "<p>comprende.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "escribe",
+            "description": "<p>escribe.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "observaciones",
+            "description": "<p>observaciones.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/edit-referencias-personales",
+    "title": "UPDATE REFERENCIA PERSONAL",
+    "name": "MODIFICA_REFERENCIA_PERSONAL",
+    "group": "REGISTRO",
+    "description": "<p>modifica referencia personal</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identificador del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "tipo",
+            "description": "<p>tipo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nombre",
+            "description": "<p>nombre.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "direccion",
+            "description": "<p>direccion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "telefono",
+            "description": "<p>telefono.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "observaciones",
+            "description": "<p>observaciones.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "get",
+    "url": "/registros/get-total-secretaria",
+    "title": "GET TOTAL SECRETARIA",
+    "name": "OBTENER_INFORMACION_DE_LAS_SECRETARIAS",
+    "group": "REGISTRO",
+    "description": "<p>obtiene la informacion de las secretarias.</p>",
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-experiencias-laborales",
+    "title": "GET INFORMACION \"experiencias laborales\"",
+    "name": "OBTENER_INFORMACION_EXPERIENCIAS_LABORALES",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;experiencias laborales&quot;.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-asignacion-familiar",
+    "title": "GET INFORMACION ASIGNACION FAMILIAR",
+    "name": "OBTENER_INFORMACI_N_ASIGNACION_FAMILIAR",
+    "group": "REGISTRO",
+    "description": "<p>obtiene la información de asignacion familiar.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "registro_id",
+            "description": "<p>identificador del registro.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-academica2",
+    "title": "GET INFORMACION ACADEMICA.",
+    "name": "OBTENER_INF_ACADEMICA",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información academica de un servidor publico.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-afiliacion-afp",
+    "title": "GET INFORMACION \"afiliacion afp\"",
+    "name": "OBTENER_INF_AFILIACION_AFP",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;afiliacion afp&quot;.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-afiliacion-caja-afp",
+    "title": "GET INFORMACION \"afiliacion caja afp\".",
+    "name": "OBTENER_INF_AFILIACI_N_CAJA_AFP",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;afiliación caja de salud&quot;.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-afiliacion-caja-salud",
+    "title": "GET INFORMACION \"afiliacion caja salud\".",
+    "name": "OBTENER_INF_AFILIACI_N_CAJA_DE_SALUD",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;afiliación caja de salud&quot;.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-autorizacion-profesion",
+    "title": "GET INFORMACION \"autorización de ejercicio deprofesión\"",
+    "name": "OBTENER_INF_AUTORIZACI_N_PROFESI_N",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;autorización de ejercicio deprofesión&quot;</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-cursos-capacitaciones",
+    "title": "GET INFORMACION CURSOS CAPACITACIONES.",
+    "name": "OBTENER_INF_CURSOS_CAPACITACIONES",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información cursos capacitaciones.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-discapacidad",
+    "title": "GET INF DISCAPACIDAD.",
+    "name": "OBTENER_INF_DISCAPACIDAD",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;discapacidad&quot;.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-discapacidad",
+    "title": "GET INFORMACION \"discapacidad\".",
+    "name": "OBTENER_INF_DISCAPACIDAD",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;discapacidad&quot;.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-idiomas",
+    "title": "GET INFORMACION IDIOMAS.",
+    "name": "OBTENER_INF_IDIOMAS",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información idiomas.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-militar",
+    "title": "GET INFORMACION MILITAR",
+    "name": "OBTENER_INF_MILITAR",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información militar.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-otros-conocimientos",
+    "title": "GET INFORMACION \"otros conocimientos\".",
+    "name": "OBTENER_INF_OTROS_CONOCIMIENTOS",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;otros conocimientos&quot;.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-redes-sociales",
+    "title": "GET INFORMACION \"redes sociales\"",
+    "name": "OBTENER_INF_REDES_SOCIALES",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;redes sociales&quot;.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-inf-referencias-personales",
+    "title": "GET INFORMACION \"referencias personales\".",
+    "name": "OBTENER_INF_REFERENCIAS_PERSONALES",
+    "group": "REGISTRO",
+    "description": "<p>obtiene información &quot;referncias personales&quot;.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get",
+    "title": "GET REGISTRO",
+    "name": "OBTENER_REGISTRO",
+    "group": "REGISTRO",
+    "description": "<p>Obtiene la información de un registro</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero de documento del servidor público.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "get",
+    "url": "/registros/get-all-gestion-actual",
+    "title": "GET ALL GESTION ACTUAL",
+    "name": "OBTENER_REGISTROS_DEL_MES_EN_CURSO",
+    "group": "REGISTRO",
+    "description": "<p>obtiene todos los registros del mes tikeado como seleccionado (en curso).</p>",
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "get",
+    "url": "/registros/get-all-con-requisitos",
+    "title": "GET ALL CON REQUISITOS",
+    "name": "OBTENER_SERVIDORES_PUBLICOS_CON_REQUISITOS",
+    "group": "REGISTRO",
+    "description": "<p>obtener todos los servidores publicos con requisitos.</p>",
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-all-funcionarios-dependientes",
+    "title": "GET ALL DEPENDIENTES",
+    "name": "OBTENER_TODOS_LOS_DEPENDIENTES",
+    "group": "REGISTRO",
+    "description": "<p>Obtiene todos los servidores publicos dependientes</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero de documento de identidad</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "get",
+    "url": "/registros/get-total-edad-genero",
+    "title": "GET TOTAL EDAD GENERO",
+    "name": "OBTENER_TOTAL_EDAD_GENERO",
+    "group": "REGISTRO",
+    "description": "<p>obtiene la informacion del total edad y genero.</p>",
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "get",
+    "url": "/registros/get-total-inamovilidad",
+    "title": "GET TOTAL INAMOVILIDAD",
+    "name": "OBTENER_TOTAL_INAMOVILIDAD",
+    "group": "REGISTRO",
+    "description": "<p>obtiene la informacion del total inamovilidad.</p>",
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "get",
+    "url": "/registros/get-total-procesos-llamadas",
+    "title": "GET TOTAL MUNICIPIO",
+    "name": "OBTENER_TOTAL_MUNICIPIO",
+    "group": "REGISTRO",
+    "description": "<p>obtiene la informacion del total municipio.</p>",
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "get",
+    "url": "/registros/get-total-procesos-llamadas",
+    "title": "GET TOTAL PROCESOS Y LLAMADAS",
+    "name": "OBTENER_TOTAL_PROCESO_Y_LLAMADA",
+    "group": "REGISTRO",
+    "description": "<p>obtiene la informacion del total proceso y llamada.</p>",
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
+  },
+  {
+    "type": "post",
+    "url": "/registros/get-all",
+    "title": "GET ALL MONTH",
+    "name": "OBTIENE_TODOS_LOS_REGISTROS_DE_UN_MES",
+    "group": "REGISTRO",
+    "description": "<p>Obtiene los registros de un me en especifico.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "gestion_id",
+            "description": "<p>identificador de la gestion.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/registros/registros.js",
+    "groupTitle": "REGISTRO"
   },
   {
     "type": "post",
@@ -4126,61 +5961,6 @@ define({ "api": [
     "name": "ADICIONAR_INFORMACI_N_AC_DEMICA",
     "group": "REGISTROS",
     "description": "<p>borrar un registro información acádemica.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/add-autorizacion-profesion",
-    "title": "adiciona autorización de profesión",
-    "name": "ADICIONA_AUTORIZACI_N_DE_PROFESI_N",
-    "group": "REGISTROS",
-    "description": "<p>adiciona autorización de profesión</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/add-experiencias-laborales",
-    "title": "adiciona experiencia laboral",
-    "name": "ADICIONA_EXPERIENCIA_LABORAL",
-    "group": "REGISTROS",
-    "description": "<p>adiciona experiencia laboral</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/add-idiomas",
-    "title": "adiciona un nuevo idioma",
-    "name": "ADICIONA_IDIOMA",
-    "group": "REGISTROS",
-    "description": "<p>adiciona un idioma</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/add-otros-conocimientos",
-    "title": "adiciona otros conocimientos",
-    "name": "ADICIONA_OTRO_CONOCIMIENTO",
-    "group": "REGISTROS",
-    "description": "<p>adiciona otro conocimiento</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/add-referencias-personales",
-    "title": "adiciona referencia personal",
-    "name": "ADICIONA_REFERENCIA_PERSONAL",
-    "group": "REGISTROS",
-    "description": "<p>adiciona referencia personal</p>",
     "version": "0.0.0",
     "filename": "./routes/registros/registros.js",
     "groupTitle": "REGISTROS"
@@ -4253,130 +6033,11 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/registros/dar-baja",
-    "title": "registros dar de baja",
-    "name": "DAR_DE_BAJA",
-    "group": "REGISTROS",
-    "description": "<p>Dar de baja a un registro</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
     "url": "/registros/edit-informacion-academica2",
     "title": "editar información acdemica a un registro",
     "name": "EDITAR_INFORMACI_N_AC_DEMICA",
     "group": "REGISTROS",
     "description": "<p>editar un registro la información acádemica.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-all-funcionarios-dependientes",
-    "title": "mostrar todos los servidores público dependientes",
-    "name": "GETALL",
-    "group": "REGISTROS",
-    "description": "<p>Permite solicitar pormedio del carnet de identidad los dependientes de su unidad de trabajo</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "numero_documento",
-            "description": "<p>numero de documento de identidad</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>true</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Array",
-            "optional": false,
-            "field": "result",
-            "description": "<p>object</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "success response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"success\":true,\n  \"token\":\"asdsd.asdasd.4568\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-contratacion",
-    "title": "Obtiene la información de contratación",
-    "name": "INFORMACI_N_DE_CONTRATACI_N",
-    "group": "REGISTROS",
-    "description": "<p>Obtiene la información de contratación del servidor publico.</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "registro_id",
-            "description": "<p>identificador del registro</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/edit-cursos-capacitaciones",
-    "title": "modificar un nuevo curso o capacitación",
-    "name": "MODIFICAR_CURSO_O_CAPACITACI_N",
-    "group": "REGISTROS",
-    "description": "<p>modificar un nuevo curso o capacitación</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/update-estado",
-    "title": "actualizar estado de un registro",
-    "name": "MODIFICAR_ESTADO_DE_UN_REGISTRO",
-    "group": "REGISTROS",
-    "description": "<p>actualizar el estado de un registro</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/update-estado",
-    "title": "dar de alta un registro",
-    "name": "MODIFICAR_ESTADO_DE_UN_REGISTRO_COMO_ALTA",
-    "group": "REGISTROS",
-    "description": "<p>modifica el estado del registro como alta</p>",
     "version": "0.0.0",
     "filename": "./routes/registros/registros.js",
     "groupTitle": "REGISTROS"
@@ -4416,17 +6077,6 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/registros/update-servant",
-    "title": "actualizando información general.",
-    "name": "MODIFICAR_INFORMACI_N_GENERAL",
-    "group": "REGISTROS",
-    "description": "<p>actualiza la información general de un servidor público.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
     "url": "/registros/update-informacion-militar",
     "title": "actualizando información militar.",
     "name": "MODIFICAR_INFORMACI_N_MILITAR",
@@ -4449,63 +6099,8 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/registros/edit-otros-conocimientos",
-    "title": "modificar otros conocimientos",
-    "name": "MODIFICAR_OTRO_CONOCIMIENTO",
-    "group": "REGISTROS",
-    "description": "<p>modificar otro conocimiento</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/edit-autorizacion-profesion",
-    "title": "modifica autorización de profesión",
-    "name": "MODIFICA_AUTORIZACI_N_DE_PROFESI_N",
-    "group": "REGISTROS",
-    "description": "<p>modifica autorización de profesión</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/edit-experiencias-laborales",
-    "title": "modifica experiencia laboral",
-    "name": "MODIFICA_EXPERIENCIA_LABORAL",
-    "group": "REGISTROS",
-    "description": "<p>modifica experiencia laboral</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/edit-idiomas",
-    "title": "modificar un nuevo idioma",
-    "name": "MODIFICA_IDIOMA",
-    "group": "REGISTROS",
-    "description": "<p>modifica un idioma</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/edit-referencias-personales",
-    "title": "modifica referencia personal",
-    "name": "MODIFICA_REFERENCIA_PERSONAL",
-    "group": "REGISTROS",
-    "description": "<p>modifica referencia personal</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
     "url": "/registros/get-inf-contratacion-sp",
-    "title": "obtener información de contratación de un servidor público",
+    "title": "GET INFORMACION DE CONTRATACION",
     "name": "OBTENER_INFORMACI_N_DE_CONTRATACI_N_DE_UN_REGISTRO",
     "group": "REGISTROS",
     "description": "<p>Obtiene la información de contratación de un registro.</p>",
@@ -4528,152 +6123,20 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/registros/get-inf-academica2",
-    "title": "obtiene la información academica de un servidor público.",
-    "name": "OBTENER_INF_ACADEMICA",
+    "url": "/registros/get-inf-all-contrataciones",
+    "title": "GET INFORMACION TODAS CONTRATACIONES",
+    "name": "OBTENER_INFORMACI_N_DE_TODAS_LAS_CONTRATACIONES",
     "group": "REGISTROS",
-    "description": "<p>obtiene información academica.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-afiliacion-caja-afp",
-    "title": "obtiene la información \"afiliacion caja afp\" de un servidor público.",
-    "name": "OBTENER_INF_AFILIACI_N_CAJA_AFP",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información &quot;afiliación caja de salud&quot;.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-afiliacion-caja-salud",
-    "title": "obtiene la información \"afiliacion caja salud\" de un servidor público.",
-    "name": "OBTENER_INF_AFILIACI_N_CAJA_DE_SALUD",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información &quot;afiliación caja de salud&quot;.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-autorizacion-profesion",
-    "title": "obtiene la información \"autorización de ejercicio deprofesión\" de un servidor público.",
-    "name": "OBTENER_INF_AUTORIZACI_N_PROFESI_N",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información &quot;autorización de ejercicio deprofesión&quot;.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-cursos-capacitaciones",
-    "title": "obtiene la información cursos y capacitaciones de un servidor público.",
-    "name": "OBTENER_INF_CURSOS_CAPACITACIONES",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información cursos capacitaciones.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-discapacidad",
-    "title": "obtiene la información \"discapacidad\" de un servidor público.",
-    "name": "OBTENER_INF_DISCAPACIDAD",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información &quot;discapacidad&quot;.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-experiencias-laborales",
-    "title": "obtiene la información \"experiencias laborales\" de un servidor público.",
-    "name": "OBTENER_INF_EXPERIENCIAS_LABORALES",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información &quot;experiencias laborales&quot;.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-idiomas",
-    "title": "obtiene la información idiomas de un servidor público.",
-    "name": "OBTENER_INF_IDIOMAS",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información idiomas.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-militar",
-    "title": "obtiene la información militar de un servidor público.",
-    "name": "OBTENER_INF_MILITAR",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información militar.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-otros-conocimientos",
-    "title": "obtiene la información \"otros conocimientos\" de un servidor público.",
-    "name": "OBTENER_INF_OTROS_CONOCIMIENTOS",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información &quot;otros conocimientos&quot;.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-redes-sociales",
-    "title": "obtiene la información \"redes sociales\" de un servidor público.",
-    "name": "OBTENER_INF_REDES_SOCIALES",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información &quot;redes sociales&quot;.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get-inf-referencias-personales",
-    "title": "obtiene la información \"referencias personales\" de un servidor público.",
-    "name": "OBTENER_INF_REFERENCIAS_PERSONALES",
-    "group": "REGISTROS",
-    "description": "<p>obtiene información &quot;referncias personales&quot;.</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "post",
-    "url": "/registros/get",
-    "title": "obtener información de un registro",
-    "name": "OBTENER_REGISTRO",
-    "group": "REGISTROS",
-    "description": "<p>Obtiene la información de un registro</p>",
+    "description": "<p>Obtiene la información de todas las contrataciones.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "numero_documento",
-            "description": "<p>numero de documento del servidor público.</p>"
+            "description": "<p>numero del carnet de identidad.</p>"
           }
         ]
       }
@@ -4683,23 +6146,25 @@ define({ "api": [
     "groupTitle": "REGISTROS"
   },
   {
-    "type": "get",
-    "url": "/registros/get-all-gestion-actual",
-    "title": "obtener todos los registros del mes en curso.",
-    "name": "OBTENER_REGISTROS_DEL_MES_EN_CURSO",
+    "type": "post",
+    "url": "/registros/get-inf-politica",
+    "title": "GET INFORMACION POLITICA",
+    "name": "OBTENER_INFORMACI_N_POLITICA",
     "group": "REGISTROS",
-    "description": "<p>obtiene todos los registros del mes tikeado como seleccionado (en curso).</p>",
-    "version": "0.0.0",
-    "filename": "./routes/registros/registros.js",
-    "groupTitle": "REGISTROS"
-  },
-  {
-    "type": "get",
-    "url": "/registros/get-all",
-    "title": "obtiene todos los registros de un mes en especifico",
-    "name": "OBTIENE_TODOS_LOS_REGISTROS_DE_UN_MES",
-    "group": "REGISTROS",
-    "description": "<p>Obtiene los registros de un me en especifico.</p>",
+    "description": "<p>obtiene la información de politica de un registro.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "registro_id",
+            "description": "<p>identificador del registro.</p>"
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "./routes/registros/registros.js",
     "groupTitle": "REGISTROS"
@@ -4829,9 +6294,565 @@ define({ "api": [
     "groupTitle": "REQUISITO"
   },
   {
+    "type": "post",
+    "url": "/servidores_publicos/update-autorizacion-formulario",
+    "title": "UPDATE AUTORIZACION FORMULARIO.",
+    "name": "MODIFICA_AUTORIZACION_FORMULARIO",
+    "group": "SERVIDORES_PUBLICOS_DEL_SISTEMA",
+    "description": "<p>actualiza la autorizacion del formulario.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero del carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "autorizacion_formulario_informacion_personal",
+            "description": "<p>autorizacion del formulario personal.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/servidores_publicos/servidores_publicos.js",
+    "groupTitle": "SERVIDORES_PUBLICOS_DEL_SISTEMA"
+  },
+  {
+    "type": "post",
+    "url": "/servidores_publicos/update-informacion-general",
+    "title": "UPDATE INFORMACION GENERAL.",
+    "name": "MODIFICA_INFORMACION_GENERAL",
+    "group": "SERVIDORES_PUBLICOS_DEL_SISTEMA",
+    "description": "<p>actualiza la informacion general de registro.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero del carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "profesion",
+            "description": "<p>profesion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nivel_instruccion",
+            "description": "<p>nivel de instruccion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "strgin",
+            "optional": false,
+            "field": "matricula_colegio_profesionales",
+            "description": "<p>matricula del colegio de profesionales.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "casa_estudios",
+            "description": "<p>casa de estudios.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_resolucion_titulo",
+            "description": "<p>numero de resolucion del titulo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_emision_titulo",
+            "description": "<p>fecha de emision del titulo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_resolucion_provision_nacional",
+            "description": "<p>numero de resolucion de provision nacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_emision_provision_nacional",
+            "description": "<p>fecha de emision provision nacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "titulo_postgrado",
+            "description": "<p>titulo del postgrado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "casa_estudios_postgrado",
+            "description": "<p>casa de estudios postgrado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_resolucion_postgrado",
+            "description": "<p>numero de resolucion de postagrado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_emision_postgrado",
+            "description": "<p>fecha de emision postgrado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "otros_conocimientos",
+            "description": "<p>otros conocimientos.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/servidores_publicos/servidores_publicos.js",
+    "groupTitle": "SERVIDORES_PUBLICOS_DEL_SISTEMA"
+  },
+  {
+    "type": "post",
+    "url": "/servidores_publicos/update-autorizacion-formulario-informacion-personal",
+    "title": "UPDATE AUTORIZACION FORMULARIO INFORMACION PERSONAL.",
+    "name": "MODIFICA_LA_AUTORIZACION_FORMULARIO_INFORMACION_PERSONAL",
+    "group": "SERVIDORES_PUBLICOS_DEL_SISTEMA",
+    "description": "<p>modifica la autorizacion del formulario.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero del carnet de identidad.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/servidores_publicos/servidores_publicos.js",
+    "groupTitle": "SERVIDORES_PUBLICOS_DEL_SISTEMA"
+  },
+  {
+    "type": "post",
+    "url": "/servidores_publicos/update-informacion-contratacion",
+    "title": "UPDATE AUTORIZACION INFORMACION CONTRATACION.",
+    "name": "MODIFICA_LA_AUTORIZACION_INFORMACION_CONTRATACION",
+    "group": "SERVIDORES_PUBLICOS_DEL_SISTEMA",
+    "description": "<p>modifica la informacion de la contracion.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero del carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento_registro",
+            "description": "<p>numero de documento del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "relacion_laboral",
+            "description": "<p>relacion laboral.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_contrato",
+            "description": "<p>numero de contratacion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "cargo",
+            "description": "<p>cargo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "nivel_salarial",
+            "description": "<p>nivel salarial.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "haber_basico",
+            "description": "<p>haber basico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lugar_trabajo",
+            "description": "<p>lugar de trabajo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_ingreso",
+            "description": "<p>fecha de ingreso.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_conclusion",
+            "description": "<p>fecha de conclusion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "motivo_conclusion",
+            "description": "<p>motivo de la conclusion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "estado",
+            "description": "<p>estado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "forma_ingreso",
+            "description": "<p>forma de ingreso.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "unidad_trabajo",
+            "description": "<p>unidad de trabajo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "secretaria",
+            "description": "<p>secretaria.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "programa_proyecto",
+            "description": "<p>programa/proyecto.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "es_tecnico_campo",
+            "description": "<p>es tecnico de campo.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/servidores_publicos/servidores_publicos.js",
+    "groupTitle": "SERVIDORES_PUBLICOS_DEL_SISTEMA"
+  },
+  {
+    "type": "post",
+    "url": "/servidores_publicos/update-informacion-contratacion",
+    "title": "UPDATE AUTORIZACION INFORMACION CONTRATACION.",
+    "name": "MODIFICA_LA_AUTORIZACION_INFORMACION_CONTRATACION",
+    "group": "SERVIDORES_PUBLICOS_DEL_SISTEMA",
+    "description": "<p>modifica la informacion de la contracion.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero del carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento_registro",
+            "description": "<p>numero de documento del registro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "relacion_laboral",
+            "description": "<p>relacion laboral.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_contrato",
+            "description": "<p>numero de contratacion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "cargo",
+            "description": "<p>cargo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "nivel_salarial",
+            "description": "<p>nivel salarial.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "haber_basico",
+            "description": "<p>haber basico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lugar_trabajo",
+            "description": "<p>lugar de trabajo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_ingreso",
+            "description": "<p>fecha de ingreso.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "fecha_conclusion",
+            "description": "<p>fecha de conclusion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "motivo_conclusion",
+            "description": "<p>motivo de la conclusion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "estado",
+            "description": "<p>estado.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "forma_ingreso",
+            "description": "<p>forma de ingreso.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "unidad_trabajo",
+            "description": "<p>unidad de trabajo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "secretaria",
+            "description": "<p>secretaria.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "programa_proyecto",
+            "description": "<p>programa/proyecto.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "es_tecnico_campo",
+            "description": "<p>es tecnico de campo.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/servidores_publicos/servidores_publicos.js",
+    "groupTitle": "SERVIDORES_PUBLICOS_DEL_SISTEMA"
+  },
+  {
+    "type": "post",
+    "url": "/servidores_publicos/update-image",
+    "title": "UPDATE IMAGE",
+    "name": "MODIFICA_LA_IMAGEN",
+    "group": "SERVIDORES_PUBLICOS_DEL_SISTEMA",
+    "description": "<p>modifica la imagen de un servidor publico.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "file",
+            "optional": false,
+            "field": "file",
+            "description": "<p>archivo de imagen.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "body.propietario",
+            "description": "<p>propietario.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/servidores_publicos/servidores_publicos.js",
+    "groupTitle": "SERVIDORES_PUBLICOS_DEL_SISTEMA"
+  },
+  {
+    "type": "post",
+    "url": "/servidores_publicos/update",
+    "title": "UPDATE SERVIDOR PUBLICO.",
+    "name": "MODIFICA_SERVIDOR_PUBLICO",
+    "group": "SERVIDORES_PUBLICOS_DEL_SISTEMA",
+    "description": "<p>modifica la informacion de los servidores publicos.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero del carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento_expedido",
+            "description": "<p>numero de documento expedido.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nombres",
+            "description": "<p>nombres.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "apellido_paterno",
+            "description": "<p>apellido paterno.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "apellido_materno",
+            "description": "<p>apellido materno.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "estado_civil",
+            "description": "<p>estado civil.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/servidores_publicos/servidores_publicos.js",
+    "groupTitle": "SERVIDORES_PUBLICOS_DEL_SISTEMA"
+  },
+  {
+    "type": "post",
+    "url": "/servidores_publicos/get-image",
+    "title": "GET IMAGE",
+    "name": "OBTENER_IMAGEN",
+    "group": "SERVIDORES_PUBLICOS_DEL_SISTEMA",
+    "description": "<p>obtiene la imagen de un servidor publico.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero del carnet de identidad.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/servidores_publicos/servidores_publicos.js",
+    "groupTitle": "SERVIDORES_PUBLICOS_DEL_SISTEMA"
+  },
+  {
     "type": "get",
     "url": "/servidores_publicos/get-all",
-    "title": "obtener todos los registros aunque le falte información adicional",
+    "title": "GET ALL",
     "name": "OBTIENE_TODOS_LOS_SERVIDORES_P_BLICOS_DEl_SISTEMA",
     "group": "SERVIDORES_PUBLICOS_DEL_SISTEMA",
     "description": "<p>Obtiene los documentos presentados de un registro</p>",
@@ -4842,10 +6863,89 @@ define({ "api": [
   {
     "type": "post",
     "url": "/servidores-publicos/add",
-    "title": "adiciona un servidor público",
+    "title": "ADD SERVIDOR PUBLICO",
     "name": "ADICIONA_SERVIDOR_P_BLICO",
     "group": "SERVIDOR_P_BLICO",
     "description": "<p>Adiciona servidor publico</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero de carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento_expedido",
+            "description": "<p>numero de documento expedido.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nombre",
+            "description": "<p>nombres.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "apellido_paterno",
+            "description": "<p>apellido paterno.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "apellido_materno",
+            "description": "<p>apellido materno.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "estado_civil",
+            "description": "<p>estado civil.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/servidores_publicos/servidores_publicos.js",
+    "groupTitle": "SERVIDOR_P_BLICO"
+  },
+  {
+    "type": "post",
+    "url": "/servidores-publicos/edit-codigo-biometrico",
+    "title": "EDIT CODIGO BIOMETRICO",
+    "name": "MODIFICA_El_CODIGO_BIOMETRICO",
+    "group": "SERVIDOR_P_BLICO",
+    "description": "<p>Modifica el codigo biometrico</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero de carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "codigo_biometrico",
+            "description": "<p>codigo biometrico.</p>"
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "./routes/servidores_publicos/servidores_publicos.js",
     "groupTitle": "SERVIDOR_P_BLICO"
@@ -5714,197 +7814,6 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/viajes/generar-anexo1",
-    "title": "GENERATE ANEXO1",
-    "name": "ADICIONAR_VACACI_N",
-    "group": "VACACIONES",
-    "description": "<p>Adiciona una vacación a nombre del servidor público.</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "numero_documento",
-            "description": "<p>numero de carnet de identidad.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "liquidacion_a",
-            "description": "<p>liquidacion a.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "liquidacacion_via",
-            "description": "<p>liquidacacion via.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "liquidacacion_de",
-            "description": "<p>liquidacacion de.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "nombre",
-            "description": "<p>nombre del servidor publico.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "apellido_paterno",
-            "description": "<p>apellido paterno del servidor publico.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "apellido_materno",
-            "description": "<p>apellido materno del servidor publico.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "cargo",
-            "description": "<p>cargo del servidor publico.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "area",
-            "description": "<p>area de trabajo del servidor publico.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "unidad",
-            "description": "<p>unidad de trabajo del servidor publico.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "number",
-            "optional": false,
-            "field": "liquidacion_dias_nacional_urbano",
-            "description": "<p>monto de dias de la liquidacion por dia nacional urbano.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "number",
-            "optional": false,
-            "field": "liquidacion_viatico_dia_urbano",
-            "description": "<p>dinero que vale cada dia de liquidacion urbano.</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "./routes/viajes/viajes.js",
-    "groupTitle": "VACACIONES"
-  },
-  {
-    "type": "post",
-    "url": "/viajes/generar-anexo1",
-    "title": "GENERATE ANEXO1",
-    "name": "ADICIONAR_VACACI_N",
-    "group": "VACACIONES",
-    "description": "<p>Adiciona una vacación a nombre del servidor público.</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Date",
-            "optional": false,
-            "field": "fecha_inicio",
-            "description": "<p>fecha inicio de salida.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Date",
-            "optional": false,
-            "field": "fecha_conclusi",
-            "description": "<p>ón fecha conclusió del permiso.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "numero_dias",
-            "description": "<p>número de días del permiso.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "registro_id",
-            "description": "<p>indetificador del registro.</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "./routes/viajes/viajes.js",
-    "groupTitle": "VACACIONES"
-  },
-  {
-    "type": "post",
-    "url": "/viajes/generar-anexo1",
-    "title": "GENERATE ANEXO1",
-    "name": "ADICIONAR_VACACI_N",
-    "group": "VACACIONES",
-    "description": "<p>Adiciona una vacación a nombre del servidor público.</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Date",
-            "optional": false,
-            "field": "fecha_inicio",
-            "description": "<p>fecha inicio de salida.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Date",
-            "optional": false,
-            "field": "fecha_conclusi",
-            "description": "<p>ón fecha conclusió del permiso.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "numero_dias",
-            "description": "<p>número de días del permiso.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "registro_id",
-            "description": "<p>indetificador del registro.</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "./routes/viajes/viajes.js",
-    "groupTitle": "VACACIONES"
-  },
-  {
-    "type": "post",
     "url": "/vacaciones/add",
     "title": "UPDATE STATE",
     "name": "MODIFICA_ESTADO_DE_LA_VACACION",
@@ -5990,8 +7899,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "registro_id",
-            "description": "<p>identificador del registro inmediato superior.</p>"
+            "field": "servidor_publico_id",
+            "description": "<p>identificador del servidor publico.</p>"
           }
         ]
       }
@@ -5999,6 +7908,486 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "./routes/vacaciones/vacaciones.js",
     "groupTitle": "VACACION"
+  },
+  {
+    "type": "post",
+    "url": "/viajes/generar-anexo1",
+    "title": "GENERATE ANEXO1",
+    "name": "GENERAR_ANEXO1",
+    "group": "VIAJE",
+    "description": "<p>Adiciona una vacación a nombre del servidor público.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero de carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "liquidacion_a",
+            "description": "<p>liquidacion a.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "liquidacacion_via",
+            "description": "<p>liquidacacion via.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "liquidacacion_de",
+            "description": "<p>liquidacacion de.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nombre",
+            "description": "<p>nombre del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "apellido_paterno",
+            "description": "<p>apellido paterno del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "apellido_materno",
+            "description": "<p>apellido materno del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "cargo",
+            "description": "<p>cargo del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "area",
+            "description": "<p>area de trabajo del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "unidad",
+            "description": "<p>unidad de trabajo del servidor publico.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_dias_nacional_urbano",
+            "description": "<p>dias de la liquidacion por dia nacional urbano.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_viatico_dia_urbano",
+            "description": "<p>precio de cada dia urbano.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_dias_nacional_rural",
+            "description": "<p>dias de la liquidacion nacional rural.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_viatico_dia_rural",
+            "description": "<p>precio de cada dia rural.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_dias_internacional",
+            "description": "<p>dias de liquidacion por dia internacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_viatico_dia_internacional",
+            "description": "<p>precio por cada dia internacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_viatico_dia_internacional_tipo_cambio",
+            "description": "<p>liquidacion viatico tipo de cambio.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_pasaje_terrestre_ida",
+            "description": "<p>liquidacion pasaje terrestre.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_pasaje_terrestre_retorno",
+            "description": "<p>liquidacion pasaje terrestre.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_pasaje_aereo_ida",
+            "description": "<p>liquidacion pasaje areo de ida.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_pasaje_aereo_retorno",
+            "description": "<p>liquidacion pasaje aereo de retorno.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_gastos_tasa_peajes",
+            "description": "<p>liquidacion de gastos por tasa peajes.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_gastos_combustible_lubricantes",
+            "description": "<p>liquidacion de gastos por combustible o lubricantes.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_gastos_mantenimiento_vehiculos",
+            "description": "<p>liquidacion de gastos por mantenimiento de vehiculos.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_destino_nacional",
+            "description": "<p>liquidacion por destino nacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_destino_internacional",
+            "description": "<p>liquidacion por destino internacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "fecha_salida",
+            "description": "<p>fecha de salida.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "fecha_retorno",
+            "description": "<p>fecha de retorno.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "observacion",
+            "description": "<p>observacion.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/viajes/viajes.js",
+    "groupTitle": "VIAJE"
+  },
+  {
+    "type": "post",
+    "url": "/viajes/update-liquidacion-viajes",
+    "title": "UPDATE LIQUIDACION POR VIAJES",
+    "name": "LIQUIDACION_POR_VIAJES",
+    "group": "VIAJE",
+    "description": "<p>Modifica liquidacion por viajes.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>identidicador de la liquidacacion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "numero_documento",
+            "description": "<p>numero de carnet de identidad.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "liquidacion_a",
+            "description": "<p>liquidacion a.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "liquidacacion_via",
+            "description": "<p>liquidacacion via.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "liquidacacion_de",
+            "description": "<p>liquidacacion de.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_dias_nacional_urbano",
+            "description": "<p>dias de la liquidacion por dia nacional urbano.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_viatico_dia_urbano",
+            "description": "<p>precio de cada dia urbano.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_dias_nacional_rural",
+            "description": "<p>dias de la liquidacion nacional rural.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_viatico_dia_rural",
+            "description": "<p>precio de cada dia rural.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_dias_internacional",
+            "description": "<p>dias de liquidacion por dia internacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_viatico_dia_internacional",
+            "description": "<p>precio por cada dia internacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_viatico_dia_internacional_tipo_cambio",
+            "description": "<p>liquidacion viatico tipo de cambio.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_pasaje_terrestre_ida",
+            "description": "<p>liquidacion pasaje terrestre.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_pasaje_terrestre_retorno",
+            "description": "<p>liquidacion pasaje terrestre.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_pasaje_aereo_ida",
+            "description": "<p>liquidacion pasaje areo de ida.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_pasaje_aereo_retorno",
+            "description": "<p>liquidacion pasaje aereo de retorno.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_gastos_tasa_peajes",
+            "description": "<p>liquidacion de gastos por tasa peajes.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_gastos_combustible_lubricantes",
+            "description": "<p>liquidacion de gastos por combustible o lubricantes.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_gastos_mantenimiento_vehiculos",
+            "description": "<p>liquidacion de gastos por mantenimiento de vehiculos.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_destino_nacional",
+            "description": "<p>liquidacion por destino nacional.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "liquidacion_destino_internacional",
+            "description": "<p>liquidacion por destino internacional.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/viajes/viajes.js",
+    "groupTitle": "VIAJE"
+  },
+  {
+    "type": "post",
+    "url": "/viajes/get-liquidacion-viajes",
+    "title": "GET LIQUIDACION VIAJE",
+    "name": "OBTENER_LA_LIQUIDACION_DEL_VIAJE",
+    "group": "VIAJE",
+    "description": "<p>Adiciona una vacación a nombre del servidor público.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>indentificador del viaje.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/viajes/viajes.js",
+    "groupTitle": "VIAJE"
+  },
+  {
+    "type": "post",
+    "url": "/xkteco/info-general",
+    "title": "INFO GENERAL",
+    "name": "INFORMACION_GENERAL_BIOMETRICO",
+    "group": "ZKTECO",
+    "description": "<p>muestra informacion del dispositivo biometrico.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "ip",
+            "description": "<p>direccion ip.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/zkteco/zkteco.js",
+    "groupTitle": "ZKTECO"
+  },
+  {
+    "type": "post",
+    "url": "/zkteco/get-attendence",
+    "title": "GET ATTENDENCE",
+    "name": "OBTENER_LOS_MARCADOS",
+    "group": "ZKTECO",
+    "description": "<p>obtiene informacion de los marcados de un dispositivo biometrico.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "ip",
+            "description": "<p>direccion ip.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/zkteco/zkteco.js",
+    "groupTitle": "ZKTECO"
+  },
+  {
+    "type": "post",
+    "url": "/zkteco/get-users",
+    "title": "GET USER",
+    "name": "OBTENER_LOS_USUARIOS",
+    "group": "ZKTECO",
+    "description": "<p>obtener los usuarios que figuran en el dispositivo biometrico.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "ip",
+            "description": "<p>direccion ip.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./routes/zkteco/zkteco.js",
+    "groupTitle": "ZKTECO"
   },
   {
     "success": {

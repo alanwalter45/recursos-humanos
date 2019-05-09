@@ -1,1 +1,256 @@
-var _0x3db2=['json','latitud','tipo','secretaría','\x0a\x20\x20\x20\x20insert\x20into\x20areas(nombre,direccion,telefono,gestion_id)\x20values\x20(?,?,?,?)\x0a\x20\x20\x20\x20','insertId','\x0a\x20\x20insert\x20into\x20unidades(nombre,direccion,telefono,latitud,longitud,area_id)\x20values\x20(?,?,?,?,?,?)\x0a\x20\x20','unidad','\x0a\x20\x20insert\x20into\x20unidades(nombre,direccion,telefono,latitud,longitud,area_id)\x20values\x20(?,?,?,?,?)\x0a\x20\x20','/unidades/remove','\x0a\x20\x20\x20\x20delete\x20from\x20unidades\x20where\x20id\x20=\x20?\x0a\x20\x20','/unidades/set-indice','indice','arriba','select\x20id\x20from\x20unidades\x20where\x20indice=?','abajo','update\x20unidades\x20set\x20indice=?\x20where\x20id=?','exports','Router','./../../middleware','./../../databaseMysql','get','/unidades/get-all','ensureAuthenticated','\x0a\x20\x20SELECT\x20uni.*,are.nombre\x20as\x20secretaria\x0a\x20\x20FROM\x20unidades\x20uni\x20INNER\x20JOIN\x20areas\x20are\x20ON\x20uni.area_id=are.id\x0a\x20\x20ORDER\x20BY\x20uni.indice\x20asc','status','length','post','parse','body','area_id','query','\x0a\x20\x20SELECT\x20uni.*,are.id\x20as\x20area_id,are.nombre\x20as\x20secretaria\x20FROM\x0a\x20\x20unidades\x20uni\x20INNER\x20JOIN\x20areas\x20are\x20ON\x20uni.area_id=are.id\x0a\x20\x20WHERE\x20area_id=?\x0a\x20\x20ORDER\x20BY\x20uni.indice\x20asc\x0a\x20\x20','send','nombre','toUpperCase','direccion','telefono','longitud','\x0a\x20\x20UPDATE\x20unidades\x20set\x20nombre=?\x20,\x20direccion=?,\x20telefono=?,\x20latitud=?,\x20longitud=?\x20WHERE\x20id=?\x0a\x20\x20','affectedRows','/unidades/add'];(function(_0x39e1bb,_0x1cfdf4){var _0x511f3a=function(_0x574058){while(--_0x574058){_0x39e1bb['push'](_0x39e1bb['shift']());}};_0x511f3a(++_0x1cfdf4);}(_0x3db2,0x162));var _0x4ada=function(_0x58bf66,_0x3b1384){_0x58bf66=_0x58bf66-0x0;var _0x49e19a=_0x3db2[_0x58bf66];return _0x49e19a;};const express=require('express');const router=express[_0x4ada('0x0')]();const middleware=require(_0x4ada('0x1'));const mysqldb=require(_0x4ada('0x2'));router[_0x4ada('0x3')](_0x4ada('0x4'),middleware[_0x4ada('0x5')],(_0x2f22df,_0x236501,_0x255c39)=>{mysqldb['query'](_0x4ada('0x6'),(_0x2cce1c,_0x2c1fc1)=>{if(_0x2cce1c)throw _0x2cce1c;_0x236501[_0x4ada('0x7')](0xc8)['send']({'success':_0x2c1fc1[_0x4ada('0x8')]?!![]:![],'result':_0x2c1fc1});});});router[_0x4ada('0x9')]('/unidades/get-all-area',middleware[_0x4ada('0x5')],(_0x58712e,_0x3f6327,_0x627f4c)=>{const _0x3b433d=JSON[_0x4ada('0xa')](_0x58712e[_0x4ada('0xb')]['json']);const _0x5dfec2=_0x3b433d[_0x4ada('0xc')];mysqldb[_0x4ada('0xd')](_0x4ada('0xe'),[_0x5dfec2],(_0x338ae0,_0x49f9e3)=>{if(_0x338ae0)throw _0x338ae0;_0x3f6327[_0x4ada('0x7')](0xc8)[_0x4ada('0xf')]({'success':_0x49f9e3['length']?!![]:![],'result':_0x49f9e3});});});router[_0x4ada('0x9')]('/unidades/update',middleware[_0x4ada('0x5')],(_0x203794,_0x7d40cc,_0x5b90b2)=>{const _0x134a64=JSON[_0x4ada('0xa')](_0x203794['body']['json']);const _0x47f91f=_0x134a64['id'];const _0x31c2d4=_0x134a64[_0x4ada('0x10')]?_0x134a64[_0x4ada('0x10')][_0x4ada('0x11')]():null;const _0x36a60c=_0x134a64[_0x4ada('0x12')]?_0x134a64['direccion'][_0x4ada('0x11')]():null;const _0x4d2d4c=_0x134a64[_0x4ada('0x13')]?_0x134a64[_0x4ada('0x13')][_0x4ada('0x11')]():null;const _0x38b01e=_0x134a64['latitud']?_0x134a64['latitud']:null;const _0x5218eb=_0x134a64[_0x4ada('0x14')]?_0x134a64[_0x4ada('0x14')]:null;mysqldb[_0x4ada('0xd')](_0x4ada('0x15'),[_0x31c2d4,_0x36a60c,_0x4d2d4c,_0x38b01e,_0x5218eb,_0x47f91f],(_0x325e39,_0x58cb02)=>{if(_0x325e39)throw _0x325e39;_0x7d40cc[_0x4ada('0x7')](0xc8)[_0x4ada('0xf')]({'success':_0x58cb02[_0x4ada('0x16')]?!![]:![],'result':_0x58cb02[_0x4ada('0x16')]});});});router['post'](_0x4ada('0x17'),middleware[_0x4ada('0x5')],(_0x38374a,_0x2c4aa4,_0x3aaa3c)=>{const _0x1a67cc=JSON[_0x4ada('0xa')](_0x38374a[_0x4ada('0xb')][_0x4ada('0x18')]);const _0x1f7fac=_0x1a67cc['id'];const _0x6b8ccf=_0x1a67cc[_0x4ada('0x10')]?_0x1a67cc[_0x4ada('0x10')][_0x4ada('0x11')]():null;const _0x4ed002=_0x1a67cc[_0x4ada('0x12')]?_0x1a67cc[_0x4ada('0x12')][_0x4ada('0x11')]():null;const _0x4e1969=_0x1a67cc[_0x4ada('0x13')]?_0x1a67cc[_0x4ada('0x13')][_0x4ada('0x11')]():null;const _0x5bc606=_0x1a67cc[_0x4ada('0x19')]?_0x1a67cc[_0x4ada('0x19')]:null;const _0x3d4e0a=_0x1a67cc[_0x4ada('0x14')]?_0x1a67cc[_0x4ada('0x14')]:null;const _0x5f3195=_0x1a67cc['gestion_id']?_0x1a67cc['gestion_id']:null;const _0x275118=_0x1a67cc[_0x4ada('0xc')];if(_0x1a67cc[_0x4ada('0x1a')]==_0x4ada('0x1b')){mysqldb['query'](_0x4ada('0x1c'),[_0x6b8ccf,_0x4ed002,_0x4e1969,_0x5f3195],(_0x190412,_0x55b9ed)=>{if(_0x190412)throw _0x190412;let _0x275118=_0x55b9ed[_0x4ada('0x1d')];mysqldb[_0x4ada('0xd')](_0x4ada('0x1e'),[_0x6b8ccf,_0x4ed002,_0x4e1969,_0x5bc606,_0x3d4e0a,_0x275118],(_0x4f12f6,_0x219adf)=>{if(_0x4f12f6)throw _0x4f12f6;_0x2c4aa4['status'](0xc8)[_0x4ada('0xf')]({'success':_0x219adf[_0x4ada('0x16')]?!![]:![],'result':_0x219adf[_0x4ada('0x16')]});});});}else if(_0x1a67cc['tipo']==_0x4ada('0x1f')){mysqldb[_0x4ada('0xd')](_0x4ada('0x20'),[_0x6b8ccf,_0x4ed002,_0x4e1969,_0x5bc606,_0x3d4e0a,_0x275118],(_0xcebf25,_0x216eb6)=>{if(_0xcebf25)throw _0xcebf25;_0x2c4aa4[_0x4ada('0x7')](0xc8)[_0x4ada('0xf')]({'success':_0x216eb6['affectedRows']?!![]:![],'result':_0x216eb6[_0x4ada('0x16')]});});}});router[_0x4ada('0x9')](_0x4ada('0x21'),middleware[_0x4ada('0x5')],(_0x12f257,_0x5c7e49,_0x497876)=>{const _0x5ec0f2=JSON[_0x4ada('0xa')](_0x12f257['body'][_0x4ada('0x18')]);const _0x383c84=_0x5ec0f2['id'];const _0x27652b=_0x5ec0f2[_0x4ada('0xc')];mysqldb[_0x4ada('0xd')](_0x4ada('0x22'),[_0x383c84],(_0x1759ad,_0x28f0a9)=>{if(_0x1759ad)throw _0x1759ad;_0x5c7e49[_0x4ada('0x7')](0xc8)[_0x4ada('0xf')]({'success':_0x28f0a9[_0x4ada('0x16')]?!![]:![],'result':_0x28f0a9['affectedRows']});});});router['post'](_0x4ada('0x23'),middleware[_0x4ada('0x5')],(_0x9e5cea,_0xd91d7e,_0x1fc4b5)=>{const _0x1b1dd0=JSON[_0x4ada('0xa')](_0x9e5cea[_0x4ada('0xb')][_0x4ada('0x18')]);const _0x18a08d=_0x1b1dd0[_0x4ada('0x24')];const _0x58a861=_0x1b1dd0[_0x4ada('0x1a')];if(_0x58a861==_0x4ada('0x25')){mysqldb['query'](_0x4ada('0x26'),[_0x18a08d],function(_0x4eebe0,_0x21d2b8){if(_0x4eebe0)throw _0x4eebe0;mysqldb['query'](_0x4ada('0x26'),[_0x18a08d+0x1],function(_0x1e9d27,_0x299109){if(_0x1e9d27)throw _0x1e9d27;mysqldb['query']('update\x20unidades\x20set\x20indice=?\x20where\x20id=?',[_0x18a08d+0x1,_0x21d2b8[0x0]['id']]);mysqldb[_0x4ada('0xd')]('update\x20unidades\x20set\x20indice=?\x20where\x20id=?',[_0x18a08d,_0x299109[0x0]['id']]);_0xd91d7e[_0x4ada('0x7')](0xc8)[_0x4ada('0xf')]({'success':!![]});});});}else if(_0x58a861==_0x4ada('0x27')){mysqldb[_0x4ada('0xd')](_0x4ada('0x26'),[_0x18a08d],function(_0x58c45a,_0x2d5cae){if(_0x58c45a)throw _0x58c45a;mysqldb[_0x4ada('0xd')](_0x4ada('0x26'),[_0x18a08d-0x1],function(_0x3c7ab2,_0x5a22ca){if(_0x3c7ab2)throw _0x3c7ab2;mysqldb[_0x4ada('0xd')](_0x4ada('0x28'),[_0x18a08d-0x1,_0x2d5cae[0x0]['id']]);mysqldb[_0x4ada('0xd')](_0x4ada('0x28'),[_0x18a08d,_0x5a22ca[0x0]['id']]);_0xd91d7e['status'](0xc8)['send']({'success':!![]});});});}});module[_0x4ada('0x29')]=router;
+const express = require('express');
+const router = express.Router();
+const middleware = require('./../../middleware');
+const mysqldb = require('./../../databaseMysql');
+
+
+
+/**
+ *
+ * @api {get} /unidades/get-all GET ALL
+ * @apiName OBTENER UNIDADES
+ * @apiGroup UNIDAD
+ * @apiDescription Obtiene todas las unidades registradas en el sistema.
+ *
+ */
+
+
+router.get('/unidades/get-all', middleware.ensureAuthenticated, (req, res, next) => {
+
+  mysqldb.query(`
+  SELECT uni.*,are.nombre as secretaria
+  FROM unidades uni INNER JOIN areas are ON uni.area_id=are.id
+  ORDER BY uni.indice asc`, (err, results) => {
+
+      if (err)
+        throw err;
+
+      res.status(200).send({ success: results.length ? true : false, result: results });
+    });
+
+});
+
+
+/**
+ *
+ * @api {post} /unidades/get-all-area GET ALL UNIDADES AREA
+ * @apiName OBTENER UNIDADES DE UN AREA
+ * @apiGroup UNIDAD
+ * @apiDescription Obtiene todas la unidades de un area.
+ * @apiParam {number} area_id identificador del area.
+ *
+ */
+
+router.post('/unidades/get-all-area', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+  const area_id = json.area_id;
+  mysqldb.query(`
+  SELECT uni.*,are.id as area_id,are.nombre as secretaria FROM
+  unidades uni INNER JOIN areas are ON uni.area_id=are.id
+  WHERE area_id=?
+  ORDER BY uni.indice asc
+  `, [area_id], (err, result) => {
+
+      if (err)
+        throw err;
+
+
+      res.status(200).send({ success: result.length ? true : false, result });
+    });
+
+});
+
+
+/**
+ *
+ * @api {post} /unidades/update UPDATE UNIDAD
+ * @apiName MODIFICA UNIDAD
+ * @apiGroup UNIDAD
+ * @apiDescription Modifica un unidad.
+ * @apiParam {number} id identificador de la unidad.
+ * @apiParam {string} nombre nombre de la unidad
+ * @apiParam  {string} direccion direccion de la unidad.
+ * @apiParam  {string} telefono numero de telefono de la unidad.
+ * @apiParam  {number} latitud latitud de la unidad (ubicacion).
+ * @apiParam  {number} longitud longitud de la unidad (ubicacion).
+ *
+ */
+
+
+router.post('/unidades/update', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+  const id = json.id;
+  const nombre = json.nombre ? json.nombre.toUpperCase() : null;
+  const direccion = json.direccion ? json.direccion.toUpperCase() : null;
+  const telefono = json.telefono ? json.telefono.toUpperCase() : null;
+  const latitud = json.latitud ? json.latitud : null;
+  const longitud = json.longitud ? json.longitud : null;
+
+  mysqldb.query(`
+  UPDATE unidades set nombre=? , direccion=?, telefono=?, latitud=?, longitud=? WHERE id=?
+  `, [nombre, direccion, telefono, latitud, longitud, id], (err, result) => {
+
+      if (err) throw err;
+
+      res.status(200).send({ success: result.affectedRows ? true : false, result: result.affectedRows });
+
+    });
+
+
+});
+
+
+/**
+ *
+ * @api {post} /unidades/add ADD
+ * @apiName ADICIONA UNIDAD/AREA
+ * @apiGroup UNIDAD
+ * @apiDescription Adiciona una unidad/area.
+ * @apiParam {string} nombre nombre de la unidad
+ * @apiParam  {string} direccion direccion de la unidad.
+ * @apiParam  {string} telefono numero de telefono de la unidad.
+ * @apiParam  {number} latitud latitud de la unidad (ubicacion).
+ * @apiParam  {number} longitud longitud de la unidad (ubicacion).
+ * @apiParam  {number} gestion_id identificador de la gestion.
+ * @apiParam  {number} area_id identificador del area.
+ *
+ */
+
+
+router.post('/unidades/add', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+  const id = json.id;
+  const nombre = json.nombre ? json.nombre.toUpperCase() : null;
+  const direccion = json.direccion ? json.direccion.toUpperCase() : null;
+  const telefono = json.telefono ? json.telefono.toUpperCase() : null;
+  const latitud = json.latitud ? json.latitud : null;
+  const longitud = json.longitud ? json.longitud : null;
+  const gestion_id = json.gestion_id ? json.gestion_id : null;
+  const area_id = json.area_id;
+
+  if (json.tipo == 'secretaría') {
+
+    mysqldb.query(`
+    insert into areas(nombre,direccion,telefono,gestion_id) values (?,?,?,?)
+    `, [nombre, direccion, telefono, gestion_id], (err, result) => {
+
+        if (err) throw err;
+
+        let area_id = result.insertId;
+
+
+        mysqldb.query(`
+  insert into unidades(nombre,direccion,telefono,latitud,longitud,area_id) values (?,?,?,?,?,?)
+  `, [nombre, direccion, telefono, latitud, longitud, area_id], (err, result) => {
+
+            if (err) throw err;
+
+            res.status(200).send({ success: result.affectedRows ? true : false, result: result.affectedRows });
+
+          });
+      });
+
+  } else if (json.tipo == 'unidad') {
+    mysqldb.query(`
+  insert into unidades(nombre,direccion,telefono,latitud,longitud,area_id) values (?,?,?,?,?)
+  `, [nombre, direccion, telefono, latitud, longitud, area_id], (err, result) => {
+
+        if (err) throw err;
+
+        res.status(200).send({ success: result.affectedRows ? true : false, result: result.affectedRows });
+
+      });
+  }
+
+});
+
+
+
+/**
+ *
+ * @api {post} /unidades/remove REMOVE
+ * @apiName BOORA UNIDAD/AREA
+ * @apiGroup UNIDAD
+ * @apiDescription Borra una unidad/area.
+ * @apiParam  {number} id identificador de la unidad/area.
+ *
+ */
+
+
+router.post('/unidades/remove', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+  const id = json.id;
+
+  const area_id = json.area_id;
+
+
+  mysqldb.query(`
+    delete from unidades where id = ?
+  `, [id], (err, result) => {
+
+      if (err) throw err;
+
+      res.status(200).send({ success: result.affectedRows ? true : false, result: result.affectedRows });
+
+    });
+
+});
+
+/**
+ *
+ * @api {post} /unidades/set-indice SET INDICE
+ * @apiName MODIFICA INDICE DE LA UNIDAD/AREA
+ * @apiGroup UNIDAD
+ * @apiDescription Modifica el indice de una unidad/area.
+ * @apiParam  {number} indice indice de la unidad/area.
+ * @apiParam  {string} tipo tipo de la unidad/area.
+ *
+ */
+
+
+router.post('/unidades/set-indice', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json = JSON.parse(req.body.json);
+  const indice = json.indice;
+  const tipo = json.tipo;
+
+  if (tipo == 'arriba') {
+
+    mysqldb.query('select id from unidades where indice=?', [indice], function (error, id_1) {
+      if (error) throw error;
+
+      mysqldb.query('select id from unidades where indice=?', [indice + 1], function (error, id_2) {
+        if (error) throw error;
+
+        mysqldb.query('update unidades set indice=? where id=?', [indice + 1, id_1[0].id]);
+        mysqldb.query('update unidades set indice=? where id=?', [indice, id_2[0].id]);
+        res.status(200).send({ success: true });
+      })
+
+    })
+
+  } else if (tipo == 'abajo') {
+
+    mysqldb.query('select id from unidades where indice=?', [indice], function (error, id_1) {
+      if (error) throw error;
+
+      mysqldb.query('select id from unidades where indice=?', [indice - 1], function (error, id_2) {
+        if (error) throw error;
+
+        mysqldb.query('update unidades set indice=? where id=?', [indice - 1, id_1[0].id]);
+        mysqldb.query('update unidades set indice=? where id=?', [indice, id_2[0].id]);
+        res.status(200).send({ success: true });
+      })
+
+    })
+
+  }
+
+});
+
+
+module.exports = router;

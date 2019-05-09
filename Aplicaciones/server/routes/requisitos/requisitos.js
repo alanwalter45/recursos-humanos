@@ -1,1 +1,147 @@
-var _0x32ef=['gestion_id','ubicacion','toUpperCase','YYYY-MM-DD\x20HH:mm:ss','query','send','/requisitos/remove','parse','format','\x0a\x20\x20UPDATE\x20documentos_requeridos\x20set\x20status=?,\x20fecha_modificacion=?\x0a\x20\x20WHERE\x20id=?','affectedRows','/requisitos/update','nombre','\x0a\x20\x20UPDATE\x20documentos_requeridos\x20set\x20nombre=?,\x20ubicacion=?,fecha_modificacion=?\x0a\x20\x20WHERE\x20id=?','exports','express','./../../middleware','moment','/requisitos/get-all','ensureAuthenticated','body','json','\x0a\x20\x20SELECT\x20*\x0a\x20\x20FROM\x20documentos_requeridos\x0a\x20\x20WHERE\x20gestion_id=?\x20AND\x20status=1\x0a\x20\x20ORDER\x20BY\x20nombre\x20ASC','status','post','/requisitos/add'];(function(_0x415290,_0x5ead8d){var _0x349ea2=function(_0x4ff6ba){while(--_0x4ff6ba){_0x415290['push'](_0x415290['shift']());}};_0x349ea2(++_0x5ead8d);}(_0x32ef,0x91));var _0x2970=function(_0x3c6b9c,_0x13b29c){_0x3c6b9c=_0x3c6b9c-0x0;var _0x16558e=_0x32ef[_0x3c6b9c];return _0x16558e;};const express=require(_0x2970('0x0'));const router=express['Router']();const middleware=require(_0x2970('0x1'));const mysqldb=require('./../../databaseMysql');const moment=require(_0x2970('0x2'));router['post'](_0x2970('0x3'),middleware[_0x2970('0x4')],(_0x45b559,_0x181012,_0x27ab7c)=>{const _0x67159=JSON['parse'](_0x45b559[_0x2970('0x5')][_0x2970('0x6')]);const _0x59df65=_0x67159['gestion_id'];mysqldb['query'](_0x2970('0x7'),[_0x59df65],(_0x50f45d,_0x1c458d)=>{if(_0x50f45d)throw _0x50f45d;_0x181012[_0x2970('0x8')](0xc8)['send']({'success':_0x1c458d['length'],'result':_0x1c458d});});});router[_0x2970('0x9')](_0x2970('0xa'),middleware[_0x2970('0x4')],(_0x3be475,_0x19d28b,_0x253629)=>{const _0x38bcfe=JSON['parse'](_0x3be475['body'][_0x2970('0x6')]);const _0x537d39=_0x38bcfe[_0x2970('0xb')];const _0x3f0b49=_0x38bcfe['nombre']['toUpperCase']();const _0x482788=_0x38bcfe[_0x2970('0xc')][_0x2970('0xd')]();const _0x36fd73=0x1;const _0x20024d=moment(new Date())['format'](_0x2970('0xe'));mysqldb[_0x2970('0xf')]('\x0a\x20\x20INSERT\x20INTO\x20documentos_requeridos(gestion_id,nombre,ubicacion,status,fecha_modificacion)\x0a\x20\x20SELECT\x20?,?,?,?,?\x0a\x20\x20WHERE\x20NOT\x20EXISTS\x20(SELECT\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20FROM\x20documentos_requeridos\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20gestion_id=?\x20AND\x20nombre=?\x20AND\x20status=1)',[_0x537d39,_0x3f0b49,_0x482788,_0x36fd73,_0x20024d,_0x537d39,_0x3f0b49],function(_0x420587,_0x2dfe65){if(_0x420587)throw _0x420587;_0x19d28b[_0x2970('0x8')](0xc8)[_0x2970('0x10')]({'success':_0x2dfe65['affectedRows']?!![]:![],'result':_0x2dfe65});});});router[_0x2970('0x9')](_0x2970('0x11'),middleware[_0x2970('0x4')],(_0x3abaf3,_0x580869,_0x1e7442)=>{const _0x1f6faf=JSON[_0x2970('0x12')](_0x3abaf3['body'][_0x2970('0x6')]);const _0x319f3a=_0x1f6faf['id'];const _0x49ab34=0x0;const _0x168c51=moment(new Date())[_0x2970('0x13')]('YYYY-MM-DD\x20HH:mm:ss');mysqldb[_0x2970('0xf')](_0x2970('0x14'),[_0x49ab34,_0x168c51,_0x319f3a],function(_0x360450,_0x4be54a){if(_0x360450)throw _0x360450;_0x580869[_0x2970('0x8')](0xc8)['send']({'success':_0x4be54a[_0x2970('0x15')]?!![]:![],'result':_0x4be54a});});});router['post'](_0x2970('0x16'),middleware['ensureAuthenticated'],(_0x4937b2,_0x38cd15,_0x3a02bb)=>{const _0x2ee7e5=JSON['parse'](_0x4937b2[_0x2970('0x5')][_0x2970('0x6')]);const _0x5d1b39=_0x2ee7e5['id'];const _0x46a97e=_0x2ee7e5[_0x2970('0x17')][_0x2970('0xd')]();const _0x5e1136=_0x2ee7e5['ubicacion'][_0x2970('0xd')]();const _0x41ca8f=moment(new Date())[_0x2970('0x13')](_0x2970('0xe'));mysqldb[_0x2970('0xf')](_0x2970('0x18'),[_0x46a97e,_0x5e1136,_0x41ca8f,_0x5d1b39],function(_0x3edbc1,_0x319558){if(_0x3edbc1)throw _0x3edbc1;_0x38cd15[_0x2970('0x8')](0xc8)[_0x2970('0x10')]({'success':_0x319558[_0x2970('0x15')]?!![]:![],'result':_0x319558});});});module[_0x2970('0x19')]=router;
+const express = require('express');
+const router = express.Router();
+const middleware = require('./../../middleware');
+const mysqldb = require('./../../databaseMysql');
+const moment= require('moment');
+
+/**
+ *
+ * @api {post} /requisitos/get-all GET ALL
+ * @apiName OBTIENE TODOS LOS REQUISITOS
+ * @apiGroup REQUISITO
+ * @apiDescription Obtiene todos los requisitos.
+ * @apiParam {string} gestion_id identificador de la gestion.
+ *
+ */
+
+router.post('/requisitos/get-all', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json=JSON.parse(req.body.json);
+  const gestion_id = json.gestion_id;
+
+
+  mysqldb.query(`
+  SELECT *
+  FROM documentos_requeridos
+  WHERE gestion_id=? AND status=1
+  ORDER BY nombre ASC`,[gestion_id],(err,results)=>{
+
+    if(err)
+      throw err;
+
+
+    res.status(200).send({ success: results.length,result:results });
+
+  });
+
+});
+
+
+/**
+ *
+ * @api {post} /requisitos/add ADD
+ * @apiName ADICIONA UN REQUISITOS
+ * @apiGroup REQUISITO
+ * @apiDescription Adiciona un requsito.
+ * @apiParam {string} gestion_id identificador de la gestion.
+ * @apiParam {string} nombre nombre del requisito.
+ * @apiParam {string} ubicacion ubicacion del requisito.
+ *
+ */
+
+
+router.post('/requisitos/add', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json=JSON.parse(req.body.json);
+  const gestion_id = json.gestion_id;
+  const nombre=json.nombre.toUpperCase();
+  const ubicacion=json.ubicacion.toUpperCase();
+  const status=1;
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+
+  mysqldb.query(`
+  INSERT INTO documentos_requeridos(gestion_id,nombre,ubicacion,status,fecha_modificacion)
+  SELECT ?,?,?,?,?
+  WHERE NOT EXISTS (SELECT 1
+              FROM documentos_requeridos
+              WHERE gestion_id=? AND nombre=? AND status=1)`,[gestion_id,nombre,ubicacion,status,fecha_modificacion,gestion_id,nombre],function(err, results){
+
+    if(err)
+      throw err;
+
+
+    res.status(200).send({ success: results.affectedRows?true:false,result:results });
+
+  });
+
+});
+
+
+/**
+ *
+ * @api {post} /requisitos/remove REMOVE
+ * @apiName BORRA UN REQUISITO
+ * @apiGroup REQUISITO
+ * @apiDescription Borra un requsito.
+ * @apiParam {string} id identificador del requisito.
+ *
+ */
+
+
+router.post('/requisitos/remove', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json=JSON.parse(req.body.json);
+  const id = json.id;
+  const status=0;
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+
+  mysqldb.query(`
+  UPDATE documentos_requeridos set status=?, fecha_modificacion=?
+  WHERE id=?`,[status,fecha_modificacion,id],function(err, results){
+
+    if(err)
+      throw err;
+
+
+    res.status(200).send({ success: results.affectedRows?true:false,result:results });
+
+  });
+
+});
+
+/**
+ *
+ * @api {post} /requisitos/update UPDATE
+ * @apiName MODIFICA UN REQUISITO
+ * @apiGroup REQUISITO
+ * @apiDescription Modifica un requsito.
+ * @apiParam {string} id identificador del requisito.
+ * @apiParam  {string} nombre nombre del requisito.
+ * @apiParam  {string} ubicacion ubicacion del tramite o requisito.
+ *
+ */
+
+router.post('/requisitos/update', middleware.ensureAuthenticated, (req, res, next) => {
+
+  const json=JSON.parse(req.body.json);
+  const id = json.id;
+  const nombre=json.nombre.toUpperCase();
+  const ubicacion=json.ubicacion.toUpperCase();
+  const fecha_modificacion = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+
+  mysqldb.query(`
+  UPDATE documentos_requeridos set nombre=?, ubicacion=?,fecha_modificacion=?
+  WHERE id=?`,[nombre,ubicacion,fecha_modificacion,id],function(err, results){
+
+    if(err)
+      throw err;
+
+
+    res.status(200).send({ success: results.affectedRows?true:false,result:results });
+
+  });
+
+});
+
+
+module.exports = router;

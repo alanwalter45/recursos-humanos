@@ -1,4 +1,4 @@
-{
+define({
   "name": "SISTEMA DE GESTION DE INFORMACION",
   "version": "0.0.1",
   "description": "",
@@ -10,8 +10,8 @@
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2019-04-29T14:24:13.836Z",
+    "time": "2019-05-09T15:42:19.598Z",
     "url": "http://apidocjs.com",
     "version": "0.17.7"
   }
-}
+});

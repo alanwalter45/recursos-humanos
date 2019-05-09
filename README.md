@@ -8,6 +8,7 @@ Sistema de Gestion de informacion relacionada con recursos humanos.
     * Metodos Http para consumirlo desde las vistas de usuario.
 * Aplicaciones
     * Perfiles necesarios para el sistema.
+    * En ./server/routes se encuentran el codigo de la API. (area,cargos,etc.) 
 * Iconos
     * Iconos utilizados.
 * Imagenes
